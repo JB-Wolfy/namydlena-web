@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Namydlená Eli - design layer for Shoptet (template Classic)
+   Source of truth: Web Plan v2 (project doc), section 3 = tokens.
+
+   Rules of this file (see CLAUDE.md):
+   - Everything is scoped under `html.eli` (class set by the loader in
+     snippets/shoptet-head.html). No class, no effect = instant rollback.
+   - Colours only through --eli-* tokens. Any other colour is a bug.
+   - Our own components are `.eli-*`. Shoptet overrides live in part 4+.
+   - Mobile first. Breakpoints: 768 px (tablet), 1100 px (desktop).
+   - Type: nothing under 13 px; Poppins 300 only from 16 px up.
+   ========================================================================== */
+
+/* ---------- 1. Fonts (self-hosted, no Google request) ---------- */
+@font-face{font-family:"PT Serif";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/pt-serif-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Serif";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/pt-serif-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"PT Serif";font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/pt-serif-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Serif";font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/pt-serif-latin-ext-400-italic.woff2) format("woff2");unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:300;font-display:swap;src:url(../fonts/poppins-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:300;font-display:swap;src:url(../fonts/poppins-latin-ext-300-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/poppins-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/poppins-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/poppins-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/poppins-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Raleway";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/raleway-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Raleway";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/raleway-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* ---------- 2. Tokens ---------- */
+html.eli{
+  --eli-forest:#2F4738;   /* primary action, headings, icon lines */
+  --eli-olive:#CBD18F;    /* secondary accent - surfaces only, never text */
+  --eli-rose:#CD7A7C;     /* main accent - small marks, never small text */
+  --eli-softrose:#DDB7B0; /* surfaces */
+  --eli-sage:#A8BB9F;     /* surfaces */
+  --eli-cream:#F7F1E8;    /* page background */
+  --eli-silver:#F5F5F0;   /* quiet surfaces */
+  --eli-border:#D8D1C4;   /* rules, dividers */
+  --eli-ink:#2E2B28;      /* text */
+  --eli-muted:#6E675F;    /* secondary text */
+
+  --eli-serif:"PT Serif",Georgia,serif;
+  --eli-sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --eli-logo:"Raleway","Poppins",sans-serif;
+
+  --eli-wrap:1200px;      /* outer container incl. gutters */
+  --eli-gutter:20px;
+  --eli-narrow:860px;     /* text column */
+  --eli-r-photo:4px;
+  --eli-r-box:6px;
+  --eli-space-section:64px;
+}
+@media (min-width:768px){html.eli{--eli-gutter:40px;--eli-space-section:104px}}
+
+/* ---------- 3. Our components (.eli-*) ---------- */
+
+/* Blocks pasted into Shoptet content carry style="display:none" so nothing
+   shows before the layer is loaded. This turns them on. */
+.eli .eli-block{display:block !important}
+
+.eli .eli-block,.eli .eli-block *{box-sizing:border-box}
+.eli .eli-block{font-family:var(--eli-sans);font-weight:300;font-size:17px;line-height:1.7;color:var(--eli-ink);-webkit-font-smoothing:antialiased}
+/* :where() keeps this reset at zero specificity so components can set their own spacing */
+.eli .eli-block :where(p,h1,h2,h3,figure,blockquote,ul,li){margin:0;padding:0}
+.eli .eli-block img{max-width:100%;height:auto;border:0}
+.eli .eli-block a{color:var(--eli-forest)}
+@media (min-width:768px){.eli .eli-block{font-size:18px}}
+
+/* full-bleed section inside Shoptet's centred content column */
+.eli .eli-sec{position:relative;width:100vw;margin-left:calc(50% - 50vw);padding:var(--eli-space-section) 0;background:var(--eli-cream)}
+.eli .eli-sec--silver{background:var(--eli-silver)}
+.eli .eli-sec--softrose{background:var(--eli-softrose)}
+.eli .eli-sec--rule{border-top:1px solid var(--eli-border)}
+.eli .eli-sec--tight{padding:36px 0}
+.eli .eli-wrap{width:100%;max-width:var(--eli-wrap);margin:0 auto;padding:0 var(--eli-gutter)}
+.eli .eli-wrap--narrow{max-width:calc(var(--eli-narrow) + 2 * var(--eli-gutter))}
+@media (min-width:768px){.eli .eli-sec--tight{padding:48px 0}}
+
+/* type */
+.eli .eli-kicker{font-family:var(--eli-sans);font-weight:500;font-size:13px;line-height:1.4;letter-spacing:.16em;text-transform:uppercase;color:var(--eli-forest)}
+.eli .eli-kicker--muted{color:var(--eli-muted)}
+.eli .eli-h1,.eli .eli-h2,.eli .eli-h3{font-family:var(--eli-serif);font-weight:400;color:var(--eli-forest);text-transform:none;letter-spacing:0}
+.eli .eli-h1{font-size:39px;line-height:1.1}
+.eli .eli-h2{font-size:29px;line-height:1.2}
+.eli .eli-h3{font-size:22px;line-height:1.25}
+.eli .eli-sign{font-family:var(--eli-serif);font-style:italic;font-size:25px;line-height:1.2;color:var(--eli-forest)}
+.eli .eli-small{font-size:15px;font-weight:400;line-height:1.5;color:var(--eli-muted)}
+@media (min-width:768px){
+  .eli .eli-h2{font-size:40px}
+  .eli .eli-h3{font-size:25px}
+}
+@media (min-width:1100px){.eli .eli-h1{font-size:60px}}
+
+/* buttons and links */
+.eli .eli-btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 38px;border-radius:999px;border:1px solid var(--eli-forest);background:var(--eli-forest);color:var(--eli-cream) !important;font-family:var(--eli-sans);font-weight:500;font-size:16px;letter-spacing:.05em;text-decoration:none !important;white-space:nowrap;transition:background-color .15s ease,color .15s ease}
+.eli .eli-btn:hover,.eli .eli-btn:focus-visible{background:var(--eli-ink);border-color:var(--eli-ink)}
+.eli .eli-btn--ghost{background:transparent;color:var(--eli-forest) !important}
+.eli .eli-btn--ghost:hover,.eli .eli-btn--ghost:focus-visible{background:var(--eli-forest);color:var(--eli-cream) !important}
+.eli .eli-link{font-weight:400;font-size:16px;color:var(--eli-forest);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.eli .eli-link:hover{color:var(--eli-ink)}
+.eli .eli-block a:focus-visible,.eli .eli-btn:focus-visible{outline:2px solid var(--eli-forest);outline-offset:3px}
+
+/* section head: kicker + h2 on the left, optional link on the right */
+.eli .eli-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;margin-bottom:26px}
+.eli .eli-head__main{display:flex;flex-direction:column;gap:12px}
+.eli .eli-head--center{justify-content:center;text-align:center}
+@media (min-width:768px){.eli .eli-head{margin-bottom:40px}}
+
+/* icons: brand line icons from img/icons, painted with currentColor */
+.eli .eli-ico{display:block;flex:0 0 auto;width:48px;height:48px;background-color:var(--eli-forest);-webkit-mask:var(--eli-ico) center/contain no-repeat;mask:var(--eli-ico) center/contain no-repeat}
+.eli .eli-ico--jar{--eli-ico:url(../img/icons/jar.svg)}
+.eli .eli-ico--ridge{--eli-ico:url(../img/icons/ridge.svg)}
+.eli .eli-ico--hands{--eli-ico:url(../img/icons/hands.svg)}
+.eli .eli-ico--leaf{--eli-ico:url(../img/icons/leaf.svg)}
+.eli .eli-ico--daisy{--eli-ico:url(../img/icons/daisy.svg)}
+@media (min-width:768px){.eli .eli-ico{width:54px;height:54px}}
+
+/* stars */
+.eli .eli-stars{display:inline-block;width:98px;height:18px;background-color:var(--eli-forest);-webkit-mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x;mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x}
+
+/* ----- 3.1 Hero: one evergreen photo, text on the wall beside Eli ----- */
+.eli .eli-hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);background:var(--eli-cream);overflow:hidden}
+.eli .eli-hero__media{display:block}
+.eli .eli-hero__media img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.eli .eli-hero__body{display:flex;flex-direction:column;align-items:center;gap:16px;padding:28px var(--eli-gutter) 60px;text-align:center}
+.eli .eli-hero__lead{max-width:310px;font-size:18px;line-height:1.6}
+.eli .eli-hero__cta{padding-top:8px}
+@media (min-width:900px){
+  .eli .eli-hero{display:flex;align-items:center;min-height:clamp(500px,43vw,700px)}
+  /* photo is the right part of the band; its wall has the page colour, the
+     soft mask removes the last trace of an edge */
+  .eli .eli-hero__media{position:absolute;top:0;right:max(0px,calc(50vw - 800px));height:100%;aspect-ratio:3/2;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 20%);mask-image:linear-gradient(to right,transparent 0,#000 20%)}
+  .eli .eli-hero__media img{width:100%;height:100%;aspect-ratio:auto}
+  .eli .eli-hero__body{position:relative;align-items:flex-start;gap:20px;width:100%;max-width:var(--eli-wrap);margin:0 auto;padding:64px var(--eli-gutter);text-align:left}
+  .eli .eli-hero__body > *{max-width:min(500px,40vw)}
+  .eli .eli-hero__lead{font-size:20px}
+  .eli .eli-sign{font-size:27px}
+}
+
+/* ----- 3.2 Categories: three ways in ----- */
+.eli .eli-cats{display:grid;gap:0}
+.eli .eli-cat{display:flex;flex-direction:column;gap:8px;padding:24px 0;border-top:1px solid var(--eli-border)}
+.eli .eli-cat:last-child{border-bottom:1px solid var(--eli-border)}
+.eli .eli-cat__photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--eli-r-photo);margin-bottom:14px}
+.eli .eli-cat__title a{color:var(--eli-forest);text-decoration:none}
+.eli .eli-cat__links{display:flex;flex-wrap:wrap;gap:0 18px;list-style:none;padding-top:4px}
+.eli .eli-cat__links a{display:inline-flex;align-items:center;min-height:40px;font-weight:400;font-size:15px;color:var(--eli-ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.eli .eli-cat__links a:hover{color:var(--eli-forest)}
+@media (min-width:768px){
+  .eli .eli-cats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .eli .eli-cat{gap:10px;padding:8px 36px;border-top:0;border-left:1px solid var(--eli-border)}
+  .eli .eli-cat:first-child{padding-left:0;border-left:0}
+  .eli .eli-cat:last-child{padding-right:0;border-bottom:0}
+  .eli .eli-cat__title{font-size:29px}
+  .eli .eli-cat__links a{min-height:32px}
+}
+
+/* ----- 3.3 Pillars ----- */
+.eli .eli-pillars{display:grid;gap:24px}
+.eli .eli-pillar{display:flex;align-items:center;gap:18px}
+.eli .eli-pillar__title{font-size:20px}
+.eli .eli-pillar p{font-weight:400;font-size:15px;line-height:1.55;color:var(--eli-muted)}
+@media (min-width:768px){
+  .eli .eli-pillars{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .eli .eli-pillar__title{font-size:22px}
+}
+
+/* ----- 3.4 Jsem Eli ----- */
+.eli .eli-about{display:flex;flex-direction:column;gap:30px}
+.eli .eli-about__photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--eli-r-photo)}
+.eli .eli-about__text{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:520px}
+@media (min-width:900px){
+  .eli .eli-about{flex-direction:row;align-items:center;justify-content:center;gap:96px}
+  .eli .eli-about__photo{flex:0 0 420px;width:420px}
+  .eli .eli-about__text{gap:22px}
+}
+
+/* ----- 3.5 Shop ratings ----- */
+.eli .eli-rating{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;font-weight:400;font-size:16px}
+.eli .eli-rating .eli-stars{width:120px;height:22px;-webkit-mask-size:24px 22px;mask-size:24px 22px}
+.eli .eli-reviews{display:grid}
+.eli .eli-review{display:flex;flex-direction:column;gap:16px;padding:24px 0;border-top:1px solid var(--eli-border)}
+.eli .eli-review:last-child{border-bottom:1px solid var(--eli-border)}
+.eli .eli-review blockquote{font-family:var(--eli-serif);font-size:18px;line-height:1.55;color:var(--eli-ink);border:0;background:none;quotes:none}
+.eli .eli-review figcaption{margin-top:auto;font-weight:400;font-size:15px;line-height:1.4;color:var(--eli-muted)}
+@media (min-width:900px){
+  .eli .eli-reviews{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .eli .eli-review{padding:4px 36px;border-top:0;border-left:1px solid var(--eli-border)}
+  .eli .eli-review:first-child{padding-left:0;border-left:0}
+  .eli .eli-review:last-child{padding-right:0;border-bottom:0}
+  .eli .eli-review blockquote{font-size:19px}
+}
+
+/* ----- 3.6 Media: three columns, also on mobile ----- */
+.eli .eli-media{display:flex;flex-wrap:wrap;justify-content:center;row-gap:8px;list-style:none}
+.eli .eli-media li{width:33.333%;padding:0 6px}
+.eli .eli-media a{display:flex;align-items:center;justify-content:center;min-height:72px;font-weight:500;font-size:14px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:var(--eli-ink);text-decoration:none}
+.eli .eli-media img{display:block;max-height:44px;width:auto;margin:0 auto}
+@media (min-width:768px){
+  .eli .eli-media{row-gap:24px}
+  .eli .eli-media li{padding:0 24px}
+  .eli .eli-media a{min-height:96px;font-size:19px;letter-spacing:.14em}
+  .eli .eli-media img{max-height:56px}
+}
+
+/* ----- 3.7 Instagram strip (built by js/eli.js from Shoptet's own widget) ----- */
+.eli .eli-ig{width:100%;padding:56px 0 0;background:var(--eli-cream);border-top:1px solid var(--eli-border);font-family:var(--eli-sans);box-sizing:border-box}
+.eli .eli-ig__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 32px;max-width:var(--eli-wrap);margin:0 auto 24px;padding:0 var(--eli-gutter)}
+.eli .eli-ig__title{margin:0;font-family:var(--eli-serif);font-weight:400;font-size:29px;line-height:1.2;color:var(--eli-forest)}
+.eli .eli-ig__feed{display:flex;gap:4px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 var(--eli-gutter)}
+.eli .eli-ig__feed::-webkit-scrollbar{display:none}
+.eli .eli-ig__feed a{flex:0 0 42%;scroll-snap-align:start;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--eli-silver)}
+.eli .eli-ig__feed img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.eli .eli-ig__feed a:hover img{transform:scale(1.04)}
+@media (min-width:768px){
+  .eli .eli-ig{padding-top:88px}
+  .eli .eli-ig__head{margin-bottom:36px}
+  .eli .eli-ig__title{font-size:40px}
+  .eli .eli-ig__feed{gap:6px;padding:0;overflow:hidden}
+  .eli .eli-ig__feed a{flex:1 1 0}
+  .eli .eli-ig__feed a:nth-child(n+7){display:none}
+}
+/* the footer copy of the widget is replaced by the strip */
+.eli .eli-ig-moved{display:none !important}
+
+/* ----- 3.8 Product name split by js/eli.js: "Jméno - typ" ----- */
+.eli .eli-name{display:block}
+.eli .eli-type{display:block;margin-top:.35em;font-family:var(--eli-sans);font-weight:400;font-size:max(14px,.42em);line-height:1.4;letter-spacing:.03em;text-transform:none;color:var(--eli-muted)}
+
+/* ---------- 4. Shoptet overrides: homepage ---------- */
+/* old seasonal banners and carousel give way to the evergreen hero */
+.eli .in-index .banners-row,
+.eli .in-index .container--bannersBenefit,
+.eli .in-index #carousel,
+.eli .in-index .before-carousel{display:none !important}
+
+/* ---------- 5. Shoptet overrides: global layer (Classic) ----------
+   Filled in against the live Classic DOM: header, navigation, buttons,
+   typography, product cards, footer, cart. Keep the order of this file. */

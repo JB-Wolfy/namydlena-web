@@ -1,0 +1,171 @@
+<!--
+  Namydlená Eli - homepage block
+  Paste as source HTML into the homepage text in Shoptet (Classic).
+  The wrapper is hidden inline; css/eli.css turns it on (.eli .eli-block),
+  so nothing shows before the design layer is released.
+  Images come from the immutable tag "assets-1" on jsDelivr.
+-->
+<div class="eli-block eli-home" style="display:none">
+
+  <!-- 1. Hero -->
+  <section class="eli-hero" aria-label="Namydlená Eli">
+    <picture class="eli-hero__media">
+      <source media="(min-width: 900px)" srcset="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@assets-1/img/hero-desktop.jpg" width="2400" height="1600">
+      <img src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@assets-1/img/hero-mobil.jpg" width="1200" height="1500" alt="Eli drží deodorant Před bouřkou, šampuk a tělový peeling mandle a třešeň" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="eli-hero__body">
+      <p class="eli-kicker">autorská kosmetika z Beskyd</p>
+      <h2 class="eli-h1">Malé rituály.<br>Velká radost.</h2>
+      <p class="eli-hero__lead">Z mých rukou do vašich každodenních rituálů.</p>
+      <p class="eli-sign">Eli</p>
+      <p class="eli-hero__cta"><a class="eli-btn" href="#kategorie">Vybrat si péči</a></p>
+    </div>
+  </section>
+
+  <!-- 2. Categories -->
+  <section class="eli-sec" id="kategorie">
+    <div class="eli-wrap">
+      <div class="eli-head">
+        <div class="eli-head__main">
+          <p class="eli-kicker">Kde začít</p>
+          <h2 class="eli-h2">Vyber si podle chvíle</h2>
+        </div>
+      </div>
+      <div class="eli-cats">
+        <div class="eli-cat">
+          <h3 class="eli-h3 eli-cat__title"><a href="/darky/">Dárky</a></h3>
+          <p class="eli-small">Pod stromeček i jen tak.</p>
+          <ul class="eli-cat__links">
+            <li><a href="/poukazy/">Dárkové poukazy</a></li>
+          </ul>
+        </div>
+        <div class="eli-cat">
+          <h3 class="eli-h3 eli-cat__title"><a href="/denni-pece/">Denní péče</a></h3>
+          <p class="eli-small">Na ráno, které se nevleče.</p>
+          <ul class="eli-cat__links">
+            <li><a href="/prirodni-deodoranty/">Deodoranty</a></li>
+            <li><a href="/balzam-na-rty/">Balzám na rty</a></li>
+            <li><a href="/sampuk/">Šampuk</a></li>
+          </ul>
+        </div>
+        <div class="eli-cat">
+          <h3 class="eli-h3 eli-cat__title"><a href="/ritualy/">Rituály</a></h3>
+          <p class="eli-small">Na večer, který si necháš pro sebe.</p>
+          <ul class="eli-cat__links">
+            <li><a href="/peeling/">Peeling</a></li>
+            <li><a href="/pletove-masky/">Pleťové masky</a></li>
+            <li><a href="/sul-do-koupele/">Sůl do koupele</a></li>
+            <li><a href="/sumive-bomby/">Šumivé bomby</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Eli's picks: js/eli.js moves Shoptet's own homepage product block into the slot.
+       Products are chosen in the Shoptet admin, never in code. -->
+  <section class="eli-sec eli-sec--rule" data-eli-section="picks">
+    <div class="eli-wrap">
+      <div class="eli-head">
+        <div class="eli-head__main">
+          <p class="eli-kicker">Eliin výběr</p>
+          <h2 class="eli-h2">Bez čeho se neobejdu</h2>
+        </div>
+        <a class="eli-link" href="/vse/">Všechny produkty</a>
+      </div>
+      <div data-eli-slot="picks"></div>
+    </div>
+  </section>
+
+  <!-- 4. Pillars -->
+  <section class="eli-sec eli-sec--silver eli-sec--rule eli-sec--tight">
+    <div class="eli-wrap">
+      <div class="eli-pillars">
+        <div class="eli-pillar">
+          <span class="eli-ico eli-ico--jar" aria-hidden="true"></span>
+          <div>
+            <h3 class="eli-h3 eli-pillar__title">Vlastní receptury</h3>
+            <p>Každou recepturu si ladím sama.</p>
+          </div>
+        </div>
+        <div class="eli-pillar">
+          <span class="eli-ico eli-ico--ridge" aria-hidden="true"></span>
+          <div>
+            <h3 class="eli-h3 eli-pillar__title">Ručně v Beskydech</h3>
+            <p>V malých várkách v dílně ve Frýdku&#8209;Místku.</p>
+          </div>
+        </div>
+        <div class="eli-pillar">
+          <span class="eli-ico eli-ico--hands" aria-hidden="true"></span>
+          <div>
+            <h3 class="eli-h3 eli-pillar__title">Osobní příběh</h3>
+            <p>Nejsem firma. Jsem Eli.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Jsem Eli -->
+  <section class="eli-sec eli-sec--softrose">
+    <div class="eli-wrap">
+      <div class="eli-about">
+        <img class="eli-about__photo" src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@assets-1/img/eli-trh.jpg" width="1000" height="1250" alt="Eli na trhu zkouší svůj balzám na rty" loading="lazy" decoding="async">
+        <div class="eli-about__text">
+          <p class="eli-kicker">Kdo za tím stojí</p>
+          <h2 class="eli-h2">Jsem Eli</h2>
+          <p>Procestovala jsem kus světa, abych zjistila, že to nejlepší vytvořím doma. Nejsem firma - jsem Eli, máma a tvůrkyně přírodní kosmetiky.</p>
+          <p>Každý výrobek mi projde rukama.</p>
+          <p><a class="eli-btn" href="/muj-pribeh/">Přečíst můj příběh</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Shop ratings: real Shoptet shop reviews, text unchanged -->
+  <section class="eli-sec">
+    <div class="eli-wrap">
+      <div class="eli-head">
+        <div class="eli-head__main">
+          <p class="eli-kicker">Hodnocení obchodu</p>
+          <h2 class="eli-h2">Co o nás píšete</h2>
+          <p class="eli-rating"><span class="eli-stars" role="img" aria-label="5 z 5 hvězdiček"></span> 5,0 z 5 &nbsp;·&nbsp; 5 hodnocení obchodu</p>
+        </div>
+        <a class="eli-link" href="/hodnoceni-obchodu/">Všechna hodnocení</a>
+      </div>
+      <div class="eli-reviews">
+        <figure class="eli-review">
+          <span class="eli-stars" role="img" aria-label="5 z 5 hvězdiček"></span>
+          <blockquote>Koupil jsem přítelkyni několik produktů na zkoušku a byli jsme příjemně překvapeni jejich zpracováním a kvalitou. Určitě nenakupujeme naposledy a můžeme je s klidným svědomím doporučit i ostatním.</blockquote>
+          <figcaption>Petr H. &nbsp;·&nbsp; 27. 5. 2026</figcaption>
+        </figure>
+        <figure class="eli-review">
+          <span class="eli-stars" role="img" aria-label="5 z 5 hvězdiček"></span>
+          <blockquote>Jsem příjemně překvapen rychlostí vyřízení objednávky a osobním - ručně psaným poděkováním majitelky e-shopu za objednávku.</blockquote>
+          <figcaption>Vladimír P. &nbsp;·&nbsp; 27. 3. 2026</figcaption>
+        </figure>
+        <figure class="eli-review">
+          <span class="eli-stars" role="img" aria-label="5 z 5 hvězdiček"></span>
+          <blockquote>Jsem ráda, že někdo tvoří něco s láskou. Protože to přesně Namydlená Eli dělá. 💗 Děkuji, že jsem mohla vyzkoušet kvalitní přírodní kosmetiku. ✨ Všem vřele doporučuji.</blockquote>
+          <figcaption>Klára Š. &nbsp;·&nbsp; 4. 11. 2025</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Media: names until one-colour logos from the press kits are in img/media/ -->
+  <section class="eli-sec eli-sec--silver eli-sec--rule">
+    <div class="eli-wrap eli-wrap--narrow">
+      <div class="eli-head eli-head--center">
+        <h2 class="eli-h2">Znáte nás z médií</h2>
+      </div>
+      <ul class="eli-media">
+        <li><a href="#TODO-patriot">Patriot</a></li>
+        <li><a href="#TODO-marianne">Marianne</a></li>
+        <li><a href="#TODO-denik">Deník</a></li>
+        <li><a href="/zapisnik/dobre-rano/">Česká televize</a></li>
+      </ul>
+    </div>
+  </section>
+
+</div>

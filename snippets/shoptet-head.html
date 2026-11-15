@@ -1,0 +1,35 @@
+<!--
+  Namydlená Eli - design layer loader
+  Where: Shoptet admin > Vzhled a obsah > Editor > HTML kód > Záhlaví (before </head>).
+  This is the ONLY code that lives in Shoptet. Everything else is in the repo.
+
+  RELEASE = git tag that customers get. Empty string = layer is off for customers.
+    Release a version:  git tag vX.Y.Z && git push --tags, then set RELEASE below.
+    Roll back:          put the previous tag back (or '' to switch the layer off).
+
+  Preview without touching customers (stored in this browser only):
+    https://www.namydlenaeli.cz/?eli=<tag | branch | commit sha>   turn preview on
+    https://www.namydlenaeli.cz/?eli=off                            turn it off
+-->
+<script>
+(function () {
+  var RELEASE = '';
+  var REPO = 'JB-Wolfy/namydlena-web';
+  var ref = RELEASE, preview = '';
+  try {
+    var m = location.search.match(/[?&]eli=([\w.\-]{1,64})/);
+    if (m) {
+      if (m[1] === 'off') localStorage.removeItem('eli-ref');
+      else localStorage.setItem('eli-ref', m[1]);
+    }
+    preview = localStorage.getItem('eli-ref') || '';
+  } catch (e) {}
+  if (preview) ref = preview;
+  if (!ref) return;
+  var base = 'https://cdn.jsdelivr.net/gh/' + REPO + '@' + ref + '/';
+  document.documentElement.className += ' eli' + (preview ? ' eli-preview' : '');
+  document.write('<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>');
+  document.write('<link rel="stylesheet" href="' + base + 'css/eli.css">');
+  document.write('<script defer src="' + base + 'js/eli.js"><\/script>');
+})();
+</script>
