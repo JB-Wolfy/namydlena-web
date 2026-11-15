@@ -1,8 +1,8 @@
 # Namydlená Eli - web (Shoptet, šablona Classic)
 
 Design a chování e-shopu namydlenaeli.cz. Repo je zdroj pravdy pro CSS, JS, HTML bloky a Worker poradce.
-Zadání a rozhodnutí: projektový dokument **Web Plan v2** (Claude Project „Namydlená Eli“). Když se tento soubor
-a Web Plan liší, platí Web Plan. Tenhle soubor říká, **jak** se tady píše kód, aby ho mohl kdokoli dokončit stejným stylem.
+Zadání a rozhodnutí: **`docs/WEB_PLAN.md`** (hlavní kopie; v Claude Projectu je zrcadlo). Když se tento soubor
+a Web Plan liší, platí Web Plan. Rozpracovaný stav: `HANDOFF.md`. Tenhle soubor říká, **jak** se tady píše kód, aby ho mohl kdokoli dokončit stejným stylem.
 
 ## Jak to celé funguje
 

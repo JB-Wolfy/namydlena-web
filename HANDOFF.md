@@ -1,6 +1,6 @@
 # Handoff - redesign e-shopu Namydlená Eli (15. 11. 2026)
 
-Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a projektový dokument **Web Plan v2** (zadání, tokeny, rozhodnutí).
+Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` (zadání, tokeny, rozhodnutí).
 
 ## Kde to je
 
@@ -8,8 +8,8 @@ Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a projektový dokumen
   Zatím **soukromé** - před nasazením přepnout na Public (jsDelivr soukromé repo neservíruje).
 - **Lokální podklady:** iCloud `01 Projects/NAMYDLENÁ-V5` (hero fotky, fotka Eli z trhu, portrét, SVG z Recraftu).
 - **Mockup (už se nepoužívá, jen pro kontext):** https://claude.ai/artifact/EG92MGZqdmr97KP2h5P5S2
-- **Web Plan v2** je v Claude Projectu „Namydlená Eli“. Při migraci na Claude Team **přenést všechny projektové
-  dokumenty** (Web Plan v2, Design Runbook, Brand Manual, Label Manual, Persona, OS, Podnikatelský plán).
+- **Web Plan v2:** hlavní kopie v repu `docs/WEB_PLAN.md` (v2.5), zrcadlo v Claude Projectu. Projekty se při migraci
+  na Team přenášejí, repo je pojistka.
 
 ## Rozhodnuto dnes
 
@@ -73,4 +73,4 @@ Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a projektový dokumen
 Vlož tohle:
 
 > Pokračujeme v redesignu e-shopu Namydlená Eli. Připoj repo JB-Wolfy/namydlena-web, přečti `HANDOFF.md`
-> a `CLAUDE.md`, pak Web Plan v2 z projektu. Začni krokem „Claude (kód) 1“.
+> a `CLAUDE.md`, pak `docs/WEB_PLAN.md`. Začni krokem „Claude (kód) 1“.
