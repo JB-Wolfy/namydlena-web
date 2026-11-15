@@ -118,19 +118,27 @@ html.eli{
 .eli .eli-stars{display:inline-block;width:98px;height:18px;background-color:var(--eli-forest);-webkit-mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x;mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x}
 
 /* ----- 3.1 Hero: Eli in the middle, the photo dissolves into the page at the bottom -----
-   The only gradient on the web: a photo fade-out. Products in her hands sit above 75 %
-   of the photo height, the fade starts below them. Text overlaps the faded part. */
-.eli .eli-hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);padding:16px var(--eli-gutter) 60px;background:var(--eli-cream)}
-.eli .eli-hero__media{display:block;width:100%;max-width:840px;margin:0 auto;padding:10px 10px 0;border:1px solid var(--eli-border);border-bottom:0;border-radius:var(--eli-r-box) var(--eli-r-box) 0 0;-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 98%);mask-image:linear-gradient(to bottom,#000 70%,transparent 98%)}
-.eli .eli-hero__media img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--eli-r-photo) var(--eli-r-photo) 0 0}
-.eli .eli-hero__body{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:-20px;text-align:center}
+   Two variants, chosen by class in modules/home/home.html:
+   --box   unedited photo in a banner box (its warmer wall shows the box edges)
+   --bleed photo with the wall evened to --eli-cream, no box: it melts into the page
+           and the header above (homepage header loses its bottom rule, part 4)
+   The only gradient on the web is this photo fade-out. Products in her hands sit
+   above 72 % of the photo height; the fade starts below them. */
+.eli .eli-hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);padding:12px var(--eli-gutter) 60px;background:var(--eli-cream)}
+.eli .eli-hero__media{display:block;width:100%;margin:0 auto;-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 99%);mask-image:linear-gradient(to bottom,#000 72%,transparent 99%)}
+.eli .eli-hero__media img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.eli .eli-hero--box .eli-hero__media{max-width:980px;border-radius:var(--eli-r-box);overflow:hidden}
+.eli .eli-hero--bleed{padding-top:0}
+/* bleed: fade top and sides too, so no edge of the photo is ever visible */
+.eli .eli-hero--bleed .eli-hero__media{max-width:1040px;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 72%,transparent 99%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 72%,transparent 99%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
+.eli .eli-hero__body{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:-24px;text-align:center}
 .eli .eli-hero__lead{max-width:330px;font-size:18px;line-height:1.6}
 .eli .eli-hero__cta{padding-top:8px}
 @media (min-width:768px){
-  .eli .eli-hero{padding-top:32px;padding-bottom:var(--eli-space-section)}
+  .eli .eli-hero{padding-top:24px;padding-bottom:var(--eli-space-section)}
+  .eli .eli-hero--bleed{padding-top:0}
   .eli .eli-hero__media img{aspect-ratio:3/2}
-  .eli .eli-hero__media{padding:14px 14px 0}
-  .eli .eli-hero__body{gap:20px;margin-top:-28px}
+  .eli .eli-hero__body{gap:20px;margin-top:-40px}
   .eli .eli-hero__lead{max-width:540px;font-size:20px}
   .eli .eli-sign{font-size:27px}
 }
@@ -231,6 +239,9 @@ html.eli{
 .eli .in-index .container--bannersBenefit,
 .eli .in-index #carousel,
 .eli .in-index .before-carousel{display:none !important}
+
+/* bleed hero: the header sits on the same cream as the photo wall (verify selector on Classic) */
+.eli .in-index:has(.eli-hero--bleed) #header{background:var(--eli-cream);border-bottom:0;box-shadow:none}
 
 /* ---------- 5. Shoptet overrides: global layer (Classic) ----------
    Filled in against the live Classic DOM: header, navigation, buttons,
