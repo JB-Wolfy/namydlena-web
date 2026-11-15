@@ -143,6 +143,17 @@ html.eli{
   .eli .eli-sign{font-size:27px}
 }
 
+/* desktop: the text sits on the empty wall left of Eli, so it is visible without scrolling */
+@media (min-width:1100px){
+  .eli .eli-hero--bleed{display:grid;justify-items:center}
+  .eli .eli-hero--bleed > .eli-hero__media,
+  .eli .eli-hero--bleed > .eli-hero__body{grid-area:1/1}
+  .eli .eli-hero--bleed > .eli-hero__body{align-self:start;align-items:flex-start;width:100%;max-width:1100px;margin:0;padding:68px 0 0 44px;text-align:left;gap:16px}
+  .eli .eli-hero--bleed > .eli-hero__body > *{max-width:330px}
+  .eli .eli-hero--bleed .eli-h1{font-size:54px}
+  .eli .eli-hero--bleed .eli-hero__lead{font-size:19px}
+}
+
 /* ----- 3.2 Categories: three ways in ----- */
 .eli .eli-cats{display:grid;gap:0}
 .eli .eli-cat{display:flex;flex-direction:column;gap:8px;padding:24px 0;border-top:1px solid var(--eli-border)}
