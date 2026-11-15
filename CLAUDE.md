@@ -7,7 +7,7 @@ a Web Plan liší, platí Web Plan. Tenhle soubor říká, **jak** se tady píš
 ## Jak to celé funguje
 
 - V Shoptetu žije jediný kus kódu: `snippets/shoptet-head.html` (admin > Vzhled a obsah > Editor > HTML kód > Záhlaví).
-- Loader přidá na `<html>` třídu `eli` a načte `css/eli.css` + `js/eli.js` z jsDelivr z daného gitového tagu.
+- Loader přidá na `<html>` třídu `eli` a načte `css/eli.css` + `js/eli.js` z jsDelivr z daného commitu.
 - **Všechno CSS je pod `html.eli`.** Bez třídy se nic neprojeví. Vypnutí vrstvy = `RELEASE = ''` v loaderu.
 - HTML bloky v obsahu Shoptetu (`modules/`) mají inline `style="display:none"` a třídu `eli-block`; zapíná je až CSS.
   Dají se proto vložit dopředu a zákazník je neuvidí.
@@ -15,19 +15,23 @@ a Web Plan liší, platí Web Plan. Tenhle soubor říká, **jak** se tady píš
 
 ## Náhled bez dopadu na zákazníky
 
-    https://www.namydlenaeli.cz/?eli=<tag | větev | commit sha>   zapne náhled v tomto prohlížeči
-    https://www.namydlenaeli.cz/?eli=off                           vypne
+    https://www.namydlenaeli.cz/?eli=<commit sha>   zapne náhled v tomto prohlížeči
+    https://www.namydlenaeli.cz/?eli=off            vypne
 
 Při vývoji používej **commit sha** (jsDelivr ho servíruje hned a napořád). Větev (`@main`) si jsDelivr drží v cache až 12 h.
 
 ## Vydání a návrat
 
 1. Otestuj náhled na 390 px a 1440 px (mobil má přednost) + celý průchod košíkem, pokud se sahalo na košík.
-2. Zapiš změnu do `CHANGELOG.md`, `git tag vX.Y.Z`, `git push --tags`.
-3. V loaderu v Shoptetu nastav `RELEASE = 'vX.Y.Z'`. Návrat = vrátit předchozí tag.
+2. Zapiš změnu do `CHANGELOG.md` (datum + sha), pushni do `main`.
+3. V loaderu v Shoptetu nastav `RELEASE = '<celé sha commitu>'`. Návrat = vrátit předchozí sha.
 
-Obrázky v obsahu Shoptetu (hero, Eli) se berou z neměnného tagu `assets-N`. Nová fotka = nový soubor a nový tag
-`assets-N+1`, pak přepsat URL v bloku. Ikony a fonty jdou přes relativní URL v CSS, verzují se samy s vydáním.
+Vydává se přes **sha commitu**, ne přes tagy: cloudová session modelu tagy pushnout nesmí (proxy je odmítá).
+Tag si může Kuba kdykoli udělat ručně na GitHubu, loader ho vezme stejně.
+
+Obrázky v obsahu Shoptetu (hero, Eli) mají v URL sha commitu, který je přidal (na jsDelivr neměnné).
+Nová fotka = nový soubor, push, přepsat sha v URL v bloku. Ikony a fonty jdou přes relativní URL v CSS,
+verzují se samy s vydáním.
 
 ## Struktura
 

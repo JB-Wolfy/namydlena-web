@@ -3,13 +3,14 @@
   Where: Shoptet admin > Vzhled a obsah > Editor > HTML kód > Záhlaví (before </head>).
   This is the ONLY code that lives in Shoptet. Everything else is in the repo.
 
-  RELEASE = git tag that customers get. Empty string = layer is off for customers.
-    Release a version:  git tag vX.Y.Z && git push --tags, then set RELEASE below.
-    Roll back:          put the previous tag back (or '' to switch the layer off).
+  RELEASE = what customers get: a full commit sha (or a tag made on GitHub).
+            Empty string = layer is off for customers.
+    Release a version:  push to main, copy the commit sha, set RELEASE below.
+    Roll back:          put the previous sha back (or '' to switch the layer off).
 
   Preview without touching customers (stored in this browser only):
-    https://www.namydlenaeli.cz/?eli=<tag | branch | commit sha>   turn preview on
-    https://www.namydlenaeli.cz/?eli=off                            turn it off
+    https://www.namydlenaeli.cz/?eli=<commit sha>   turn preview on
+    https://www.namydlenaeli.cz/?eli=off            turn it off
 -->
 <script>
 (function () {
