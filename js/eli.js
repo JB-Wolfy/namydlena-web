@@ -97,7 +97,17 @@
     });
   }
 
-  var FEATURES = [instagramStrip, homepagePicks, splitNames];
+  /* ---- Preview switch for the hero badge on mobile: ?eli-badge=bez / ?eli-badge=s (remembered) ---- */
+  function badgePreview() {
+    var m = location.search.match(/[?&]eli-badge=(bez|s)\b/);
+    try {
+      if (m) localStorage.setItem('eli-badge', m[1]);
+      var v = localStorage.getItem('eli-badge');
+      document.documentElement.classList.toggle('eli-badge-mobil-bez', v === 'bez');
+    } catch (e) {}
+  }
+
+  var FEATURES = [badgePreview, instagramStrip, homepagePicks, splitNames];
 
   function run() {
     FEATURES.forEach(function (f) {

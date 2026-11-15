@@ -17,6 +17,7 @@ a Web Plan liší, platí Web Plan. Rozpracovaný stav: `HANDOFF.md`. Tenhle sou
 
     https://www.namydlenaeli.cz/?eli=<commit sha>   zapne náhled v tomto prohlížeči
     https://www.namydlenaeli.cz/?eli=off            vypne
+    https://www.namydlenaeli.cz/?eli-badge=bez      odznak v hero na mobilu skrytý (?eli-badge=s zpět)
 
 Při vývoji používej **commit sha** (jsDelivr ho servíruje hned a napořád). Větev (`@main`) si jsDelivr drží v cache až 12 h.
 
