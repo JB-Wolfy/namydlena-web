@@ -143,15 +143,41 @@ html.eli{
   .eli .eli-sign{font-size:27px}
 }
 
-/* desktop: the text sits on the empty wall left of Eli, so it is visible without scrolling */
+/* desktop (from 1100 px): editorial layout - text on the left, Eli on the right (Lumière reference).
+   The photo wall equals the page colour, so the photo can sit to the right and fade into the page. */
 @media (min-width:1100px){
-  .eli .eli-hero--bleed{display:grid;justify-items:center}
-  .eli .eli-hero--bleed > .eli-hero__media,
-  .eli .eli-hero--bleed > .eli-hero__body{grid-area:1/1}
-  .eli .eli-hero--bleed > .eli-hero__body{align-self:start;align-items:flex-start;width:100%;max-width:1100px;margin:0;padding:68px 0 0 44px;text-align:left;gap:16px}
-  .eli .eli-hero--bleed > .eli-hero__body > *{max-width:330px}
-  .eli .eli-hero--bleed .eli-h1{font-size:54px}
-  .eli .eli-hero--bleed .eli-hero__lead{font-size:19px}
+  .eli .eli-hero--bleed{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;padding:0 var(--eli-gutter) var(--eli-space-section)}
+  .eli .eli-hero--bleed > *{grid-area:1/1}
+  .eli .eli-hero--bleed > .eli-hero__media{justify-self:end;width:min(68%,1000px);max-width:none;margin-right:max(0px,calc((100% - 1200px) / 2));
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 24%,#000 92%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 24%,#000 92%,transparent 100%)}
+  .eli .eli-hero--bleed > .eli-hero__body{align-self:center;align-items:flex-start;width:100%;max-width:1120px;margin:0;padding:0 0 40px;text-align:left;gap:22px}
+  .eli .eli-hero--bleed > .eli-hero__body > *{max-width:440px}
+  .eli .eli-hero--bleed .eli-h1{font-size:64px;line-height:1.05}
+  .eli .eli-hero--bleed .eli-hero__lead{font-size:19px;max-width:380px}
+  .eli .eli-hero--bleed .eli-kicker{display:flex;align-items:center;gap:14px}
+  .eli .eli-hero--bleed .eli-kicker::after{content:"";display:block;width:44px;height:1px;background:var(--eli-forest)}
+  .eli .eli-hero--bleed .eli-hero__cta{justify-content:flex-start}
+}
+
+/* second button next to the main one */
+.eli .eli-hero__cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.eli .eli-btn--arrow::after{content:"";display:inline-block;width:16px;height:1px;margin-left:12px;background:currentColor;box-shadow:none;position:relative;top:0}
+
+/* ----- 3.1b Badge "S láskou z Beskyd i do Beskyd": round seal over the photo, text on a circle ----- */
+.eli .eli-badge{position:absolute;z-index:2;width:116px;height:116px;border-radius:50%;background:var(--eli-cream);display:grid;place-items:center;pointer-events:none}
+.eli .eli-badge svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.eli .eli-badge text{font-family:var(--eli-sans);font-weight:500;font-size:10.5px;letter-spacing:.16em;fill:var(--eli-forest);text-transform:uppercase}
+.eli .eli-badge img{width:52%;height:auto;display:block}
+.eli .eli-hero__media{position:relative}
+.eli .eli-hero > .eli-badge{right:calc(var(--eli-gutter) + 2px);top:28px;width:98px;height:98px}
+.eli .eli-hero > .eli-badge text{font-size:11px}
+@media (min-width:768px){
+  .eli .eli-badge{width:132px;height:132px}
+  .eli .eli-hero > .eli-badge{right:calc(50% - min(100vw - 80px, 1040px) / 2 + 28px);top:56px}
+}
+@media (min-width:1100px){
+  .eli .eli-hero--bleed > .eli-badge{grid-area:1/1;position:relative;align-self:end;justify-self:end;right:auto;top:auto;margin:0 max(40px,calc((100% - 1200px) / 2 + 60px)) 120px 0;width:148px;height:148px}
 }
 
 /* ----- 3.2 Categories: three ways in ----- */
