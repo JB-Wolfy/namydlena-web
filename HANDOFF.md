@@ -4,7 +4,7 @@ Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` 
 
 ## Kde to je
 
-- **Repo:** https://github.com/JB-Wolfy/namydlena-web, větev `main`, poslední commit `f3c94a7`.
+- **Repo:** https://github.com/JB-Wolfy/namydlena-web, větev `main`.
   Zatím **soukromé** - před nasazením přepnout na Public (jsDelivr soukromé repo neservíruje).
 - **Lokální podklady:** iCloud `01 Projects/NAMYDLENÁ-V5` (hero fotky, fotka Eli z trhu, portrét, SVG z Recraftu).
 - **Mockup (už se nepoužívá, jen pro kontext):** https://claude.ai/artifact/EG92MGZqdmr97KP2h5P5S2
@@ -14,9 +14,12 @@ Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` 
 ## Rozhodnuto dnes
 
 - **Konec mockupu.** Designuje se rovnou na živém e-shopu přes náhled `?eli=<sha>`, zákazníci nic nevidí.
-- **Hero:** Eli uprostřed z originální fotky, dole se rozplyne do krémové, text pod ní. **Vybráno
-  `eli-hero--bleed`** = stěna srovnaná do krémové, bez boxu, hlavička splyne. `eli-hero--box` (originál
-  v banner boxu) zůstává jen jako záloha. Desktop 3:2, mobil 1:1 (lokty celé). Oblouky nikde.
+- **Hero (finální, 15. 11. večer):** originální fotka z X1D II, stěna srovnaná do krémové, víc kontrastu,
+  těsnější ořez (Eli větší). Desktop podle reference Lumière: text vlevo (kicker s linkou, nadpis 64 px, věta,
+  podpis, tlačítka „Vybrat si péči“ + „Můj příběh“), Eli vpravo, fotka se prolne do stránky. Mobil: fotka 1:1
+  (lokty celé), text pod ní. Kulatý odznak „S láskou z Beskyd i do Beskyd“ (badge-new + text po obvodu) -
+  desktop ano; mobil Kuba rozhodne živě na iPhonu přes `?eli-badge=bez` / `?eli-badge=s`, pak natrvalo
+  třídou `eli-badge--desktop-only`. Fotku si Kuba možná později vyladí v Phocusu - pak jen nové ořezy.
 - **Úvodní stránka, pořadí:** hero → kategorie (Dárky / Denní péče / Rituály) → „Bez čeho se neobejdu“
   (Eliin výběr = nativní blok produktů Shoptetu, produkty se vybírají v adminu) → pilíře (ikony z Recraftu)
   → Jsem Eli (fotka z trhu) → hodnocení obchodu (5 skutečných Shoptet hodnocení, 5,0/5) → Znáte nás z médií
