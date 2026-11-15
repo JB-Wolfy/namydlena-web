@@ -14,8 +14,8 @@ Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` 
 ## Rozhodnuto dnes
 
 - **Konec mockupu.** Designuje se rovnou na živém e-shopu přes náhled `?eli=<sha>`, zákazníci nic nevidí.
-- **Hero:** fotka Eli přes celou šířku bez oblouku a rámečku, Eli vpravo, text vlevo na krémové stěně.
-  Mobil: fotka 4:5 nahoře, text pod ní. Oblouky („Canva styl“) nikde.
+- **Hero:** Eli uprostřed v tenkém rovném rámečku, fotka se dole rozplyne do krémové, text pod ní uprostřed.
+  Desktop 3:2, mobil 4:5. Oblouky („Canva styl“) nikde, varianta s Eli v boku zamítnuta.
 - **Úvodní stránka, pořadí:** hero → kategorie (Dárky / Denní péče / Rituály) → „Bez čeho se neobejdu“
   (Eliin výběr = nativní blok produktů Shoptetu, produkty se vybírají v adminu) → pilíře (ikony z Recraftu)
   → Jsem Eli (fotka z trhu) → hodnocení obchodu (5 skutečných Shoptet hodnocení, 5,0/5) → Znáte nás z médií

@@ -52,8 +52,8 @@ verzují se samy s vydáním.
 - Písma: PT Serif (nadpisy, citace), Poppins 300/400/500 (text), Raleway 600 (jen logo).
   Nic pod 13 px. Poppins 300 jen od 16 px, menší text 400.
 - Tvary: fotky a boxy s malým rádiusem (`--eli-r-photo`, `--eli-r-box`), tlačítka a štítky pilulka.
-  **Žádné oblouky, žádné zaoblené karty se stínem, žádné přechody.** Dělení tenkou linkou `--eli-border`.
-- Mobile first, zlomy 768 px a 1100 px (hero 900 px). Zelená plocha max. jedna na stránku + patička.
+  **Žádné oblouky, žádné zaoblené karty se stínem, žádné přechody** (jediná výjimka: rozplynutí hero fotky dole). Dělení tenkou linkou `--eli-border`.
+- Mobile first, zlomy 768 px a 1100 px. Zelená plocha max. jedna na stránku + patička.
 - Vlastní komponenty `.eli-nazev`, prvky `.eli-nazev__prvek`, varianty `.eli-nazev--varianta`.
 - Přepisy Shoptetu: vždy s prefixem `.eli`, co nejkratší selektor, `!important` jen kde ho používá Shoptet.
   U každého bloku přepisů komentář, na jaké stránce a šabloně byl ověřen.
