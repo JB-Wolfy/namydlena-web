@@ -14,9 +14,9 @@ Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` 
 ## Rozhodnuto dnes
 
 - **Konec mockupu.** Designuje se rovnou na živém e-shopu přes náhled `?eli=<sha>`, zákazníci nic nevidí.
-- **Hero:** Eli uprostřed z originální fotky, dole se rozplyne do krémové, text pod ní. Dvě varianty
-  k výběru (třída v `home.html`): `eli-hero--bleed` = stěna srovnaná do krémové, bez boxu (výchozí);
-  `eli-hero--box` = originál v banner boxu. Desktop 3:2, mobil 1:1 (lokty celé). Oblouky nikde.
+- **Hero:** Eli uprostřed z originální fotky, dole se rozplyne do krémové, text pod ní. **Vybráno
+  `eli-hero--bleed`** = stěna srovnaná do krémové, bez boxu, hlavička splyne. `eli-hero--box` (originál
+  v banner boxu) zůstává jen jako záloha. Desktop 3:2, mobil 1:1 (lokty celé). Oblouky nikde.
 - **Úvodní stránka, pořadí:** hero → kategorie (Dárky / Denní péče / Rituály) → „Bez čeho se neobejdu“
   (Eliin výběr = nativní blok produktů Shoptetu, produkty se vybírají v adminu) → pilíře (ikony z Recraftu)
   → Jsem Eli (fotka z trhu) → hodnocení obchodu (5 skutečných Shoptet hodnocení, 5,0/5) → Znáte nás z médií
