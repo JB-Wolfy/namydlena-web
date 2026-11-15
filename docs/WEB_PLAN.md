@@ -112,7 +112,7 @@ CSS proměnné (prefix `--eli-`):
 ## 5. Homepage - struktura (stav 15. 11. večer, kód v `modules/home/home.html`)
 
 1. **Announcement bar** - jedna věta: vánoční termín objednávky + doprava zdarma od 600 Kč. Žádné slevy.
-2. **Hero** (15. 11. večer) - Eli uprostřed, fotka v tenkém rovném rámečku (bez oblouku), dole se rozplyne do krémové a text navazuje pod ní uprostřed. Desktop 3:2 (max. 840 px), mobil 4:5. Varianta „Eli vpravo, text vlevo“ zamítnuta (fotka je focená na střed, Eli byla ustřižená). Kicker „autorská kosmetika z Beskyd“, nadpis „Malé rituály. Velká radost.“, věta „Z mých rukou do vašich každodenních rituálů.“ + podpis Eli, tlačítko „Vybrat si péči“ (později kvíz poradce). Text jako živé HTML. H1 musí na stránce existovat.
+2. **Hero** (15. 11. večer) - originální fotka, Eli uprostřed, dole se rozplyne do krémové a text navazuje pod ní uprostřed. Dvě varianty k výběru: upravené pozadí bez boxu (stěna srovnaná do #F7F1E8, hlavička splyne) nebo originál v banner boxu. Desktop 3:2, mobil 1:1, aby byly vidět lokty. Varianta „Eli vpravo, text vlevo“ zamítnuta (fotka je focená na střed, Eli byla ustřižená). Kicker „autorská kosmetika z Beskyd“, nadpis „Malé rituály. Velká radost.“, věta „Z mých rukou do vašich každodenních rituálů.“ + podpis Eli, tlačítko „Vybrat si péči“ (později kvíz poradce). Text jako živé HTML. H1 musí na stránce existovat.
 3. **Kategorie** - Dárky / Denní péče / Rituály s odkazy na podkategorie. Fotky kategorií (4:5) až budou.
 4. **Eliin výběr „Bez čeho se neobejdu“** - nativní blok produktů Shoptetu (produkty se vybírají v adminu), JS ho přesune do sekce.
 5. **Tři pilíře** - Vlastní receptury / Ručně v Beskydech / Osobní příběh, ikony z Recraftu.
