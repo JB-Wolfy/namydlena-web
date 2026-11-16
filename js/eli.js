@@ -18,6 +18,14 @@
     igFollow: 'Sledovat @namydlenaeli',
     account: 'Můj účet',
     brandName: 'NAMYDLENÁ ELI',
+    /* product page */
+    deoBadges: ['Bez sody', 'Papírová tuba', 'Ručně v malých várkách'],
+    deoSwitch: 'Vyber si atmosféru',
+    insideOpen: 'Celé složení a proč tam je',
+    faqTitle: 'Časté otázky',
+    moreTitle: 'Doplň si',
+    sign: 'Eli',
+    stickyCta: 'Do košíku',
     brandTag: 'autorská kosmetika z Beskyd',
     blogMore: 'Číst dál',
     /* links from the top bar that join the main menu (the rest stays in the footer) */
@@ -26,6 +34,14 @@
       { href: '/prodejni-mista/', label: 'Prodejní místa' }
     ]
   };
+
+  /* The four deodorants share one page module; colour = stripe on the label (Web Plan section 6). */
+  var DEO = [
+    { href: '/cervnova-louka-prirodni-deodorant/', name: 'Červnová louka', tone: 'rose' },
+    { href: '/letni-podvecer-prirodni-deodorant/', name: 'Letní podvečer', tone: 'softrose' },
+    { href: '/pred-bourkou-prirodni-deodorant/', name: 'Před bouřkou', tone: 'sage' },
+    { href: '/bezvetri-prirodni-deodorant/', name: 'Bezvětří', tone: 'olive' }
+  ];
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
@@ -195,7 +211,7 @@
 
   /* ---- Stock state for the coloured dot: in (skladem) / order / out (nedostupné) ---- */
   function stockState() {
-    $$('.availability > span:first-child').forEach(function (s) {
+    $$('.availability > span:first-child, .availability-value .availability-label').forEach(function (s) {
       if (s.dataset.eliStock) return;
       var t = s.textContent.trim();
       s.dataset.eliStock = /^skladem\b/i.test(t) ? 'in'
@@ -214,7 +230,176 @@
     col.insertBefore(box, col.firstChild); /* above the "Vyhledávání" heading */
   }
 
-  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState];
+  /* ---- Product page: the "Podrobný popis" (fixed H2/H3 skeleton in Shoptet) becomes modules.
+          The text is never changed, only grouped and styled. ---- */
+  var slug = function (s) {
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  };
+  var MOD = { 'co-umi': 'cards', 'dva-tahy-vic-ne': 'callout', 'jak-voni': 'scent', 'bez-vune': 'scent',
+    'proc-bez-sody': 'text', 'co-je-uvnitr-a-proc': 'inside', 'caste-otazky': 'faq', 'z-dilny': 'workshop' };
+  var CARD_ICONS = ['leaf', 'hands', 'jar'];
+
+  function productModules() {
+    var box = $('.p-detail #description .basic-description');
+    if (!box || box.dataset.eliDone || !box.querySelector('h2')) return;
+    box.dataset.eliDone = '1';
+    document.documentElement.classList.add('eli-pd');
+    /* Shoptet's own "Detailní popis produktu" heading before the first H2 */
+    var first = box.firstElementChild;
+    if (first && first.tagName === 'H3' && /detailn/i.test(first.textContent)) first.remove();
+
+    var wrap = el('div', 'eli-pd__modules');
+    var nodes = Array.prototype.slice.call(box.childNodes);
+    var sec = null;
+    nodes.forEach(function (n) {
+      if (n.nodeType === 1 && n.tagName === 'H2') {
+        var key = slug(n.textContent);
+        sec = el('section', 'eli-pm eli-pm--' + (MOD[key] || 'text'));
+        sec.dataset.key = key;
+        n.classList.add('eli-pm__title');
+        sec.appendChild(n);
+        wrap.appendChild(sec);
+      } else if (sec) sec.appendChild(n);
+      else if (n.nodeType === 1) wrap.appendChild(n);
+    });
+    box.appendChild(wrap);
+
+    $$('.eli-pm', wrap).forEach(function (s) {
+      var type = s.className.replace(/.*eli-pm--(\w+).*/, '$1');
+      var title = s.querySelector('.eli-pm__title');
+      var body = el('div', 'eli-pm__body');
+      while (title.nextSibling) body.appendChild(title.nextSibling);
+      s.appendChild(body);
+
+      if (type === 'cards' || type === 'faq') {
+        /* H3 + following paragraphs = one card / one question */
+        var list = el('div', type === 'cards' ? 'eli-pm__cards' : 'eli-pm__faq');
+        var item = null, i = 0;
+        Array.prototype.slice.call(body.childNodes).forEach(function (n) {
+          if (n.nodeType === 1 && n.tagName === 'H3') {
+            if (type === 'cards') {
+              item = el('div', 'eli-pm__card');
+              item.appendChild(el('span', 'eli-ico eli-ico--' + CARD_ICONS[i++ % 3]));
+              item.lastChild.setAttribute('aria-hidden', 'true');
+              item.appendChild(n);
+            } else {
+              item = el('details', 'eli-pm__q');
+              var sum = el('summary');
+              sum.textContent = n.textContent.trim();
+              item.appendChild(sum);
+              n.remove();
+            }
+            list.appendChild(item);
+          } else if (item && (n.nodeType === 1 || n.textContent.trim())) item.appendChild(n);
+        });
+        body.appendChild(list);
+      }
+      if (type === 'callout') s.insertBefore(el('span', 'eli-pm__big', '2'), title).setAttribute('aria-hidden', 'true');
+      if (type === 'scent') {
+        var ul = body.querySelector('ul');
+        if (ul) ul.classList.add('eli-pm__notes');
+        var mood = ul && ul.nextElementSibling;
+        if (mood && mood.tagName === 'P') mood.classList.add('eli-pm__mood');
+      }
+      if (type === 'inside') {
+        s.id = 'co-je-uvnitr';
+        var det = el('details', 'eli-pm__more');
+        var sm = el('summary');
+        sm.textContent = T.insideOpen;
+        det.appendChild(sm);
+        while (body.firstChild) det.appendChild(body.firstChild);
+        $$('p', det).forEach(function (p) { if (/^ingredients:/i.test(p.textContent.trim())) p.classList.add('eli-pm__inci'); });
+        body.appendChild(det);
+        if (location.hash === '#co-je-uvnitr') det.open = true;
+      }
+      if (type === 'workshop') body.appendChild(el('p', 'eli-sign', T.sign));
+    });
+    if (location.hash === '#co-je-uvnitr') { var t = $('#co-je-uvnitr'); if (t) t.scrollIntoView(); }
+  }
+
+  /* ---- Product page frame: badges, deodorant switcher, quiet tabs, "Doplň si", stars only with ratings ---- */
+  function productFrame() {
+    var pd = $('.p-detail');
+    if (!pd || pd.dataset.eliFrame) return;
+    pd.dataset.eliFrame = '1';
+    var path = location.pathname;
+    var deo = DEO.filter(function (d) { return d.href === path; })[0];
+
+    /* stars: hidden until the first rating */
+    var label = $('.p-detail .stars-label');
+    if (label && /neohodnoceno/i.test(label.textContent)) pd.classList.add('eli-no-rating');
+
+    var header = $('.p-detail-inner-header');
+    if (deo && header && !$('.eli-badges')) {
+      var ul = el('ul', 'eli-badges');
+      T.deoBadges.forEach(function (b) { ul.appendChild(el('li', null, b)); });
+      header.appendChild(ul);
+    }
+    if (deo) {
+      var info = $('.p-info-wrapper');
+      var cart = info && info.querySelector('.add-to-cart');
+      if (cart && !$('.eli-switch')) {
+        var sw = el('nav', 'eli-switch');
+        sw.setAttribute('aria-label', T.deoSwitch);
+        sw.appendChild(el('p', 'eli-switch__label', T.deoSwitch));
+        var row = el('ul', 'eli-switch__list');
+        DEO.forEach(function (d) {
+          var li = el('li');
+          var a = el('a', 'eli-switch__item eli-switch__item--' + d.tone);
+          a.href = d.href;
+          a.appendChild(el('span', 'eli-switch__dot'));
+          a.appendChild(el('span', 'eli-switch__name', d.name));
+          if (d === deo) { a.setAttribute('aria-current', 'page'); a.classList.add('is-current'); }
+          li.appendChild(a);
+          row.appendChild(li);
+        });
+        sw.appendChild(row);
+        var price = info.querySelector('.p-final-price-wrapper');
+        info.insertBefore(sw, price ? price : cart);
+      }
+    }
+
+    /* tabs: description always open; similar products become "Doplň si" below; rating tab only with ratings */
+    var tabs = $('.p-detail-tabs-wrapper');
+    if (tabs) {
+      tabs.classList.add('eli-tabs-off');
+      var alt = $('#productsAlternative .products-block');
+      if (alt && !$('.eli-more')) {
+        var more = el('section', 'eli-more');
+        var head = el('div', 'eli-head');
+        head.appendChild(el('h2', 'eli-h2', T.moreTitle));
+        more.appendChild(head);
+        more.appendChild(alt);
+        tabs.parentNode.insertBefore(more, tabs.nextSibling);
+      }
+    }
+  }
+
+  /* ---- Sticky "Do košíku" bar once the real button scrolls out of view (presses the real button) ---- */
+  function stickyCart() {
+    var btn = $('.p-detail .add-to-cart-button');
+    if (!btn || $('.eli-sticky') || !('IntersectionObserver' in window)) return;
+    var bar = el('div', 'eli-sticky');
+    bar.setAttribute('aria-hidden', 'true');
+    var name = $('.p-detail-inner-header .eli-name') || $('.p-detail-inner-header h1');
+    var price = $('.p-detail .price-final-holder');
+    var txt = el('div', 'eli-sticky__text');
+    txt.appendChild(el('span', 'eli-sticky__name')).textContent = name ? name.textContent.trim() : '';
+    if (price) txt.appendChild(el('span', 'eli-sticky__price')).textContent = price.textContent.trim();
+    bar.appendChild(txt);
+    var go = el('button', 'eli-btn eli-sticky__btn', T.stickyCta);
+    go.type = 'button';
+    go.tabIndex = -1;
+    go.addEventListener('click', function () { btn.click(); });
+    bar.appendChild(go);
+    document.body.appendChild(bar);
+    new IntersectionObserver(function (e) {
+      var past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0;
+      bar.classList.toggle('is-on', past);
+    }).observe(btn);
+  }
+
+  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, productModules, stickyCart];
 
   function run() {
     FEATURES.forEach(function (f) {

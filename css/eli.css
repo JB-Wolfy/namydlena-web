@@ -550,3 +550,129 @@ html.eli{
 .eli #footer .form-control{background:transparent;border-color:var(--eli-line-on-forest);color:var(--eli-cream)}
 .eli #footer .btn{background-color:var(--eli-cream);border-color:var(--eli-cream);color:var(--eli-forest)}
 .eli #footer .footer-bottom{font-size:13px}
+
+/* ---------- 6. Product page (Classic, checked on Letní podvečer 16. 11. 2026) ----------
+   Top: native Shoptet (gallery, name, price, cart). Below: description modules built by js/eli.js. */
+
+/* 6.1 Top part */
+.eli .p-detail{padding-top:8px}
+.eli .p-detail-inner-header h1{margin:0 0 14px;font-family:var(--eli-serif);font-weight:400;font-size:30px;line-height:1.1;color:var(--eli-forest);text-transform:uppercase;letter-spacing:.08em}
+.eli .p-detail-inner-header h1 .eli-type{margin-top:10px;font-size:16px;letter-spacing:.04em;text-transform:none}
+@media (min-width:768px){.eli .p-detail-inner-header h1{font-size:40px}}
+.eli .eli-badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
+.eli .eli-badges li{padding:6px 14px;border:1px solid var(--eli-border);border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--eli-forest)}
+/* stars and "Neohodnoceno" wait for the first rating */
+.eli .p-detail.eli-no-rating .stars-wrapper{display:none}
+.eli .p-detail .p-detail-info{margin-bottom:8px}
+/* gallery: Shoptet's own photos in a calm frame */
+.eli .p-image{border-radius:var(--eli-r-photo);overflow:hidden}
+.eli .p-image img{mix-blend-mode:multiply}
+.eli .p-thumbnails img{border-radius:var(--eli-r-photo)}
+/* price, stock, cart */
+.eli .p-final-price-wrapper{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:6px 0 10px}
+.eli .p-final-price-wrapper .price-final{font-family:var(--eli-sans);font-weight:500;font-size:28px;color:var(--eli-ink)}
+.eli .p-final-price-wrapper .price-measure{font-size:14px;color:var(--eli-muted)}
+.eli .availability-value{margin-bottom:18px}
+.eli .availability-value .availability-label{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--eli-ink) !important}
+.eli .availability-value .availability-label::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--eli-stock-order)}
+.eli .availability-value .availability-label[data-eli-stock="in"]::before{background:var(--eli-stock-in)}
+.eli .availability-value .availability-label[data-eli-stock="out"]::before{background:var(--eli-stock-out)}
+.eli .detail-parameters:not(:has(tr)){display:none}
+.eli .p-detail .add-to-cart{display:flex;align-items:stretch;gap:12px;margin-bottom:22px}
+.eli .p-detail .add-to-cart .quantity{display:flex;align-items:center;border:1px solid var(--eli-border);border-radius:999px;overflow:hidden;background:transparent}
+.eli .p-detail .add-to-cart .quantity input{width:44px;border:0;background:transparent;text-align:center;font-size:16px}
+.eli .p-detail .add-to-cart .quantity button{border:0;background:transparent;color:var(--eli-forest);font-size:18px;width:36px}
+.eli .p-detail .add-to-cart .btn.add-to-cart-button{flex:1 1 auto;min-height:54px;font-size:16px}
+.eli .p-short-description{font-size:16px;line-height:1.7;color:var(--eli-ink)}
+.eli .p-short-description p{margin:0 0 12px}
+.eli .p-detail .social-buttons-wrapper,.eli .benefitBanner.position--benefitProduct{display:none}
+
+/* 6.2 Deodorant switcher: one dot per atmosphere in the label stripe colour */
+.eli .eli-switch{margin:4px 0 18px}
+.eli .eli-switch__label{margin:0 0 10px;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--eli-muted)}
+.eli .eli-switch__list{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0;padding:0;list-style:none}
+.eli .eli-switch__item{display:inline-flex;align-items:center;gap:8px;min-height:40px;font-size:15px;color:var(--eli-ink);text-decoration:none}
+.eli .eli-switch__dot{width:22px;height:22px;border-radius:50%;background:var(--tone);box-shadow:inset 0 0 0 1px var(--eli-border)}
+.eli .eli-switch__item.is-current .eli-switch__dot{outline:1.5px solid var(--eli-forest);outline-offset:3px}
+.eli .eli-switch__item.is-current{font-weight:500;color:var(--eli-forest)}
+.eli .eli-switch__item:hover .eli-switch__name{text-decoration:underline;text-underline-offset:4px}
+.eli .eli-switch__item--rose{--tone:var(--eli-rose)}
+.eli .eli-switch__item--softrose{--tone:var(--eli-softrose)}
+.eli .eli-switch__item--sage{--tone:var(--eli-sage)}
+.eli .eli-switch__item--olive{--tone:var(--eli-olive)}
+
+/* 6.3 Tabs off: the description is always open, the rest lives below */
+.eli .p-detail-tabs-wrapper.eli-tabs-off .shp-tabs-row{display:none}
+.eli .p-detail-tabs-wrapper.eli-tabs-off #description{display:block !important;opacity:1}
+.eli .p-detail-tabs-wrapper.eli-tabs-off .tab-pane:not(#description){display:none !important}
+.eli .description-inner{display:block}  /* Classic makes it flex */
+
+/* 6.4 Description modules */
+.eli.eli-pd #description{padding:0;border:0}
+.eli .eli-pd__modules{font-family:var(--eli-sans);font-size:17px;line-height:1.7;color:var(--eli-ink)}
+.eli .eli-pm{max-width:760px;margin:0 auto;padding:56px 0;border-top:1px solid var(--eli-border)}
+.eli .eli-pm:first-child{border-top:0}
+.eli .eli-pm__title{margin:0 0 22px;font-family:var(--eli-serif);font-weight:400;font-size:28px;line-height:1.2;color:var(--eli-forest);text-transform:none}
+.eli .eli-pm__body p{margin:0 0 14px}
+.eli .eli-pm__body ul{margin:0 0 14px;padding-left:20px}
+.eli .eli-pm__body li{margin:0 0 8px}
+@media (min-width:768px){.eli .eli-pm{padding:72px 0}.eli .eli-pm__title{font-size:34px}}
+/* Co umí: three cards with icons */
+.eli .eli-pm--cards{max-width:var(--eli-wrap)}
+.eli .eli-pm--cards .eli-pm__title{text-align:center}
+.eli .eli-pm__cards{display:grid;gap:0}
+.eli .eli-pm__card{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:24px 0;border-top:1px solid var(--eli-border)}
+.eli .eli-pm__card h3{margin:0;font-family:var(--eli-serif);font-weight:400;font-size:22px;color:var(--eli-forest);text-transform:none}
+.eli .eli-pm__card p{margin:0;font-size:16px;line-height:1.6}
+@media (min-width:768px){
+  .eli .eli-pm__cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .eli .eli-pm__card{align-items:center;text-align:center;padding:8px 32px;border-top:0;border-left:1px solid var(--eli-border)}
+  .eli .eli-pm__card:first-child{border-left:0}
+}
+/* Dva tahy. Víc ne.: the one green surface of the page, big 2 */
+.eli .eli-pm--callout{position:relative;max-width:var(--eli-wrap);display:grid;gap:8px 40px;padding:44px 28px;border:0;border-radius:var(--eli-r-box);background:var(--eli-forest);color:var(--eli-cream)}
+.eli .eli-pm--callout + .eli-pm{border-top:0}
+.eli .eli-pm--callout .eli-pm__title{color:var(--eli-cream);margin-bottom:12px}
+.eli .eli-pm__big{font-family:var(--eli-serif);font-size:120px;line-height:.8;color:var(--eli-olive)}
+.eli .eli-pm--callout .eli-pm__body p:first-child{font-size:19px}
+@media (min-width:768px){
+  .eli .eli-pm--callout{grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto 1fr;padding:64px 72px;margin:24px auto}
+  .eli .eli-pm__big{grid-row:1/3;font-size:200px}
+}
+/* Jak voní: three rows, note on the left */
+.eli .eli-pm__notes{list-style:none;padding:0 !important;border-top:1px solid var(--eli-border)}
+.eli .eli-pm__notes li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;margin:0;padding:16px 0;border-bottom:1px solid var(--eli-border)}
+.eli .eli-pm__notes strong{font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--eli-forest);padding-top:4px}
+.eli .eli-pm__mood{margin-top:22px !important;font-family:var(--eli-serif);font-style:italic;font-size:22px;color:var(--eli-forest)}
+/* Co je uvnitř a proč: open on demand */
+.eli .eli-pm__more summary{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border:1px solid var(--eli-forest);border-radius:999px;font-weight:500;font-size:15px;color:var(--eli-forest);cursor:pointer;list-style:none}
+.eli .eli-pm__more summary::-webkit-details-marker{display:none}
+.eli .eli-pm__more summary::after{content:"+";font-size:20px;line-height:1}
+.eli .eli-pm__more[open] summary{margin-bottom:24px}
+.eli .eli-pm__more[open] summary::after{content:"\2212"}
+.eli .eli-pm__inci{padding:16px 18px;border-radius:var(--eli-r-box);background:var(--eli-silver);font-size:14px !important;line-height:1.6;color:var(--eli-muted)}
+.eli #co-je-uvnitr{scroll-margin-top:90px}
+/* FAQ: one question per line */
+.eli .eli-pm__faq{border-top:1px solid var(--eli-border)}
+.eli .eli-pm__q{border-bottom:1px solid var(--eli-border)}
+.eli .eli-pm__q summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-family:var(--eli-serif);font-size:19px;color:var(--eli-forest);cursor:pointer;list-style:none}
+.eli .eli-pm__q summary::-webkit-details-marker{display:none}
+.eli .eli-pm__q summary::after{content:"+";flex:0 0 auto;font-family:var(--eli-sans);font-size:22px;line-height:1}
+.eli .eli-pm__q[open] summary::after{content:"\2212"}
+.eli .eli-pm__q p{margin:0 0 18px;font-size:16px}
+/* Z dílny: a note signed by Eli */
+.eli .eli-pm--workshop .eli-pm__body{font-family:var(--eli-serif);font-size:20px;line-height:1.6}
+.eli .eli-pm--workshop .eli-sign{margin-top:8px}
+
+/* 6.5 Doplň si (Shoptet's similar products) */
+.eli .eli-more{max-width:var(--eli-wrap);margin:0 auto;padding:48px 0 24px;border-top:1px solid var(--eli-border)}
+.eli .eli-more .products-block{display:flex;flex-wrap:wrap}
+
+/* 6.6 Sticky bar */
+.eli .eli-sticky{position:fixed;left:0;right:0;bottom:0;z-index:900;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px var(--eli-gutter) calc(10px + env(safe-area-inset-bottom));background:var(--eli-cream);border-top:1px solid var(--eli-border);transform:translateY(110%);transition:transform .25s ease}
+.eli .eli-sticky.is-on{transform:none}
+.eli .eli-sticky__text{display:flex;flex-direction:column;min-width:0}
+.eli .eli-sticky__name{font-family:var(--eli-serif);font-size:17px;color:var(--eli-forest);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eli .eli-sticky__price{font-weight:500;font-size:15px}
+.eli .eli-sticky__btn{min-height:46px;padding:0 28px}
+@media (min-width:1100px){.eli .eli-sticky{top:0;bottom:auto;padding:10px max(var(--eli-gutter),calc((100% - 1200px) / 2 + 40px));transform:translateY(-110%);border-top:0;border-bottom:1px solid var(--eli-border)}}
