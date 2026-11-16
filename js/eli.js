@@ -237,7 +237,23 @@
   };
   var MOD = { 'co-umi': 'cards', 'dva-tahy-vic-ne': 'callout', 'jak-voni': 'scent', 'bez-vune': 'scent',
     'proc-bez-sody': 'text', 'co-je-uvnitr-a-proc': 'inside', 'caste-otazky': 'faq', 'z-dilny': 'workshop' };
-  var CARD_ICONS = ['leaf', 'hands', 'jar'];
+  /* Card icons: Lucide (img/icons/lucide), picked by keywords in the card heading.
+     Add a rule here for new products; first match wins, fallback = sparkles. */
+  var CARD_ICONS = [
+    [/svěž|zápach|čerstv/i, 'wind'],
+    [/nepál|citliv|šetrn|jemn/i, 'feather'],
+    [/peč|hydrat|vyživ|zvláč|mazl/i, 'droplet'],
+    [/vůn|voní|aroma/i, 'flower-2'],
+    [/vydrž|dlouh|celý den/i, 'clock'],
+    [/přírod|rostlin|bylin/i, 'leaf'],
+    [/ruč|láska|s láskou/i, 'hand-heart'],
+    [/slun|léto|světl/i, 'sun'],
+    [/radost|rituál|potěš/i, 'heart']
+  ];
+  var cardIcon = function (title) {
+    for (var i = 0; i < CARD_ICONS.length; i++) if (CARD_ICONS[i][0].test(title)) return CARD_ICONS[i][1];
+    return 'sparkles';
+  };
 
   function productModules() {
     var box = $('.p-detail #description .basic-description');
@@ -274,12 +290,12 @@
       if (type === 'cards' || type === 'faq') {
         /* H3 + following paragraphs = one card / one question */
         var list = el('div', type === 'cards' ? 'eli-pm__cards' : 'eli-pm__faq');
-        var item = null, i = 0;
+        var item = null;
         Array.prototype.slice.call(body.childNodes).forEach(function (n) {
           if (n.nodeType === 1 && n.tagName === 'H3') {
             if (type === 'cards') {
               item = el('div', 'eli-pm__card');
-              item.appendChild(el('span', 'eli-ico eli-ico--' + CARD_ICONS[i++ % 3]));
+              item.appendChild(el('span', 'eli-ico eli-ico--lucide eli-ico--' + cardIcon(n.textContent)));
               item.lastChild.setAttribute('aria-hidden', 'true');
               item.appendChild(n);
             } else {

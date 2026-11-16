@@ -121,6 +121,17 @@ html.eli{
 .eli .eli-ico--hands{--eli-ico:url(../img/icons/hands.svg)}
 .eli .eli-ico--leaf{--eli-ico:url(../img/icons/leaf.svg)}
 .eli .eli-ico--daisy{--eli-ico:url(../img/icons/daisy.svg)}
+/* Lucide icons for product cards (chosen by js/eli.js) */
+.eli .eli-ico--clock{--eli-ico:url(../img/icons/lucide/clock.svg)}
+.eli .eli-ico--droplet{--eli-ico:url(../img/icons/lucide/droplet.svg)}
+.eli .eli-ico--feather{--eli-ico:url(../img/icons/lucide/feather.svg)}
+.eli .eli-ico--flower-2{--eli-ico:url(../img/icons/lucide/flower-2.svg)}
+.eli .eli-ico--hand-heart{--eli-ico:url(../img/icons/lucide/hand-heart.svg)}
+.eli .eli-ico--heart{--eli-ico:url(../img/icons/lucide/heart.svg)}
+.eli .eli-ico--leaf{--eli-ico:url(../img/icons/lucide/leaf.svg)}
+.eli .eli-ico--sparkles{--eli-ico:url(../img/icons/lucide/sparkles.svg)}
+.eli .eli-ico--sun{--eli-ico:url(../img/icons/lucide/sun.svg)}
+.eli .eli-ico--wind{--eli-ico:url(../img/icons/lucide/wind.svg)}
 @media (min-width:768px){.eli .eli-ico{width:54px;height:54px}}
 
 /* stars */
@@ -568,6 +579,8 @@ html.eli{
 .eli .p-detail .stars .star::before{color:var(--eli-forest)}
 .eli .p-detail .stars-link{font-size:14px;color:var(--eli-forest);text-decoration:underline;text-underline-offset:4px}
 .eli .p-info-wrapper .p-detail-inner-header h1{margin-top:0}
+/* optical alignment: the cap height of the name starts where the photo starts */
+.eli .p-info-wrapper .p-detail-inner-header h1 .eli-name{line-height:1;margin-top:-.08em}
 .eli .p-info-wrapper .eli-badges{margin-bottom:14px}
 /* gallery: Shoptet's own photos in a calm frame */
 .eli .p-image{border-radius:var(--eli-r-photo);overflow:hidden}
@@ -626,7 +639,8 @@ html.eli{
 .eli .eli-pm--cards{max-width:var(--eli-wrap)}
 .eli .eli-pm--cards .eli-pm__title{text-align:center}
 .eli .eli-pm__cards{display:grid;gap:0}
-.eli .eli-pm__card{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:24px 0;border-top:1px solid var(--eli-border)}
+.eli .eli-pm__card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:24px 0;border-top:1px solid var(--eli-border)}
+.eli .eli-pm__card .eli-ico--lucide{width:40px;height:40px}
 .eli .eli-pm__card h3{margin:0;font-family:var(--eli-serif);font-weight:400;font-size:22px;color:var(--eli-forest);text-transform:none}
 .eli .eli-pm__card p{margin:0;font-size:16px;line-height:1.6}
 @media (min-width:768px){
