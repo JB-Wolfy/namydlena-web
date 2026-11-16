@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 3 - 16. 11. 2026
+- Mobil: pryč plovoucí linka pod horní lištou (spodní okraj pevné hlavičky nulové výšky), na všech stránkách.
+
 ## Vydání 2 - 16. 11. 2026 - RELEASE `ff74589cfe03b4636f703cb9b1bb6b71823fb64c`
 Opravy po vydání 1 (podle Kuby z iPhonu). Od teď se vydává v admin > Vzhled a obsah > Editor > HTML kód > Záhlaví.
 - Lepicí lišta Do košíku je skrytá úplně (na iOS z ní vykukovala linka).

@@ -446,6 +446,9 @@ html.eli{
 
 /* 5.4 Header */
 .eli #header{background:var(--eli-cream);border-bottom:1px solid var(--eli-border)}
+/* mobile: #header is a fixed, zero-height box under the top bar; a border on it floated at 50 px
+   on every page while scrolling. The top bar carries the line on mobile. (checked 390 px, 16. 11.) */
+@media (max-width:767px){.eli #header{border-bottom:0}}
 /* The uploaded logo is white (made for the old coloured header) and still says "poctivá kosmetika".
    Until a forest logo is uploaded, the header shows the wordmark as live text. Footer keeps the image. */
 .eli #header .site-name a{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;height:100%;text-align:center;text-decoration:none}
