@@ -1,6 +1,6 @@
 # Changelog
 
-## Vydání 3 - 16. 11. 2026
+## Vydání 3 - 16. 11. 2026 - RELEASE `385d0e610d2eed822b6e45447f850909c8dc3e9e`
 - Mobil: pryč plovoucí linka pod horní lištou (spodní okraj pevné hlavičky nulové výšky), na všech stránkách.
 
 ## Vydání 2 - 16. 11. 2026 - RELEASE `ff74589cfe03b4636f703cb9b1bb6b71823fb64c`

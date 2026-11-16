@@ -85,19 +85,16 @@ verzují se samy s vydáním.
 
 ## Stav a co zbývá (aktualizuj při každé session)
 
-Hotovo (15. 11. 2026, lokálně ověřeno na 390 / 1024 / 1440 / 1920 px, na živém Classicu zatím ne):
-- loader, tokeny, fonty, komponenty úvodní stránky (hero, kategorie, výběr, pilíře, Jsem Eli, hodnocení, média)
-- Instagram pruh z nativního widgetu Shoptetu, přesun nativního bloku produktů do „Eliin výběr“, dělení názvů
+Live od 16. 11. 2026 (Classic + vrstva, aktuální RELEASE viz `CHANGELOG.md`). Vydává se v admin > Vzhled a obsah >
+Editor > HTML kód > Záhlaví (ne v Návrháři, ten po zveřejnění vytváří nový koncept).
 
-Další na řadě, v tomto pořadí:
-1. Globální vrstva na živém Classicu (`eli.css` část 5): hlavička, menu, tlačítka, typografie, karty produktů
-   (fotka 4:5 přes `aspect-ratio` + `object-fit`), patička, mobil. Informační lišta nahoře.
-2. Vložit `modules/home/home.html` do úvodní stránky, ověřit selektor nativního bloku produktů a H1.
-3. Produktová stránka deodorantu: moduly popisu podle Web Plan §6, přepínač čtyř atmosfér, textové odznaky,
-   lepicí lišta „Do košíku“, kotva `#co-je-uvnitr`.
-4. Košík: odpočet do dopravy zdarma (600 Kč), upsell, hláška k dárku.
-5. `/uvnitr` (rozcestník + kapitoly), kvíz B.U.B.L.I.N.A., Worker.
+Hotovo: úvodní stránka, globální vrstva (hlavička, jedno menu, ikony Lucide, karty, patička, mobil), produktová
+stránka deodorantů (moduly popisu, přepínač atmosfér, Doplň si, lepicí lišta), výpis kategorie, košík na mobilu.
 
-Otevřené drobnosti v kódu (hledej `TODO`):
-- `modules/home/home.html`: odkazy na články Patriot, Marianne, Deník; loga médií do `img/media/`; ověřit `/poukazy/`.
-- Informační lišta: datum poslední objednávky do Vánoc dodá Kuba.
+Další na řadě:
+1. „Kde začít“ jako mozaika (desktop) + posuvný pás (mobil) - Kuba rozhodne, zda velká dlaždice Dárky celoročně.
+2. Košík: odpočet do dopravy zdarma (600 Kč) ve stylu webu, upsell, hláška k dárku.
+3. `/uvnitr` (rozcestník + kapitoly), kvíz B.U.B.L.I.N.A., Worker.
+
+Otevřené od Kuby: testovací článek v Zápisníku skrýt; deodoranty „Skladem“ vs. text o předobjednávce;
+datum poslední objednávky do Vánoc (informační lišta).
