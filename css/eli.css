@@ -196,7 +196,7 @@ html.eli{
 .eli .eli-cat:last-child{border-bottom:1px solid var(--eli-border)}
 .eli .eli-cat__media{display:block;aspect-ratio:3/4;margin-bottom:14px;border-radius:var(--eli-r-photo);overflow:hidden;background:var(--eli-silver)}
 .eli .eli-cat__media{position:relative}
-.eli .eli-cat__photo{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.eli .eli-cat__media .eli-cat__photo{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .eli .eli-cat__media:hover .eli-cat__photo{transform:scale(1.03)}
 .eli .eli-cat__title a{color:var(--eli-forest);text-decoration:none}
 .eli .eli-cat__links{display:flex;flex-wrap:wrap;align-content:flex-start;gap:0 18px;list-style:none;padding-top:4px}
