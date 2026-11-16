@@ -420,7 +420,7 @@ html.eli{
 .eli #header{background:var(--eli-cream);border-bottom:1px solid var(--eli-border)}
 /* The uploaded logo is white (made for the old coloured header) and still says "poctivá kosmetika".
    Until a forest logo is uploaded, the header shows the wordmark as live text. Footer keeps the image. */
-.eli #header .site-name a{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;height:100%;text-decoration:none}
+.eli #header .site-name a{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;height:100%;text-align:center;text-decoration:none}
 .eli #header .site-name img{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 .eli #header .site-name a::before{content:"NAMYDLENÁ ELI";font-family:var(--eli-logo);font-weight:600;font-size:18px;line-height:1;letter-spacing:.16em;color:var(--eli-forest);white-space:nowrap}
 .eli #header .site-name a::after{content:"autorská kosmetika z Beskyd";display:none;font-family:var(--eli-sans);font-weight:400;font-size:13px;line-height:1;letter-spacing:.06em;color:var(--eli-muted);white-space:nowrap}
@@ -466,7 +466,8 @@ html.eli{
 .eli .navigation-buttons .cart-price{font-family:var(--eli-sans);font-size:15px;text-transform:none;color:var(--eli-ink)}
 @media (min-width:768px){
   .eli #navigation{height:52px;border-top:1px solid var(--eli-border)}
-  .eli .navigation-in{background:transparent}
+  .eli .navigation-in{background:transparent;position:static;width:auto}
+  .eli .navigation-in > ul{justify-content:center}
   .eli .navigation-in > ul > li{border:0}
   .eli .navigation-in > ul > li > a,
   .eli .navigation-in > ul > li > a:hover,
@@ -513,7 +514,16 @@ html.eli{
 .eli .flag.flag-discount,
 .eli :is(.se-webform-v2-slideup-trigger,.se-webform-v2-slideup-container){display:none !important}
 
-/* 5.6 Footer: the one forest surface every page has */
+/* 5.6 Footer: the one forest surface every page has.
+   No logo image (the wordmark sits under the search, js/eli.js); columns get the room. */
+.eli #footer .footer-rows > .site-name{display:none}
+@media (min-width:768px){
+  .eli #footer .custom-footer{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);column-gap:48px}
+  .eli #footer .custom-footer > div{width:auto;max-width:none;padding-left:0;padding-right:0}
+}
+.eli .eli-footer-brand{display:flex;flex-direction:column;gap:6px;margin-top:28px}
+.eli .eli-footer-brand b{font-family:var(--eli-logo);font-weight:600;font-size:20px;line-height:1;letter-spacing:.16em;color:var(--eli-cream)}
+.eli .eli-footer-brand span{font-family:var(--eli-sans);font-weight:400;font-size:13px;line-height:1.3;letter-spacing:.06em;color:var(--eli-cream)}
 .eli #footer{background:var(--eli-forest);color:var(--eli-cream)}
 .eli #footer :is(.footer-rows,.footer-links-icons,.footer-bottom){background:transparent;border-color:var(--eli-line-on-forest)}
 .eli #footer .custom-footer{border-top:0;padding-top:56px}

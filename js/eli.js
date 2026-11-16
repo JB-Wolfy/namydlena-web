@@ -17,6 +17,8 @@
     igTitle: 'Namydlená Eli na Instagramu',
     igFollow: 'Sledovat @namydlenaeli',
     account: 'Můj účet',
+    brandName: 'NAMYDLENÁ ELI',
+    brandTag: 'autorská kosmetika z Beskyd',
     blogMore: 'Číst dál',
     /* links from the top bar that join the main menu (the rest stays in the footer) */
     menuExtra: [
@@ -199,7 +201,17 @@
     });
   }
 
-  var FEATURES = [badgePreview, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState];
+  /* ---- Footer: wordmark under the search, like in the header ---- */
+  function footerBrand() {
+    var col = $('#footer .custom-footer__search');
+    if (!col || col.querySelector('.eli-footer-brand')) return;
+    var box = el('div', 'eli-footer-brand');
+    box.appendChild(el('b')).textContent = T.brandName;
+    box.appendChild(el('span')).textContent = T.brandTag;
+    col.appendChild(box);
+  }
+
+  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState];
 
   function run() {
     FEATURES.forEach(function (f) {
