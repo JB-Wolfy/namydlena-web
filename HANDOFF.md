@@ -7,7 +7,7 @@
 - Blok úvodní stránky je v Titulní strana > Popis za starým uvítacím textem (starý text CSS schovává).
 - Blog: rubrika „Zápisník“ na `/blog/` (zatím jen Testovací článek). Před vydáním testovací článek skrýt nebo nahradit.
 - Úvodní stránka: pilíře hned pod hero. Fotky produktů i kategorií v rámečku 3:4 (Kuba nahrává fotky 3:4). Média = logotypy v `img/media/`, odkazy doplní Kuba (atribut href).
-- Hotovo jen úvodní stránka + globální vrstva. Produktová stránka, košík, /uvnitr, kvíz, B.U.B.L.I.N.A. = nezačato.
+- Hotovo: úvodní stránka, globální vrstva, produktová stránka deodorantů (js productFrame/productModules/stickyCart). Košík, /uvnitr, kvíz, B.U.B.L.I.N.A. = nezačato.
 
 
 Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` (zadání, tokeny, rozhodnutí).
