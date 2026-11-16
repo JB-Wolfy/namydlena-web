@@ -1,5 +1,11 @@
 # Changelog
 
+## Vydání 2 - 16. 11. 2026 - RELEASE `ff74589cfe03b4636f703cb9b1bb6b71823fb64c`
+Opravy po vydání 1 (podle Kuby z iPhonu). Od teď se vydává v admin > Vzhled a obsah > Editor > HTML kód > Záhlaví.
+- Lepicí lišta Do košíku je skrytá úplně (na iOS z ní vykukovala linka).
+- Kategorie: řazení bez šedé plochy, podkategorie jako čitelné pilulky (celý název).
+- Košík na mobilu: název kroku místo loga, nepřekrývají se.
+
 ## Vydání 1 - 16. 11. 2026 - RELEASE `6a7c0a278ae623eb955919eed25cc1b4799ed983`
 Přepnutí ze Stepu na Classic s celou vrstvou (Kuba klikl na Zveřejnit v Návrháři).
 - 16. 11.: produktová stránka deodorantů (všechna 4 dea): moduly popisu z H2/H3, přepínač atmosfér, odznaky, Doplň si, lepicí lišta Do košíku, hvězdy až s hodnocením.
