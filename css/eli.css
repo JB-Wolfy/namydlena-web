@@ -435,7 +435,7 @@ html.eli{
   .eli .navigation-buttons .eli-account{display:none}
   /* fixed mobile bar (checked at 390 px): logo left, then search, cart, menu with even spacing */
   .eli #header .site-name{height:50px;display:flex;align-items:center}
-  .eli .navigation-buttons .cart-count{right:66px;top:-37px}
+  .eli .navigation-buttons > a.cart-count[data-target="cart"]{right:66px;top:-37px}
   .eli .responsive-tools > a[data-target="search"]{margin-right:80px}
 }
 /* one menu: on desktop the top bar (contacts, pages, login) gives way; pages joined the main menu, the rest is in the footer */
