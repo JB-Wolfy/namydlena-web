@@ -720,6 +720,6 @@ html.eli{
 /* mobile: Shoptet puts the step name ("Nákupní košík") into the top bar; the logo steps aside there */
 @media (max-width:767px){
   .eli .ordering-process #header .site-name{visibility:hidden}
-  .eli .ordering-process .cart-header{z-index:57;padding-right:60px}
+  .eli .ordering-process .cart-header{padding-right:60px}
   .eli .ordering-process .cart-header .step strong{font-family:var(--eli-serif);font-weight:400;font-size:20px;letter-spacing:.08em;color:var(--eli-forest)}
 }
