@@ -198,7 +198,7 @@ html.eli{
 .eli .eli-cat__photo{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .eli .eli-cat__media:hover .eli-cat__photo{transform:scale(1.03)}
 .eli .eli-cat__title a{color:var(--eli-forest);text-decoration:none}
-.eli .eli-cat__links{display:flex;flex-wrap:wrap;gap:0 18px;list-style:none;padding-top:4px}
+.eli .eli-cat__links{display:flex;flex-wrap:wrap;align-content:flex-start;gap:0 18px;list-style:none;padding-top:4px}
 .eli .eli-cat__links a{display:inline-flex;align-items:center;min-height:40px;font-weight:400;font-size:15px;color:var(--eli-ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 .eli .eli-cat__links a:hover{color:var(--eli-forest)}
 @media (min-width:768px){
