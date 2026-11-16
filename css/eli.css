@@ -239,7 +239,7 @@ html.eli{
 /* ----- 3.6 Media: three columns, also on mobile ----- */
 .eli .eli-media{display:flex;flex-wrap:wrap;justify-content:center;row-gap:8px;list-style:none}
 .eli .eli-media li{width:33.333%;padding:0 6px}
-.eli .eli-media a{display:flex;align-items:center;justify-content:center;min-height:72px;font-weight:500;font-size:14px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:var(--eli-ink);text-decoration:none}
+.eli .eli-media :is(a,span){display:flex;align-items:center;justify-content:center;min-height:72px;font-weight:500;font-size:14px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:var(--eli-ink);text-decoration:none}
 .eli .eli-media img{display:block;max-height:44px;width:auto;margin:0 auto}
 @media (min-width:768px){
   .eli .eli-media{row-gap:24px}
@@ -291,9 +291,10 @@ html.eli{
 .eli .in-index #carousel,
 .eli .in-index .benefitBanner,
 .eli .in-index .footer-banners,
-.eli .in-index .homepage-group-title{display:none !important}
+.eli .in-index .homepage-group-title,
+.eli .in-index .latest-contribution-box{display:none !important}
 /* the native product block waits (hidden) until js/eli.js moves it into "Eliin výběr" */
-.eli .in-index main .products-block{display:none}
+.eli .in-index:has([data-eli-slot]) main .products-block{display:none}
 .eli .in-index [data-eli-slot] .products-block{display:flex}
 .eli .in-index .overall-wrapper > .content-wrapper.container:not(#content-wrapper){margin-top:0;margin-bottom:0}
 

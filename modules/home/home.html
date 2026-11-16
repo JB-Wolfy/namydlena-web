@@ -1,6 +1,6 @@
 <!--
   Namydlená Eli - homepage block
-  Paste as source HTML into the homepage text in Shoptet (Classic).
+  Lives in Shoptet admin > Vzhled a obsah > Titulní strana > Popis (source code), after the old welcome text.
   The wrapper is hidden inline; css/eli.css turns it on (.eli .eli-block),
   so nothing shows before the design layer is released.
   Images are pinned to the commit that added them (immutable on jsDelivr).
@@ -166,11 +166,13 @@
       <div class="eli-head eli-head--center">
         <h2 class="eli-h2">Znáte nás z médií</h2>
       </div>
+      <!-- No dead links: a name becomes a link only when its article URL is known.
+           Patriot, Marianne, Deník: URLs from Kuba. Česká televize: /zapisnik/dobre-rano/ once the article is live. -->
       <ul class="eli-media">
-        <li><a href="#TODO-patriot">Patriot</a></li>
-        <li><a href="#TODO-marianne">Marianne</a></li>
-        <li><a href="#TODO-denik">Deník</a></li>
-        <li><a href="/zapisnik/dobre-rano/">Česká televize</a></li>
+        <li><span>Patriot</span></li>
+        <li><span>Marianne</span></li>
+        <li><span>Deník</span></li>
+        <li><span>Česká televize</span></li>
       </ul>
     </div>
   </section>

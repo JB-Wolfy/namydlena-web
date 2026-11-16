@@ -79,6 +79,7 @@
     /* take the heading Shoptet prints above the block with it, hidden: ours replaces it */
     var prev = block.previousElementSibling;
     if (prev && /^H[1-6]$/.test(prev.tagName)) prev.style.display = 'none';
+    slot.textContent = ''; /* Shoptet's editor pads the empty slot with &nbsp; */
     slot.appendChild(block);
   }
 
