@@ -58,7 +58,8 @@
     </div>
   </section>
 
-  <!-- 2. Categories. Photos 3:4 in img/cats (pinned to the commit that added them).
+  <!-- 2. Categories: three square photo tiles, the name on the photo, the whole tile is the link.
+       Photos (3:4 files, shown 1:1) in img/cats, pinned to the commit that added them.
        New photo = new file, push, swap the src. -->
   <section class="eli-sec" id="kategorie">
     <div class="eli-wrap">
@@ -68,36 +69,19 @@
           <h2 class="eli-h2">Vyber si podle chvíle</h2>
         </div>
       </div>
-      <div class="eli-cats">
-        <div class="eli-cat">
-          <a class="eli-cat__media" href="/darky/" tabindex="-1" aria-hidden="true"><img class="eli-cat__photo" src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@40477f701e0965e0a7c44be46efe66dd1d39e732/img/cats/darky.jpg" width="1200" height="1600" alt="" loading="lazy" decoding="async"></a>
-          <h3 class="eli-h3 eli-cat__title"><a href="/darky/">Dárky</a></h3>
-          <p class="eli-small">Pod stromeček i jen tak.</p>
-          <ul class="eli-cat__links">
-            <li><a href="/poukazy/">Dárkové poukazy</a></li>
-          </ul>
-        </div>
-        <div class="eli-cat">
-          <a class="eli-cat__media" href="/denni-pece/" tabindex="-1" aria-hidden="true"><img class="eli-cat__photo" src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@40477f701e0965e0a7c44be46efe66dd1d39e732/img/cats/denni-pece.jpg" width="1200" height="1600" alt="" loading="lazy" decoding="async"></a>
-          <h3 class="eli-h3 eli-cat__title"><a href="/denni-pece/">Denní péče</a></h3>
-          <p class="eli-small">Na ráno, které se nevleče.</p>
-          <ul class="eli-cat__links">
-            <li><a href="/prirodni-deodoranty/">Deodoranty</a></li>
-            <li><a href="/balzam-na-rty/">Balzám na rty</a></li>
-            <li><a href="/sampuk/">Šampuk</a></li>
-          </ul>
-        </div>
-        <div class="eli-cat">
-          <a class="eli-cat__media" href="/ritualy/" tabindex="-1" aria-hidden="true"><img class="eli-cat__photo" src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@40477f701e0965e0a7c44be46efe66dd1d39e732/img/cats/ritualy.jpg" width="1200" height="1600" alt="" loading="lazy" decoding="async"></a>
-          <h3 class="eli-h3 eli-cat__title"><a href="/ritualy/">Rituály</a></h3>
-          <p class="eli-small">Na večer, který si necháš pro sebe.</p>
-          <ul class="eli-cat__links">
-            <li><a href="/peeling/">Peeling</a></li>
-            <li><a href="/pletove-masky/">Pleťové masky</a></li>
-            <li><a href="/sul-do-koupele/">Sůl do koupele</a></li>
-            <li><a href="/sumive-bomby/">Šumivé bomby</a></li>
-          </ul>
-        </div>
+      <div class="eli-tiles">
+        <a class="eli-tile" href="/darky/">
+          <img class="eli-tile__photo" src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@40477f701e0965e0a7c44be46efe66dd1d39e732/img/cats/darky.jpg" width="1200" height="1600" alt="Eli s dárkovou krabicí" loading="lazy" decoding="async">
+          <span class="eli-tile__label">Dárky</span>
+        </a>
+        <a class="eli-tile" href="/denni-pece/">
+          <img class="eli-tile__photo" src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@40477f701e0965e0a7c44be46efe66dd1d39e732/img/cats/denni-pece.jpg" width="1200" height="1600" alt="Balzám na rty" loading="lazy" decoding="async">
+          <span class="eli-tile__label">Denní péče</span>
+        </a>
+        <a class="eli-tile" href="/ritualy/">
+          <img class="eli-tile__photo" src="https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@40477f701e0965e0a7c44be46efe66dd1d39e732/img/cats/ritualy.jpg" width="1200" height="1600" alt="Pleťová maska" loading="lazy" decoding="async">
+          <span class="eli-tile__label">Rituály</span>
+        </a>
       </div>
     </div>
   </section>

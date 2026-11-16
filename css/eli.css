@@ -230,6 +230,20 @@ html.eli{
   .eli .eli-cat__links a{min-height:32px}
 }
 
+/* ----- 3.2b Category tiles: square photo, name on a forest band at the bottom, whole tile = link.
+   Mobile: swipeable row with the next tile peeking; desktop: three in a row. ----- */
+.eli .eli-tiles{display:flex;gap:12px;margin:0 calc(-1 * var(--eli-gutter));padding:0 var(--eli-gutter);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.eli .eli-tiles::-webkit-scrollbar{display:none}
+.eli .eli-tile{position:relative;flex:0 0 78%;display:block;aspect-ratio:1/1;border-radius:var(--eli-r-photo);overflow:hidden;scroll-snap-align:start;background:var(--eli-silver);text-decoration:none}
+.eli .eli-tiles .eli-tile__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:transform .6s ease}
+.eli .eli-tile__label{position:absolute;left:0;right:0;bottom:0;padding:16px 12px;background:color-mix(in srgb,var(--eli-forest) 82%,transparent);color:var(--eli-cream);font-family:var(--eli-sans);font-weight:500;font-size:14px;line-height:1.3;letter-spacing:.18em;text-transform:uppercase;text-align:center}
+.eli .eli-tile:hover .eli-tile__photo{transform:scale(1.04)}
+.eli .eli-tile:focus-visible{outline:2px solid var(--eli-forest);outline-offset:3px}
+@media (min-width:768px){
+  .eli .eli-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:0;padding:0;overflow:visible}
+  .eli .eli-tile__label{padding:18px 12px;font-size:15px}
+}
+
 /* ----- 3.3 Pillars: on the page colour between two rules; the icon is as tall as its text ----- */
 .eli .eli-pillars{display:grid;gap:28px}
 .eli .eli-pillar{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:stretch;gap:18px}
