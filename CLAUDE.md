@@ -88,13 +88,12 @@ verzují se samy s vydáním.
 Live od 16. 11. 2026 (Classic + vrstva, aktuální RELEASE viz `CHANGELOG.md`). Vydává se v admin > Vzhled a obsah >
 Editor > HTML kód > Záhlaví (ne v Návrháři, ten po zveřejnění vytváří nový koncept).
 
-Hotovo: úvodní stránka, globální vrstva (hlavička, jedno menu, ikony Lucide, karty, patička, mobil), produktová
+Hotovo: úvodní stránka, globální vrstva (hlavička, jedno menu, ikony Lucide, karty, patička, mobil), „Kde začít“ jako čtvercové dlaždice, produktová
 stránka deodorantů (moduly popisu, přepínač atmosfér, Doplň si, lepicí lišta), výpis kategorie, košík na mobilu.
 
 Další na řadě:
-1. „Kde začít“ jako mozaika (desktop) + posuvný pás (mobil) - Kuba rozhodne, zda velká dlaždice Dárky celoročně.
-2. Košík: odpočet do dopravy zdarma (600 Kč) ve stylu webu, upsell, hláška k dárku.
-3. `/uvnitr` (rozcestník + kapitoly), kvíz B.U.B.L.I.N.A., Worker.
+1. Košík: odpočet do dopravy zdarma (600 Kč) ve stylu webu, upsell, hláška k dárku.
+2. `/uvnitr` (rozcestník + kapitoly), kvíz B.U.B.L.I.N.A., Worker.
 
 Otevřené od Kuby: testovací článek v Zápisníku skrýt; deodoranty „Skladem“ vs. text o předobjednávce;
 datum poslední objednávky do Vánoc (informační lišta).

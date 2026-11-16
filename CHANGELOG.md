@@ -1,6 +1,6 @@
 # Changelog
 
-## Vydání 4 - 16. 11. 2026
+## Vydání 4 - 16. 11. 2026 - RELEASE `17e1d95b36c93d7709216f80edeaf418f71f718d`
 - Kde začít: tři čtvercové dlaždice s názvem na fotce (celá dlaždice je odkaz), bez podkategorií; mobil posuvný pás.
 
 ## Vydání 3 - 16. 11. 2026 - RELEASE `385d0e610d2eed822b6e45447f850909c8dc3e9e`
