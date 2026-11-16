@@ -194,7 +194,7 @@ html.eli{
 .eli .eli-cat > .eli-cat__media{grid-row:1/4;margin:0}
 .eli .eli-cat > *{min-width:0}
 .eli .eli-cat:last-child{border-bottom:1px solid var(--eli-border)}
-.eli .eli-cat__media{display:block;aspect-ratio:4/5;margin-bottom:14px;border-radius:var(--eli-r-photo);overflow:hidden;background:var(--eli-silver)}
+.eli .eli-cat__media{display:block;aspect-ratio:3/4;margin-bottom:14px;border-radius:var(--eli-r-photo);overflow:hidden;background:var(--eli-silver)}
 .eli .eli-cat__photo{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .eli .eli-cat__media:hover .eli-cat__photo{transform:scale(1.03)}
 .eli .eli-cat__title a{color:var(--eli-forest);text-decoration:none}
@@ -271,11 +271,21 @@ html.eli{
 .eli .eli-media li{width:50%;padding:0 6px}
 .eli .eli-media :is(a,span){display:flex;align-items:center;justify-content:center;min-height:72px;font-weight:500;font-size:14px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:var(--eli-ink);text-decoration:none}
 .eli .eli-media img{display:block;max-height:44px;width:auto;margin:0 auto}
+.eli .eli-media__logo{display:block;width:var(--w);height:auto;aspect-ratio:var(--ar);margin:0 auto;background-color:var(--eli-forest);-webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+.eli a.eli-media__logo[href]:hover{background-color:var(--eli-ink)}
+.eli .eli-media__logo--patriot{--logo:url(../img/media/patriot.svg);--ar:460/94;--w:118px}
+.eli .eli-media__logo--marianne{--logo:url(../img/media/marianne.svg);--ar:186/34;--w:122px}
+.eli .eli-media__logo--denik{--logo:url(../img/media/denik.svg);--ar:680/175;--w:96px}
+.eli .eli-media__logo--ct{--logo:url(../img/media/ceska-televize.svg);--ar:662/380;--w:84px}
 @media (min-width:768px){
   .eli .eli-media{row-gap:24px}
   .eli .eli-media li{width:25%;padding:0 16px}
   .eli .eli-media a{min-height:96px;font-size:19px;letter-spacing:.14em}
   .eli .eli-media img{max-height:56px}
+  .eli .eli-media__logo--patriot{--w:150px}
+  .eli .eli-media__logo--marianne{--w:156px}
+  .eli .eli-media__logo--denik{--w:120px}
+  .eli .eli-media__logo--ct{--w:104px}
 }
 
 /* ----- 3.7 Instagram strip (built by js/eli.js from Shoptet's own widget) ----- */
@@ -435,8 +445,20 @@ html.eli{
   .eli .navigation-buttons .eli-account{display:none}
   /* fixed mobile bar (checked at 390 px): logo left, then search, cart, menu with even spacing */
   .eli #header .site-name{height:50px;display:flex;align-items:center}
-  .eli .navigation-buttons > a.cart-count[data-target="cart"]{right:66px;top:-37px}
+  .eli #header .navigation-buttons .cart-count{right:66px;top:-37px}
   .eli .responsive-tools > a[data-target="search"]{margin-right:80px}
+}
+/* one menu, one style: all first-level items in capitals like the admin names */
+.eli #navigation .menu-level-1 > li > a{text-transform:uppercase}
+.eli #navigation .menu-level-1 > li > a b{font-weight:500;letter-spacing:.08em}
+@media (max-width:767px){
+  .eli #navigation{background:var(--eli-cream)}
+  .eli .navigation-in > ul > li{border-color:var(--eli-border)}
+  .eli .navigation-in > ul > li > a{padding:16px 20px;font-size:15px;line-height:1.3;color:var(--eli-ink)}
+  .eli .navigation-in ul.menu-level-2 a{padding:12px 20px 12px 36px;font-size:15px;color:var(--eli-ink);text-transform:none}
+  .eli .navigation-in ul.menu-level-2 a b,.eli .navigation-in ul.menu-level-2 a span{font-weight:400;letter-spacing:0}
+  .eli .navigation-in .navigationActions a,.eli .navigation-in .navigation-login a{font-size:15px;color:var(--eli-muted)}
+  .eli .navigation-close::before{color:var(--eli-forest)}
 }
 /* one menu: on desktop the top bar (contacts, pages, login) gives way; pages joined the main menu, the rest is in the footer */
 @media (min-width:768px){.eli .top-navigation-bar{display:none}}
@@ -462,7 +484,7 @@ html.eli{
    multiply blends a white photo background into the card colour. */
 .eli .products-block{border:0}
 .eli .products-block .product{border:0;padding:12px 12px 36px}
-.eli .products-block .image{display:block;aspect-ratio:1/1;margin-bottom:16px;border-radius:var(--eli-r-photo);overflow:hidden}
+.eli .products-block .image{display:block;aspect-ratio:3/4;margin-bottom:16px;border-radius:var(--eli-r-photo);overflow:hidden}
 .eli .products-block .image img{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
 .eli .products-block .flags{top:10px;left:10px}
 .eli .products-block .name{height:auto;margin-bottom:6px;font-family:var(--eli-serif);font-size:18px;line-height:1.3;color:var(--eli-forest);text-decoration:none}
