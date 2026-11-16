@@ -437,6 +437,7 @@ html.eli{
 .eli .responsive-tools > a[data-target="navigation"]{--eli-ui:url(../img/icons/lucide/menu.svg)}
 .eli .navigation-buttons .cart-count{--eli-ui:url(../img/icons/lucide/shopping-bag.svg)}
 .eli .responsive-tools > a{display:inline-flex;align-items:center;justify-content:center}
+.eli .responsive-tools > a[data-target="login"]{display:none}  /* login lives in the mobile menu */
 /* account icon next to the cart (moved there from the top bar by js/eli.js) */
 .eli .navigation-buttons{align-items:center;gap:6px}
 .eli .navigation-buttons .eli-account{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border:0;background:none;font-size:0;color:transparent;overflow:hidden}
