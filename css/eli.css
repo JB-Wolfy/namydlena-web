@@ -271,10 +271,12 @@ html.eli{
   .eli .eli-post:last-child{padding-right:0;border-bottom:0}
 }
 
-/* ----- 3.5c Divider: thin rules with a daisy in the middle ----- */
-.eli .eli-divider{display:flex;align-items:center;gap:20px;width:100%;max-width:var(--eli-wrap);margin:0 auto;padding:0 var(--eli-gutter);background:var(--eli-cream)}
-.eli .eli-divider::before,.eli .eli-divider::after{content:"";flex:1 1 0;height:1px;background:var(--eli-border)}
-.eli .eli-divider .eli-ico{width:40px;height:40px}
+/* ----- 3.5c Divider: thin rules with a daisy in the middle.
+   One empty div (the editor strips empty children), lines are two solid background strips. ----- */
+.eli .eli-divider{position:relative;height:44px;max-width:var(--eli-wrap);margin:0 auto;padding:0 var(--eli-gutter);font-size:0;
+  background:linear-gradient(var(--eli-border),var(--eli-border)) left var(--eli-gutter) center/calc(50% - var(--eli-gutter) - 40px) 1px no-repeat,
+             linear-gradient(var(--eli-border),var(--eli-border)) right var(--eli-gutter) center/calc(50% - var(--eli-gutter) - 40px) 1px no-repeat}
+.eli .eli-divider::after{content:"";position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;background-color:var(--eli-forest);-webkit-mask:url(../img/icons/daisy.svg) center/contain no-repeat;mask:url(../img/icons/daisy.svg) center/contain no-repeat}
 .eli [data-eli-section="blog"][hidden] + .eli-divider{display:none}
 .eli .eli-sec--ratings{padding-top:calc(var(--eli-space-section) * .6)}
 
