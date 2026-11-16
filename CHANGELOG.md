@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 4 - 16. 11. 2026
+- Kde začít: tři čtvercové dlaždice s názvem na fotce (celá dlaždice je odkaz), bez podkategorií; mobil posuvný pás.
+
 ## Vydání 3 - 16. 11. 2026 - RELEASE `385d0e610d2eed822b6e45447f850909c8dc3e9e`
 - Mobil: pryč plovoucí linka pod horní lištou (spodní okraj pevné hlavičky nulové výšky), na všech stránkách.
 
