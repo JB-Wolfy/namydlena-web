@@ -57,6 +57,10 @@ html.eli{
    shows before the layer is loaded. This turns them on. */
 .eli .eli-block{display:block !important}
 
+/* Classic caps every div of the welcome text at 800 px and centres it (.welcome div).
+   Same specificity as our components and placed before them, so their own widths win. */
+.eli .welcome :where(div){max-width:none;margin-left:0;margin-right:0}
+
 .eli .eli-block,.eli .eli-block *{box-sizing:border-box}
 .eli .eli-block{font-family:var(--eli-sans);font-weight:300;font-size:17px;line-height:1.7;color:var(--eli-ink);-webkit-font-smoothing:antialiased}
 /* :where() keeps this reset at zero specificity so components can set their own spacing */
@@ -295,7 +299,9 @@ html.eli{
 .eli .in-index .latest-contribution-box{display:none !important}
 /* the native product block waits (hidden) until js/eli.js moves it into "Eliin výběr" */
 .eli .in-index:has([data-eli-slot]) main .products-block{display:none}
-.eli .in-index [data-eli-slot] .products-block{display:flex}
+.eli .in-index [data-eli-slot] .products-block{display:flex;margin:0 -12px}
+/* "Bez čeho se neobejdu" shows the first four products of the native block (order = admin) */
+.eli [data-eli-slot="picks"] .product:nth-child(n+5){display:none}
 .eli .in-index .overall-wrapper > .content-wrapper.container:not(#content-wrapper){margin-top:0;margin-bottom:0}
 
 /* bleed hero: the header loses its rule and melts into the photo wall */
@@ -315,6 +321,29 @@ html.eli{
   --color-header-background:var(--eli-cream);
   --template-font:"Poppins";--template-headings-font:"PT Serif";
   --eli-line-on-forest:color-mix(in srgb,var(--eli-cream) 24%,transparent);
+  /* Classic's design tokens (main-11 css): surfaces, text, lines, forms */
+  --colors-surface-primary:var(--eli-cream);
+  --colors-surface-white:var(--eli-cream);
+  --colors-surface-secondary:var(--eli-silver);
+  --colors-surface-subtle:var(--eli-border);
+  --colors-surface-tertiary:var(--eli-border);
+  --colors-surface-rating:var(--eli-forest);
+  --colors-focus-primary:var(--eli-forest);
+  --colors-foregrounds-headlines-primary:var(--eli-forest);
+  --colors-foregrounds-content-primary:var(--eli-ink);
+  --colors-foregrounds-content-primary-dark:var(--eli-ink);
+  --colors-foregrounds-content-secondary:var(--eli-ink);
+  --colors-foregrounds-content-tertiary:var(--eli-muted);
+  --colors-foregrounds-content-inverted:var(--eli-cream);
+  --colors-foregrounds-icons-primary:var(--eli-muted);
+  --colors-foregrounds-borders-primary:var(--eli-muted);
+  --colors-foregrounds-borders-secondary:var(--eli-border);
+  --colors-forms-background:var(--eli-cream);
+  --colors-forms-border:var(--eli-muted);
+  --colors-forms-activated:var(--eli-forest);
+  --form-controls-border-radius:var(--eli-r-box);
+  --tooltip-bubble-background:var(--eli-ink);
+  --tooltip-bubble-color:var(--eli-cream);
 }
 
 /* 5.1 Base: page, type */
@@ -340,8 +369,7 @@ html.eli{
 .eli .btn:is(.btn-default,.btn-primary,.btn-conversion,.btn-cart):not(.btn-icon):hover{background-color:var(--eli-ink);border-color:var(--eli-ink);color:var(--eli-cream)}
 .eli .btn.btn-secondary{background-color:transparent;border-color:var(--eli-forest);color:var(--eli-forest)}
 .eli .btn.btn-secondary:hover{background-color:var(--eli-forest);color:var(--eli-cream)}
-.eli :is(input[type=text],input[type=email],input[type=tel],input[type=password],input[type=search],input[type=number],textarea,select).form-control,
-.eli .form-control{border-color:var(--eli-border);border-radius:var(--eli-r-box);background-color:var(--eli-cream);color:var(--eli-ink);font-family:var(--eli-sans);font-size:16px;box-shadow:none}
+.eli .form-control{font-family:var(--eli-sans);box-shadow:none}
 .eli .form-control:focus{border-color:var(--eli-forest)}
 
 /* 5.3 Info bar (the shop's own #nm-topbar from the header code) and the contact bar */
@@ -384,22 +412,28 @@ html.eli{
 /* 5.5 Product cards (homepage, category, related). The photo keeps Shoptet's own ratio;
    multiply blends a white photo background into the card colour. */
 .eli .products-block{border:0}
-.eli .products-block .product{border:0;padding:12px 12px 32px}
+.eli .products-block .product{border:0;padding:12px 12px 36px}
 .eli .products-block .image{display:block;margin-bottom:16px;background:var(--eli-silver);border-radius:var(--eli-r-photo);overflow:hidden}
 .eli .products-block .image img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.eli .products-block .flags{top:10px;left:10px}
 .eli .products-block .name{height:auto;margin-bottom:6px;font-family:var(--eli-serif);font-size:18px;line-height:1.3;color:var(--eli-forest);text-decoration:none}
 .eli .products-block .name:hover{color:var(--eli-ink)}
-.eli .products-block .availability{font-size:13px;line-height:1.4}
+.eli .products-block .ratings-wrapper{min-height:0;padding:0 0 12px}
+.eli .products-block .availability{font-size:13px;line-height:1.4;text-align:left}
 .eli .products-block .availability span{color:var(--eli-muted) !important}
-.eli .products-block .p-bottom > div{align-items:center;gap:10px}
+.eli .products-block .p-bottom > div{flex-direction:column;align-items:flex-start;gap:12px}
+.eli .products-block .prices{text-align:left}
 .eli .products-block .price-final strong{font-family:var(--eli-sans);font-size:17px;font-weight:500;color:var(--eli-ink)}
 .eli .products-block :is(.price-measure,.price-additional,.price-standard){font-size:13px;color:var(--eli-muted)}
-.eli .products-block .btn.btn-cart{padding:8px 18px;font-size:14px;background-color:transparent;border-color:var(--eli-forest);color:var(--eli-forest)}
-.eli .products-block .btn.btn-cart:hover{background-color:var(--eli-forest);border-color:var(--eli-forest);color:var(--eli-cream)}
+.eli .products-block .p-tools{margin:0;text-align:left}
+.eli .products-block .btn{padding:8px 20px;font-size:14px;background-color:transparent;border-color:var(--eli-forest);color:var(--eli-forest)}
+.eli .products-block .btn::before{display:none}
+.eli .products-block .btn:hover{background-color:var(--eli-forest);border-color:var(--eli-forest);color:var(--eli-cream)}
 .eli .products-block .p-desc{display:none}
 .eli .flag{padding:5px 12px;border:1px solid var(--eli-forest);border-radius:999px;background-color:var(--eli-cream) !important;color:var(--eli-forest) !important;font-family:var(--eli-sans);font-size:13px;font-weight:500;line-height:1.2;letter-spacing:.08em;text-transform:uppercase}
-/* no discounts on the web (Web Plan section 1) */
-.eli .flag.flag-discount{display:none}
+/* no discounts on the web (Web Plan section 1): discount flag and the newsletter "100 Kč" slide-up */
+.eli .flag.flag-discount,
+.eli :is(.se-webform-v2-slideup-trigger,.se-webform-v2-slideup-container){display:none !important}
 
 /* 5.6 Footer: the one forest surface every page has */
 .eli #footer{background:var(--eli-forest);color:var(--eli-cream)}
