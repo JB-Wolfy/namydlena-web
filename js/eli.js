@@ -193,11 +193,14 @@
     }).catch(function (e) { if (window.console) console.warn('[eli] homepageBlog: ' + e.message); });
   }
 
-  /* ---- "Skladem" gets its own class, so css can colour in-stock without touching other states ---- */
+  /* ---- Stock state for the coloured dot: in (skladem) / order / out (nedostupné) ---- */
   function stockState() {
     $$('.availability > span:first-child').forEach(function (s) {
       if (s.dataset.eliStock) return;
-      s.dataset.eliStock = /^skladem\b/i.test(s.textContent.trim()) ? 'in' : 'other';
+      var t = s.textContent.trim();
+      s.dataset.eliStock = /^skladem\b/i.test(t) ? 'in'
+        : /nedostupn|vyprodán|není skladem|nelze/i.test(t) ? 'out'
+        : 'order'; /* na objednávku, předobjednávka, do x dnů ... */
     });
   }
 
@@ -208,7 +211,7 @@
     var box = el('div', 'eli-footer-brand');
     box.appendChild(el('b')).textContent = T.brandName;
     box.appendChild(el('span')).textContent = T.brandTag;
-    col.appendChild(box);
+    col.insertBefore(box, col.firstChild); /* above the "Vyhledávání" heading */
   }
 
   var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState];

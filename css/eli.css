@@ -37,6 +37,10 @@ html.eli{
   --eli-border:#D8D1C4;   /* rules, dividers */
   --eli-ink:#2E2B28;      /* text */
   --eli-muted:#6E675F;    /* secondary text */
+  /* stock dots only (never text, never surfaces): in stock / on order / unavailable */
+  --eli-stock-in:#4F8A3C;
+  --eli-stock-order:#D98C2B;
+  --eli-stock-out:#C2453D;
 
   --eli-serif:"PT Serif",Georgia,serif;
   --eli-sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -267,6 +271,13 @@ html.eli{
   .eli .eli-post:last-child{padding-right:0;border-bottom:0}
 }
 
+/* ----- 3.5c Divider: thin rules with a daisy in the middle ----- */
+.eli .eli-divider{display:flex;align-items:center;gap:20px;width:100%;max-width:var(--eli-wrap);margin:0 auto;padding:0 var(--eli-gutter);background:var(--eli-cream)}
+.eli .eli-divider::before,.eli .eli-divider::after{content:"";flex:1 1 0;height:1px;background:var(--eli-border)}
+.eli .eli-divider .eli-ico{width:40px;height:40px}
+.eli [data-eli-section="blog"][hidden] + .eli-divider{display:none}
+.eli .eli-sec--ratings{padding-top:calc(var(--eli-space-section) * .6)}
+
 /* ----- 3.6 Media: four names = 2 x 2 on mobile, one row from tablet up ----- */
 .eli .eli-media{display:flex;flex-wrap:wrap;justify-content:center;row-gap:8px;list-style:none}
 .eli .eli-media li{width:50%;padding:0 6px}
@@ -496,8 +507,11 @@ html.eli{
 .eli .products-block .availability{font-size:13px;line-height:1.4;text-align:left}
 .eli .products-block .availability span{color:var(--eli-muted) !important}
 /* in stock = forest with a dot; other states keep the muted colour */
-.eli .availability [data-eli-stock="in"]{display:inline-flex;align-items:center;gap:7px;font-weight:500;color:var(--eli-forest) !important}
-.eli .availability [data-eli-stock="in"]::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--eli-forest)}
+/* stock: text stays ink, the dot carries the state (green / orange / red) */
+.eli .availability [data-eli-stock]{display:inline-flex;align-items:center;gap:7px;font-weight:500;color:var(--eli-ink) !important}
+.eli .availability [data-eli-stock]::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--eli-stock-order)}
+.eli .availability [data-eli-stock="in"]::before{background:var(--eli-stock-in)}
+.eli .availability [data-eli-stock="out"]::before{background:var(--eli-stock-out)}
 .eli .products-block .p-bottom > div{flex-direction:column;align-items:flex-start;gap:12px}
 .eli .products-block .prices{text-align:left}
 .eli .products-block .price-final strong{font-family:var(--eli-sans);font-size:17px;font-weight:500;color:var(--eli-ink)}
@@ -522,7 +536,7 @@ html.eli{
   .eli #footer .custom-footer{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);column-gap:48px}
   .eli #footer .custom-footer > div{width:auto;max-width:none;padding-left:0;padding-right:0}
 }
-.eli .eli-footer-brand{display:flex;flex-direction:column;gap:6px;margin-top:28px}
+.eli .eli-footer-brand{display:flex;flex-direction:column;gap:8px;margin:0 0 30px}
 .eli .eli-footer-brand b{font-family:var(--eli-logo);font-weight:600;font-size:20px;line-height:1;letter-spacing:.16em;color:var(--eli-cream)}
 .eli .eli-footer-brand span{font-family:var(--eli-sans);font-weight:400;font-size:13px;line-height:1.3;letter-spacing:.06em;color:var(--eli-cream)}
 .eli #footer{background:var(--eli-forest);color:var(--eli-cream)}

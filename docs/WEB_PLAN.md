@@ -65,6 +65,7 @@ CSS proměnné (prefix `--eli-`):
 | `--eli-border` | #D8D1C4 | linky, oddělovače |
 | `--eli-ink` | #2E2B28 | text |
 | `--eli-muted` | #6E675F | sekundární text |
+| `--eli-stock-in` / `-order` / `-out` | #4F8A3C / #D98C2B / #C2453D | jen tečka dostupnosti (skladem / na objednávku / nedostupné), nikdy text ani plocha (16. 11.) |
 
 - Jakákoli barva mimo tokeny = chyba.
 - Písma: PT Serif (nadpisy), Poppins 300/400/500 (text), Raleway (jen logo). Cormorant zatím ne. Fonty self-hosted v repu.
