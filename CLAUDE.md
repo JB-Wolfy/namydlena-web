@@ -26,6 +26,8 @@ Při vývoji používej **commit sha** (jsDelivr ho servíruje hned a napořád)
 1. Otestuj náhled na 390 px a 1440 px (mobil má přednost) + celý průchod košíkem, pokud se sahalo na košík.
 2. Zapiš změnu do `CHANGELOG.md` (datum + sha), pushni do `main`.
 3. V loaderu v Shoptetu nastav `RELEASE = '<celé sha commitu>'`. Návrat = vrátit předchozí sha.
+   Předtím sha „zahřej“: jsDelivr první minuty po pushi u nového commitu občas vrací chybu.
+   Otevři `https://cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@<sha>/css/eli.css` (a `js/eli.js`), až vrátí 200, teprve pak vydej.
 
 Vydává se přes **sha commitu**, ne přes tagy: cloudová session modelu tagy pushnout nesmí (proxy je odmítá).
 Tag si může Kuba kdykoli udělat ručně na GitHubu, loader ho vezme stejně.
