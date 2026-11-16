@@ -5,7 +5,8 @@
   Vydání = nastavit `RELEASE` na sha a pak Kuba klikne **Zveřejnit** v Návrháři (přepne šablonu i kód naráz).
 - Náhled: `/?editorPreview=&eli=<sha>` v prohlížeči přihlášeném do adminu.
 - Blok úvodní stránky je v Titulní strana > Popis za starým uvítacím textem (starý text CSS schovává).
-- Blog: rubrika `/nase-novinky/` (zatím jen Testovací článek). Před vydáním testovací článek skrýt nebo nahradit.
+- Blog: rubrika „Zápisník“ na `/blog/` (zatím jen Testovací článek). Před vydáním testovací článek skrýt nebo nahradit.
+- Úvodní stránka: pilíře hned pod hero. Fotky produktů i kategorií v rámečku 3:4 (Kuba nahrává fotky 3:4). Média = logotypy v `img/media/`, odkazy doplní Kuba (atribut href).
 - Hotovo jen úvodní stránka + globální vrstva. Produktová stránka, košík, /uvnitr, kvíz, B.U.B.L.I.N.A. = nezačato.
 
 
