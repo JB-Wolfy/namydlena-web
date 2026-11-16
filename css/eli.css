@@ -431,7 +431,13 @@ html.eli{
 .eli .navigation-buttons{align-items:center;gap:6px}
 .eli .navigation-buttons .eli-account{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border:0;background:none;font-size:0;color:transparent;overflow:hidden}
 .eli .navigation-buttons .cart-count{display:inline-flex;align-items:center;gap:10px}
-@media (max-width:767px){.eli .navigation-buttons .eli-account{display:none}}
+@media (max-width:767px){
+  .eli .navigation-buttons .eli-account{display:none}
+  /* fixed mobile bar (checked at 390 px): logo left, then search, cart, menu with even spacing */
+  .eli #header .site-name{height:50px;display:flex;align-items:center}
+  .eli .navigation-buttons .cart-count{right:66px;top:-37px}
+  .eli .responsive-tools > a[data-target="search"]{margin-right:80px}
+}
 /* one menu: on desktop the top bar (contacts, pages, login) gives way; pages joined the main menu, the rest is in the footer */
 @media (min-width:768px){.eli .top-navigation-bar{display:none}}
 .eli .navigation-buttons .cart-price{font-family:var(--eli-sans);font-size:15px;text-transform:none;color:var(--eli-ink)}
