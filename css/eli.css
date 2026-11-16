@@ -328,7 +328,6 @@ html.eli{
 .eli .in-index [data-eli-slot] .products-block{display:flex;margin:0 -12px}
 /* "Bez čeho se neobejdu" shows the first four products of the native block (order = admin) */
 .eli [data-eli-slot="picks"] .product:nth-child(n+5){display:none}
-@media (min-width:1100px){.eli [data-eli-slot="picks"]{max-width:1040px}}
 .eli .in-index .overall-wrapper > .content-wrapper.container:not(#content-wrapper){margin-top:0;margin-bottom:0}
 
 /* bleed hero: the header loses its rule and melts into the photo wall */
