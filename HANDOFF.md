@@ -1,4 +1,13 @@
-# Handoff - redesign e-shopu Namydlená Eli (15. 11. 2026)
+# Handoff - redesign e-shopu Namydlená Eli (16. 11. 2026)
+
+## Stav 16. 11. odpoledne
+- Classic je v Návrháři jako **koncept** (zákazníci vidí Step). Loader je v HTML kódu záhlaví konceptu, `RELEASE = ''`.
+  Vydání = nastavit `RELEASE` na sha a pak Kuba klikne **Zveřejnit** v Návrháři (přepne šablonu i kód naráz).
+- Náhled: `/?editorPreview=&eli=<sha>` v prohlížeči přihlášeném do adminu.
+- Blok úvodní stránky je v Titulní strana > Popis za starým uvítacím textem (starý text CSS schovává).
+- Blog: rubrika `/nase-novinky/` (zatím jen Testovací článek). Před vydáním testovací článek skrýt nebo nahradit.
+- Hotovo jen úvodní stránka + globální vrstva. Produktová stránka, košík, /uvnitr, kvíz, B.U.B.L.I.N.A. = nezačato.
+
 
 Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` (zadání, tokeny, rozhodnutí).
 
