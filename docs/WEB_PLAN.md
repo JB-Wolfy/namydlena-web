@@ -33,7 +33,7 @@ umístění: hlavní kopie je v repu `docs/WEB_PLAN.md`; v Claude Projectu je zr
 - **Žádné slevy na webu** (15. 11.). Slevové bannery (včetně banneru 100 Kč) a slevové odznaky (včetně „-14 %“ u předobjednávky) jdou pryč. Klub se zvaliduje později, do té doby se na webu nepropaguje.
 - **Evergreen hero místo sezónních bannerů.** Jedna nadčasová fotka Eli s produkty, mění se max. 1× ročně. Akce a sezóna jen v textovém announcement baru.
 - **Na webu nikdy AI portrét Eli.** Jen skutečné fotky.
-- **Fotky produktů jen ze Shoptetu** (15. 11.), v poměru 4:5 tam. Kód je jen styluje, nikdy se kvůli nové fotce nemění.
+- **Fotky produktů jen ze Shoptetu** (15. 11.). Shoptet nabízí poměr 4:3 / 1:1 / 3:4 / 2:3 (4:5 ne). Návrh 16. 11.: přepnout z 1:1 na 3:4 a nové fotky fotit 3:4 (nativní portrét X1D II); deo fotky 4:5 kód dorovná. Kód je jen styluje, nikdy se kvůli nové fotce nemění.
 - **Content-gated:** Zápisník, kapitoly Atlasu surovin, poradce a YouTube jdou do menu až s reálným obsahem. Žádné odkazy do prázdna. Postavit je smí kdykoli, spustit až po kontrole obsahu.
 - **AI poradce se jmenuje B.U.B.L.I.N.A.** (15. 11.) = **B**ystrá **U**mělá **B**ytost, **L**askavě **I**nformující o **N**amydlené **A**utorské kosmetice. Bublina z mýdla i bublina chatu, tečkovaná zkratka jako styl, žádná cizí jména ani symboly.
 - **Logo zatím Raleway.** Cormorant (z poukazů) se testuje mimo web, rozhodnutí při příštím tisku etiket.

@@ -50,9 +50,11 @@ Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` 
 4. Vypnout slevy a slevové bannery, „-14 %“ (Web Plan §4).
 
 **Claude (kód):**
-0. Hned po přepnutí najít v adminu globální poměr obrázků produktů. Kuba ho kdysi ručně nastavil na 1:1
-   (původně byl jiný) a chce ho změnit na 4:5. Ukázat mu, kde to je, změnu potvrdí on. Fotky jsou teď většinou
-   1:1, Kuba je postupně mění na 4:5 (deodoranty už jsou).
+0. Poměr obrázků produktů: Nastavení → Produkty → Zobrazení → Poměr obrázků. Nabídka: výchozí šablony,
+   4:3, 1:1 (teď), 3:4, 2:3 - **4:5 tam není**. Návrh (Kuba potvrdí): **3:4** a nové fotky produktů fotit
+   rovnou 3:4 (nativní portrét X1D II, bez ořezu). Deo fotky 4:5 a staré 1:1 se do 3:4 doplní pruhy -
+   ověřit na první zmenšenině, jestli Shoptet doplňuje (bílou?) nebo ořezává, a podle toho karty v CSS:
+   rámeček 3:4, `object-fit: cover` (ořízne tenké pruhy u 4:5), u 1:1 krémové pozadí za fotkou.
    Karty: rámeček 4:5, `object-fit: contain` na krémové, aby šly 1:1 i 4:5 vedle sebe bez ořezu.
 1. Vložit loader do Admin → Vzhled a obsah → Editor → HTML kód → Záhlaví (RELEASE prázdné).
 2. Globální vrstva na živém Classicu (`eli.css` část 5): hlavička, menu, tlačítka, typografie,
