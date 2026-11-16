@@ -1,6 +1,7 @@
 # Changelog
 
-## Nevydáno
+## Vydání 1 - 16. 11. 2026 - RELEASE `6a7c0a278ae623eb955919eed25cc1b4799ed983`
+Přepnutí ze Stepu na Classic s celou vrstvou (Kuba klikl na Zveřejnit v Návrháři).
 - 16. 11.: produktová stránka deodorantů (všechna 4 dea): moduly popisu z H2/H3, přepínač atmosfér, odznaky, Doplň si, lepicí lišta Do košíku, hvězdy až s hodnocením.
 - 16. 11.: loader v záhlaví konceptu Classic (Návrhář, RELEASE prázdné), blok úvodní stránky v Titulní strana > Popis (skrytý).
 - 16. 11.: globální vrstva Classic (tokeny šablony, hlavička, jedno menu, ikony Lucide, karty 1:1, Skladem, patička, mobil).
