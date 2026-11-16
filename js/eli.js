@@ -155,6 +155,7 @@
       var doc = new DOMParser().parseFromString(html, 'text/html');
       var items = Array.prototype.slice.call(doc.querySelectorAll('.news-wrapper .news-item')).slice(0, 3);
       if (!items.length) return;
+      slot.textContent = ''; /* Shoptet's editor pads the empty slot with &nbsp; */
       items.forEach(function (it) {
         var link = it.querySelector('a.title') || it.querySelector('a[href]');
         if (!link) return;

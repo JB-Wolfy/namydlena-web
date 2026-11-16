@@ -194,8 +194,8 @@ html.eli{
 .eli .eli-cat > .eli-cat__media{grid-row:1/4;margin:0}
 .eli .eli-cat > *{min-width:0}
 .eli .eli-cat:last-child{border-bottom:1px solid var(--eli-border)}
-.eli .eli-cat__media{display:block;margin-bottom:14px;border-radius:var(--eli-r-photo);overflow:hidden}
-.eli .eli-cat__photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s ease}
+.eli .eli-cat__media{display:block;aspect-ratio:4/5;margin-bottom:14px;border-radius:var(--eli-r-photo);overflow:hidden;background:var(--eli-silver)}
+.eli .eli-cat__photo{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .eli .eli-cat__media:hover .eli-cat__photo{transform:scale(1.03)}
 .eli .eli-cat__title a{color:var(--eli-forest);text-decoration:none}
 .eli .eli-cat__links{display:flex;flex-wrap:wrap;gap:0 18px;list-style:none;padding-top:4px}
