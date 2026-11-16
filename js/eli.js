@@ -15,7 +15,14 @@
 
   var T = {
     igTitle: 'Namydlená Eli na Instagramu',
-    igFollow: 'Sledovat @namydlenaeli'
+    igFollow: 'Sledovat @namydlenaeli',
+    account: 'Můj účet',
+    blogMore: 'Číst dál',
+    /* links from the top bar that join the main menu (the rest stays in the footer) */
+    menuExtra: [
+      { href: '/muj-pribeh/', label: 'Můj příběh' },
+      { href: '/prodejni-mista/', label: 'Prodejní místa' }
+    ]
   };
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
@@ -108,7 +115,90 @@
     } catch (e) {}
   }
 
-  var FEATURES = [badgePreview, instagramStrip, homepagePicks, splitNames];
+  /* ---- One menu: "Můj příběh" and "Prodejní místa" join the category menu,
+          the top bar is hidden on desktop in css (its legal links are in the footer) ---- */
+  function oneMenu() {
+    var ul = $('#navigation .menu-level-1');
+    if (!ul || ul.querySelector('.eli-menu-extra')) return;
+    T.menuExtra.forEach(function (m) {
+      if (ul.querySelector('a[href$="' + m.href + '"]')) return;
+      var li = el('li', 'eli-menu-extra');
+      var a = el('a');
+      a.href = m.href;
+      a.appendChild(el('b', null, m.label));
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    /* Shoptet folds items that do not fit into the "..." helper on resize */
+    window.dispatchEvent(new Event('resize'));
+  }
+
+  /* ---- Account: the "Přihlášení" button from the top bar moves next to the cart as an icon ---- */
+  function accountIcon() {
+    var box = $('#header .navigation-buttons');
+    var btn = $('.top-navigation-tools .top-nav-button-login, .top-navigation-tools a.top-nav-button[href*="klient"]');
+    if (!box || !btn || box.contains(btn)) return;
+    btn.classList.add('eli-account');
+    btn.setAttribute('aria-label', (btn.textContent || '').trim() || T.account);
+    box.insertBefore(btn, box.firstChild);
+  }
+
+  /* ---- Zápisník on the homepage: newest articles of the blog section in data-eli-blog ---- */
+  function homepageBlog() {
+    var slot = $('[data-eli-slot="blog"]');
+    if (!slot || slot.dataset.eliDone) return;
+    slot.dataset.eliDone = '1';
+    var section = slot.closest('[data-eli-section="blog"]');
+    var url = slot.getAttribute('data-eli-blog');
+    if (!url || !window.fetch) return;
+    fetch(url, { credentials: 'same-origin' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var items = Array.prototype.slice.call(doc.querySelectorAll('.news-wrapper .news-item')).slice(0, 3);
+      if (!items.length) return;
+      items.forEach(function (it) {
+        var link = it.querySelector('a.title') || it.querySelector('a[href]');
+        if (!link) return;
+        var post = el('article', 'eli-post');
+        var img = it.querySelector('img');
+        if (img) {
+          var media = el('a', 'eli-post__media');
+          media.href = link.getAttribute('href');
+          media.tabIndex = -1;
+          media.setAttribute('aria-hidden', 'true');
+          var pic = el('img');
+          pic.src = img.getAttribute('data-src') || img.getAttribute('src');
+          pic.alt = ''; pic.loading = 'lazy';
+          media.appendChild(pic);
+          post.appendChild(media);
+        }
+        var time = it.querySelector('time');
+        if (time) post.appendChild(el('p', 'eli-kicker eli-kicker--muted', time.textContent.trim()));
+        var h = el('h3', 'eli-h3 eli-post__title');
+        var a = el('a');
+        a.href = link.getAttribute('href');
+        a.textContent = link.textContent.trim();
+        h.appendChild(a);
+        post.appendChild(h);
+        var desc = it.querySelector('.description');
+        if (desc && desc.textContent.trim()) post.appendChild(el('p', 'eli-post__text', '')).textContent = desc.textContent.trim();
+        var more = el('a', 'eli-link', T.blogMore);
+        more.href = link.getAttribute('href');
+        post.appendChild(more);
+        slot.appendChild(post);
+      });
+      if (section && slot.children.length) section.hidden = false;
+    }).catch(function (e) { if (window.console) console.warn('[eli] homepageBlog: ' + e.message); });
+  }
+
+  /* ---- "Skladem" gets its own class, so css can colour in-stock without touching other states ---- */
+  function stockState() {
+    $$('.availability > span:first-child').forEach(function (s) {
+      if (s.dataset.eliStock) return;
+      s.dataset.eliStock = /^skladem\b/i.test(s.textContent.trim()) ? 'in' : 'other';
+    });
+  }
+
+  var FEATURES = [badgePreview, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState];
 
   function run() {
     FEATURES.forEach(function (f) {

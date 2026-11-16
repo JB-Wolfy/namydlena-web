@@ -29,7 +29,8 @@
     </div>
   </section>
 
-  <!-- 2. Categories -->
+  <!-- 2. Categories. Photos: for now one product photo from Shoptet per category,
+       later a group shot (4:5). Swap only the img src. -->
   <section class="eli-sec" id="kategorie">
     <div class="eli-wrap">
       <div class="eli-head">
@@ -40,6 +41,7 @@
       </div>
       <div class="eli-cats">
         <div class="eli-cat">
+          <a class="eli-cat__media" href="/darky/" tabindex="-1" aria-hidden="true"><img class="eli-cat__photo" src="https://cdn.myshoptet.com/usr/www.namydlenaeli.cz/user/shop/big/167-1_namydlena-eli-vanoc--ni-2-2w.jpg" width="1024" height="1365" alt="" loading="lazy" decoding="async"></a>
           <h3 class="eli-h3 eli-cat__title"><a href="/darky/">Dárky</a></h3>
           <p class="eli-small">Pod stromeček i jen tak.</p>
           <ul class="eli-cat__links">
@@ -47,6 +49,7 @@
           </ul>
         </div>
         <div class="eli-cat">
+          <a class="eli-cat__media" href="/denni-pece/" tabindex="-1" aria-hidden="true"><img class="eli-cat__photo" src="https://cdn.myshoptet.com/usr/www.namydlenaeli.cz/user/shop/big/238_pred-bourkou-prirodni-deodorant-1.jpg" width="1024" height="1365" alt="" loading="lazy" decoding="async"></a>
           <h3 class="eli-h3 eli-cat__title"><a href="/denni-pece/">Denní péče</a></h3>
           <p class="eli-small">Na ráno, které se nevleče.</p>
           <ul class="eli-cat__links">
@@ -56,6 +59,7 @@
           </ul>
         </div>
         <div class="eli-cat">
+          <a class="eli-cat__media" href="/ritualy/" tabindex="-1" aria-hidden="true"><img class="eli-cat__photo" src="https://cdn.myshoptet.com/usr/www.namydlenaeli.cz/user/shop/big/45-1_namydlena-eli-new-1.jpg" width="1024" height="1365" alt="" loading="lazy" decoding="async"></a>
           <h3 class="eli-h3 eli-cat__title"><a href="/ritualy/">Rituály</a></h3>
           <p class="eli-small">Na večer, který si necháš pro sebe.</p>
           <ul class="eli-cat__links">
@@ -85,11 +89,11 @@
   </section>
 
   <!-- 4. Pillars -->
-  <section class="eli-sec eli-sec--silver eli-sec--rule eli-sec--tight">
+  <section class="eli-sec eli-sec--plain eli-sec--rule eli-sec--tight">
     <div class="eli-wrap">
       <div class="eli-pillars">
         <div class="eli-pillar">
-          <span class="eli-ico eli-ico--jar" aria-hidden="true"></span>
+          <span class="eli-ico eli-ico--leaf" aria-hidden="true"></span>
           <div>
             <h3 class="eli-h3 eli-pillar__title">Vlastní receptury</h3>
             <p>Každou recepturu si ladím sama.</p>
@@ -126,6 +130,21 @@
           <p><a class="eli-btn" href="/muj-pribeh/">Přečíst můj příběh</a></p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 5b. Zápisník: js/eli.js fills in the newest articles of the blog section named in data-eli-blog.
+       No article = the whole section stays hidden. -->
+  <section class="eli-sec eli-sec--rule" data-eli-section="blog" hidden>
+    <div class="eli-wrap">
+      <div class="eli-head">
+        <div class="eli-head__main">
+          <p class="eli-kicker">Zápisník</p>
+          <h2 class="eli-h2">Co se nevejde na etiketu</h2>
+        </div>
+        <a class="eli-link" href="/nase-novinky/">Všechny články</a>
+      </div>
+      <div class="eli-posts" data-eli-slot="blog" data-eli-blog="/nase-novinky/"></div>
     </div>
   </section>
 
