@@ -325,11 +325,15 @@
     var path = location.pathname;
     var deo = DEO.filter(function (d) { return d.href === path; })[0];
 
-    /* stars: hidden until the first rating */
-    var label = $('.p-detail .stars-label');
-    if (label && /neohodnoceno/i.test(label.textContent)) pd.classList.add('eli-no-rating');
-
     var header = $('.p-detail-inner-header');
+    /* name, badges, flags and stars sit next to the photo (top of the info column), not above it.
+       Stars stay always, also "Neohodnoceno": transparency for every product. */
+    var infoCol = $('.p-info-wrapper');
+    var flags = $('.p-detail .p-detail-info');
+    if (infoCol && header && !infoCol.contains(header)) {
+      infoCol.insertBefore(header, infoCol.firstChild);
+      if (flags) infoCol.insertBefore(flags, header.nextSibling);
+    }
     if (deo && header && !$('.eli-badges')) {
       var ul = el('ul', 'eli-badges');
       T.deoBadges.forEach(function (b) { ul.appendChild(el('li', null, b)); });
