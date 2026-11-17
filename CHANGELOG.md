@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 7 - 17. 11. 2026 - RELEASE `383719ea64590ef1af3c05c63dddd9d14fa87653`
+- Produkt (desktop): fotka i název o 24 px níž pod drobečkovou navigací. Pryč měření z vydání 6 (příčina byly fotky 4:5 doplněné Shoptetem bílými pruhy; fotky produktů nahrávat 3:4).
+
 ## Vydání 6 - 17. 11. 2026 - RELEASE `8eb0036a9ef1a4d9d2097c2a22fe91dfe6a79ee9`
 - Produkt: název se zarovnává s horní hranou fotky měřením (Safari měl pravý sloupec o ~30 px výš než Chrome).
 
