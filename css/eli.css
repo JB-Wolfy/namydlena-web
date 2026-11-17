@@ -773,6 +773,8 @@ html.eli{
 .eli .subcategories a[href*="masky"]{--eli-ico:url(../img/icons/products/maska.svg)}
 .eli .subcategories a[href*="mydl"]{--eli-ico:url(../img/icons/products/mydlo.svg)}
 .eli .subcategories li a:hover .image{background-color:var(--eli-forest)}
+/* mobile menu: no pictures at all, compact list */
+@media (max-width:767px){.eli .menu-level-2 a.menu-image{display:none !important}}
 /* same icons in the desktop dropdown menu (Classic shows category photos there) */
 .eli .menu-level-2 a.menu-image[href*="deodorant"],.eli .menu-level-2 a.menu-image[href*="peeling"],.eli .menu-level-2 a.menu-image[href*="sampuk"],.eli .menu-level-2 a.menu-image[href*="balzam"],.eli .menu-level-2 a.menu-image[href*="sul-do-koupele"],.eli .menu-level-2 a.menu-image[href*="sumive-bomby"],.eli .menu-level-2 a.menu-image[href*="masky"],.eli .menu-level-2 a.menu-image[href*="mydl"]{display:flex;align-items:center;justify-content:center}
 .eli .menu-level-2 a.menu-image[href*="deodorant"] img,.eli .menu-level-2 a.menu-image[href*="peeling"] img,.eli .menu-level-2 a.menu-image[href*="sampuk"] img,.eli .menu-level-2 a.menu-image[href*="balzam"] img,.eli .menu-level-2 a.menu-image[href*="sul-do-koupele"] img,.eli .menu-level-2 a.menu-image[href*="sumive-bomby"] img,.eli .menu-level-2 a.menu-image[href*="masky"] img,.eli .menu-level-2 a.menu-image[href*="mydl"] img{display:none !important}
