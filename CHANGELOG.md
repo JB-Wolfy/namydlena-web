@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 14 - 17. 11. 2026 - RELEASE `36b52f73c4dabc499538559a0e29344ca58aa3fa`
+- Produkt: výdrž u ceny i pro peeling, balzám, šampuk a masku (podle názvu, ne u dárkových sad). Rejstřík jen u popisů s kapitolami H2.
+
 ## Vydání 13 - 17. 11. 2026 - RELEASE `5db69945bd9de853e61f95c0e4fb91e84e328564`
 - Produkt: rejstřík nad popisem (kapitoly popisu, Hodnocení, Diskuze; aktivní položka podtržená při scrollu, na mobilu posuvný). Diskuze zase viditelná.
 
