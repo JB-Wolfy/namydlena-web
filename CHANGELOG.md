@@ -1,5 +1,9 @@
 # Changelog
 
+## Vydání 11 - 17. 11. 2026 - RELEASE `03598e3b29f03c2afd4f979d21d772b9e0fe1e47`
+- Produkt: cena těsně nad košíkem (u deo „vydrží zhruba 2 měsíce“ z FAQ), rámeček Doprava a dárek zdarma nad 600 Kč s ikonou truck-electric, pod ním dostupnost a tři pilíře z úvodní stránky.
+- Nový token `--eli-gold` (#A87C2A) jen pro hvězdičky hodnocení.
+
 ## Vydání 10 - 17. 11. 2026 - RELEASE `a0dc9bc1fc6804518629896b605a834e3083f0af`
 - Produkt: pořadí nákupního sloupce podle e-commerce praxe (název, hvězdy, cena, krátký popis, Detailní informace, další vůně, dostupnost, košík) + pod tlačítkem „Doprava a dárek zdarma nad 600 Kč“ (ikona Lucide gift).
 
