@@ -17,7 +17,10 @@
     igTitle: 'Namydlená Eli na Instagramu',
     igFollow: 'Sledovat @namydlenaeli',
     account: 'Můj účet',
-    buyNote: 'Doprava a dárek zdarma nad 600 Kč',
+    buyNote: 'Doprava a dárek zdarma při nákupu nad 600 Kč',
+    deoLasts: 'vydrží zhruba 2 měsíce',
+    /* the three homepage pillars, short form for the buy column: [icon, text] */
+    usp: [['leaf', 'Vlastní receptury'], ['ridge', 'Ručně v Beskydech'], ['hands', 'Nejsem firma, jsem Eli']],
     brandName: 'NAMYDLENÁ ELI',
     /* product page */
     deoSwitch: 'Vyber si atmosféru',
@@ -448,16 +451,36 @@
     var more = $$('.p-info-wrapper > p').filter(function (p) { return p.querySelector('a.chevron-after'); })[0];
     var stock = $('.availability-value', col);
     var cart = $('.add-to-cart', col);
-    after(price, head);
-    after(desc, price);
+    var isDeo = DEO.some(function (d) { return d.href === location.pathname; });
+    /* why buy first, then the choice, then price right at the button */
+    after(desc, head);
     after(more, desc);
-    before(stock, cart);
-    if (cart && !$('.eli-buy-note', col)) {
-      var note = el('p', 'eli-buy-note');
-      note.appendChild(el('span', 'eli-ico eli-ico--gift'));
-      note.appendChild(document.createTextNode(T.buyNote));
-      after(note, cart);
+    before(price, cart);
+    if (price && isDeo && !$('.eli-lasts', price)) {
+      var measure = $('.price-measure', price);
+      var lasts = el('span', 'eli-lasts', T.deoLasts);
+      if (measure) measure.parentNode.insertBefore(lasts, measure.nextSibling); else price.appendChild(lasts);
     }
+    if (!cart) return;
+    var note = $('.eli-buy-note', col);
+    if (!note) {
+      note = el('p', 'eli-buy-note');
+      note.appendChild(el('span', 'eli-ico eli-ico--truck'));
+      note.appendChild(document.createTextNode(T.buyNote));
+    }
+    after(note, cart);
+    after(stock, note);
+    var usp = $('.eli-usp', col);
+    if (!usp) {
+      usp = el('ul', 'eli-usp');
+      T.usp.forEach(function (u) {
+        var li = el('li', 'eli-usp__item');
+        li.appendChild(el('span', 'eli-ico eli-ico--' + u[0]));
+        li.appendChild(el('span', 'eli-usp__text', u[1]));
+        usp.appendChild(li);
+      });
+    }
+    after(usp, stock || note);
   }
 
   var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, stickyCart];

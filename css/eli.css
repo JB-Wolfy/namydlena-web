@@ -37,6 +37,7 @@ html.eli{
   --eli-border:#D8D1C4;   /* rules, dividers */
   --eli-ink:#2E2B28;      /* text */
   --eli-muted:#6E675F;    /* secondary text */
+  --eli-gold:#A87C2A;     /* rating stars only (3.3:1 on cream), never text or surfaces */
   /* stock dots only (never text, never surfaces): in stock / on order / unavailable */
   --eli-stock-in:#4F8A3C;
   --eli-stock-order:#D98C2B;
@@ -135,7 +136,7 @@ html.eli{
 @media (min-width:768px){.eli .eli-ico{width:54px;height:54px}}
 
 /* stars */
-.eli .eli-stars{display:inline-block;width:98px;height:18px;background-color:var(--eli-forest);-webkit-mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x;mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x}
+.eli .eli-stars{display:inline-block;width:98px;height:18px;background-color:var(--eli-gold);-webkit-mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x;mask:url(../img/icons/star.svg) left center/19.6px 18px repeat-x}
 
 /* ----- 3.1 Hero: Eli in the middle, the photo dissolves into the page at the bottom -----
    Two variants, chosen by class in modules/home/home.html:
@@ -595,7 +596,7 @@ html.eli{
 .eli .p-info-wrapper .p-detail-info{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0 0 14px;padding:0}
 .eli .p-info-wrapper .p-detail-info .flags{position:static;display:flex;gap:6px;margin:0}
 .eli .p-detail .stars-wrapper{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--eli-muted)}
-.eli .p-detail .stars .star::before{color:var(--eli-forest)}
+.eli .p-detail .stars .star::before{color:var(--eli-gold)}
 .eli .p-detail .stars-link{font-size:14px;color:var(--eli-forest);text-decoration:underline;text-underline-offset:4px}
 .eli .p-info-wrapper .p-detail-inner-header h1{margin-top:0}
 /* optical alignment: the cap height of the name starts where the photo starts */
@@ -607,11 +608,16 @@ html.eli{
 .eli .p-thumbnails .p-thumbnail{width:75px;height:100px}
 .eli .p-thumbnails img{width:75px;height:100px;object-fit:cover;mix-blend-mode:multiply}
 .eli .p-info-wrapper .p-short-description + p{margin:-6px 0 18px}
-.eli .p-info-wrapper .p-final-price-wrapper{margin:0 0 16px}
-.eli .p-info-wrapper .availability-value{margin:0 0 12px}
-.eli .eli-buy-note{display:flex;align-items:center;gap:10px;margin:14px 0 0;font-size:14px;color:var(--eli-ink)}
-.eli .eli-buy-note .eli-ico{width:18px;height:18px}
-.eli .eli-ico--gift{--eli-ico:url(../img/icons/lucide/gift.svg)}
+.eli .p-info-wrapper .p-final-price-wrapper{margin:22px 0 16px}
+.eli .eli-lasts{font-size:14px;color:var(--eli-muted)}
+.eli .eli-lasts::before{content:'\00b7';margin-right:8px}
+.eli .eli-buy-note{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0 0;padding:12px 16px;border:1px solid var(--eli-border);border-radius:var(--eli-r-box);font-size:14px;color:var(--eli-ink)}
+.eli .eli-buy-note .eli-ico{width:20px;height:20px}
+.eli .eli-ico--truck{--eli-ico:url(../img/icons/lucide/truck-electric.svg)}
+.eli .p-info-wrapper .availability-value{margin:14px 0 0}
+.eli .eli-usp{display:flex;flex-wrap:wrap;gap:12px 24px;margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--eli-border);list-style:none}
+.eli .eli-usp__item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--eli-ink)}
+.eli .eli-usp .eli-ico{width:26px;height:26px}
 /* price, stock, cart */
 .eli .p-final-price-wrapper{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:6px 0 10px}
 .eli .p-final-price-wrapper .price-final{font-family:var(--eli-sans);font-weight:500;font-size:28px;color:var(--eli-ink)}
