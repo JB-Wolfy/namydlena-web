@@ -51,6 +51,7 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 
 ## Další na řadě
 
+0. **Mobilní menu** inspirované flow-nutrition.cz (Kuba přinese screenshoty, nový chat). Benefit banner v kategoriích Kuba vypnul (pilíře jsou na úvodní a u košíku).
 1. Ostatní produkty: přepsat popisy do kostry s H2 (vzor deodoranty) - pak dostanou rejstřík. Navrženo začít šampukem citron.
 2. Košík: odpočet do dopravy zdarma (600 Kč), upsell, hláška k dárku.
 3. `/uvnitr` (Atlas), kvíz B.U.B.L.I.N.A., Worker.

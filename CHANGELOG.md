@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 18 - 17. 11. 2026 - RELEASE `7191c866b3900dc72ddc62be18e0ac8cf3e9afe2`
+- Dostupnost: stav 16 px, počet kusů ze Skladového hospodářství 14 px tlumeně vedle. Backlog: mobilní menu podle flow-nutrition.cz (Kuba má screenshoty).
+
 ## Vydání 17 - 17. 11. 2026 - RELEASE `aa14a3e9233eaf340e0e7c14c1af629aa81a1920`
 - Mobilní menu bez obrázků/ikon kategorií (kompaktní); desktop a pilulky podkategorií beze změny.
 
