@@ -413,7 +413,22 @@
     }).observe(btn);
   }
 
-  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, productModules, stickyCart];
+
+  /* Desktop: the cap height of the product name starts exactly where the photo starts.
+     Measured, not guessed: Safari and Chrome put the two columns at different heights. */
+  function alignName() {
+    var img = $('.p-detail .p-image'), info = $('.p-info-wrapper'), name = $('.p-detail-inner-header .eli-name');
+    if (!img || !info || !name) return;
+    info.style.marginTop = '';
+    var ib = img.getBoundingClientRect(), nb = name.getBoundingClientRect();
+    if (window.innerWidth < 768 || nb.left < ib.right) return; /* stacked layout: nothing to align */
+    var fs = parseFloat(getComputedStyle(name).fontSize) || 40;
+    var capTop = nb.top + fs * 0.19; /* name box has margin-top -.19em; caps start ~.19em lower */
+    d = Math.round(ib.top - capTop);
+    if (Math.abs(d) > 1 && Math.abs(d) < 120) info.style.marginTop = d + 'px';
+  }
+
+  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, productModules, alignName, stickyCart];
 
   function run() {
     FEATURES.forEach(function (f) {
@@ -421,6 +436,9 @@
     });
   }
 
+  window.addEventListener('load', function () { try { alignName(); } catch (e) {} });
+  window.addEventListener('resize', function () { try { alignName(); } catch (e) {} });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { try { alignName(); } catch (e) {} });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
   /* Shoptet re-renders product lists and the cart with AJAX; run again after it. */
