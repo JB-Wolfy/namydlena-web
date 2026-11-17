@@ -349,6 +349,12 @@
       infoCol.insertBefore(header, infoCol.firstChild);
       if (flags) infoCol.insertBefore(flags, header.nextSibling);
     }
+    /* short description right under the name and flags (before price), for every product */
+    var shortDesc = infoCol && $('.p-short-description', infoCol);
+    var anchor = flags && infoCol.contains(flags) ? flags : header;
+    if (shortDesc && anchor && anchor.parentNode === infoCol && anchor.nextSibling !== shortDesc) {
+      infoCol.insertBefore(shortDesc, anchor.nextSibling);
+    }
     if (deo) {
       var info = $('.p-info-wrapper');
       var cart = info && info.querySelector('.add-to-cart');
@@ -368,8 +374,7 @@
           row.appendChild(li);
         });
         sw.appendChild(row);
-        var price = info.querySelector('.p-final-price-wrapper');
-        info.insertBefore(sw, price ? price : cart);
+        info.insertBefore(sw, cart); /* the other scents sit right above Add to cart */
       }
     }
 
