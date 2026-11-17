@@ -590,8 +590,6 @@ html.eli{
 .eli .p-detail-inner-header h1{margin:0 0 14px;font-family:var(--eli-serif);font-weight:400;font-size:30px;line-height:1.1;color:var(--eli-forest);text-transform:uppercase;letter-spacing:.08em}
 .eli .p-detail-inner-header h1 .eli-type{margin-top:10px;font-size:16px;letter-spacing:.04em;text-transform:none}
 @media (min-width:768px){.eli .p-detail-inner-header h1{font-size:40px}}
-.eli .eli-badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
-.eli .eli-badges li{padding:6px 14px;border:1px solid var(--eli-border);border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--eli-forest)}
 /* flags + stars under the name in the info column (moved there by js/eli.js); stars always shown */
 .eli .p-info-wrapper .p-detail-info{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0 0 14px;padding:0}
 .eli .p-info-wrapper .p-detail-info .flags{position:static;display:flex;gap:6px;margin:0}
@@ -600,8 +598,7 @@ html.eli{
 .eli .p-detail .stars-link{font-size:14px;color:var(--eli-forest);text-decoration:underline;text-underline-offset:4px}
 .eli .p-info-wrapper .p-detail-inner-header h1{margin-top:0}
 /* optical alignment: the cap height of the name starts where the photo starts */
-.eli .p-info-wrapper .p-detail-inner-header h1 .eli-name{line-height:1;margin-top:-.08em}
-.eli .p-info-wrapper .eli-badges{margin-bottom:14px}
+.eli .p-info-wrapper .p-detail-inner-header h1 .eli-name{line-height:1;margin-top:-.19em}
 /* gallery: Shoptet's own photos in a calm frame */
 .eli .p-image{border-radius:var(--eli-r-photo);overflow:hidden}
 .eli .p-image img{mix-blend-mode:multiply}
@@ -623,6 +620,9 @@ html.eli{
 .eli .p-detail .add-to-cart .btn.add-to-cart-button{flex:1 1 auto;min-height:54px;font-size:16px}
 .eli .p-short-description{font-size:16px;line-height:1.7;color:var(--eli-ink)}
 .eli .p-short-description p{margin:0 0 12px}
+.eli .p-short-description ul{margin:0 0 14px;padding:0;list-style:none}
+.eli .p-short-description li{position:relative;margin:0 0 6px;padding-left:18px}
+.eli .p-short-description li::before{content:'';position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--eli-forest)}
 .eli .p-detail .social-buttons-wrapper,.eli .benefitBanner.position--benefitProduct{display:none}
 
 /* 6.2 Deodorant switcher: one dot per atmosphere in the label stripe colour */

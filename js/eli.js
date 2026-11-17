@@ -19,7 +19,6 @@
     account: 'Můj účet',
     brandName: 'NAMYDLENÁ ELI',
     /* product page */
-    deoBadges: ['Bez sody', 'Papírová tuba', 'Ručně v malých várkách'],
     deoSwitch: 'Vyber si atmosféru',
     insideOpen: 'Celé složení a proč tam je',
     faqTitle: 'Časté otázky',
@@ -349,11 +348,6 @@
     if (infoCol && header && !infoCol.contains(header)) {
       infoCol.insertBefore(header, infoCol.firstChild);
       if (flags) infoCol.insertBefore(flags, header.nextSibling);
-    }
-    if (deo && header && !$('.eli-badges')) {
-      var ul = el('ul', 'eli-badges');
-      T.deoBadges.forEach(function (b) { ul.appendChild(el('li', null, b)); });
-      header.appendChild(ul);
     }
     if (deo) {
       var info = $('.p-info-wrapper');
