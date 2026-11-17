@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 13 - 17. 11. 2026 - RELEASE `5db69945bd9de853e61f95c0e4fb91e84e328564`
+- Produkt: rejstřík nad popisem (kapitoly popisu, Hodnocení, Diskuze; aktivní položka podtržená při scrollu, na mobilu posuvný). Diskuze zase viditelná.
+
 ## Vydání 12 - 17. 11. 2026 - RELEASE `a22de4687d714ec2f02a2f705c5536ca622a616f`
 - Produkt: hodnocení vždy viditelné pod popisem (čtení i přidání, odkaz u hvězdiček na něj skočí); rámeček jen „Doprava zdarma při nákupu nad 600 Kč“.
 
