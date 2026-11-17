@@ -607,6 +607,11 @@ html.eli{
 .eli .p-thumbnails .p-thumbnail{width:75px;height:100px}
 .eli .p-thumbnails img{width:75px;height:100px;object-fit:cover;mix-blend-mode:multiply}
 .eli .p-info-wrapper .p-short-description + p{margin:-6px 0 18px}
+.eli .p-info-wrapper .p-final-price-wrapper{margin:0 0 16px}
+.eli .p-info-wrapper .availability-value{margin:0 0 12px}
+.eli .eli-buy-note{display:flex;align-items:center;gap:10px;margin:14px 0 0;font-size:14px;color:var(--eli-ink)}
+.eli .eli-buy-note .eli-ico{width:18px;height:18px}
+.eli .eli-ico--gift{--eli-ico:url(../img/icons/lucide/gift.svg)}
 /* price, stock, cart */
 .eli .p-final-price-wrapper{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:6px 0 10px}
 .eli .p-final-price-wrapper .price-final{font-family:var(--eli-sans);font-weight:500;font-size:28px;color:var(--eli-ink)}

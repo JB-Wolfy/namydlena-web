@@ -17,6 +17,7 @@
     igTitle: 'Namydlená Eli na Instagramu',
     igFollow: 'Sledovat @namydlenaeli',
     account: 'Můj účet',
+    buyNote: 'Doprava a dárek zdarma nad 600 Kč',
     brandName: 'NAMYDLENÁ ELI',
     /* product page */
     deoSwitch: 'Vyber si atmosféru',
@@ -434,7 +435,32 @@
 
 
 
-  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, productModules, stickyCart];
+  /* Buy column order (ecommerce practice): name, flags + stars, price, short description + details link,
+     other scents, availability, quantity + Add to cart, one reassurance line. Idempotent: only moves nodes. */
+  function buyOrder() {
+    var col = $('.p-info-wrapper');
+    if (!col || !$('.p-detail-inner-header', col)) return;
+    var after = function (node, ref) { if (node && ref && ref.parentNode === col && ref.nextSibling !== node) col.insertBefore(node, ref.nextSibling); };
+    var before = function (node, ref) { if (node && ref && ref.parentNode === col && node.nextSibling !== ref) col.insertBefore(node, ref); };
+    var head = $('.p-detail-info', col) || $('.p-detail-inner-header', col);
+    var price = $('.p-final-price-wrapper', col);
+    var desc = $('.p-short-description', col);
+    var more = $$('.p-info-wrapper > p').filter(function (p) { return p.querySelector('a.chevron-after'); })[0];
+    var stock = $('.availability-value', col);
+    var cart = $('.add-to-cart', col);
+    after(price, head);
+    after(desc, price);
+    after(more, desc);
+    before(stock, cart);
+    if (cart && !$('.eli-buy-note', col)) {
+      var note = el('p', 'eli-buy-note');
+      note.appendChild(el('span', 'eli-ico eli-ico--gift'));
+      note.appendChild(document.createTextNode(T.buyNote));
+      after(note, cart);
+    }
+  }
+
+  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, stickyCart];
 
   function run() {
     FEATURES.forEach(function (f) {
