@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 12 - 17. 11. 2026 - RELEASE `a22de4687d714ec2f02a2f705c5536ca622a616f`
+- Produkt: hodnocení vždy viditelné pod popisem (čtení i přidání, odkaz u hvězdiček na něj skočí); rámeček jen „Doprava zdarma při nákupu nad 600 Kč“.
+
 ## Vydání 11 - 17. 11. 2026 - RELEASE `03598e3b29f03c2afd4f979d21d772b9e0fe1e47`
 - Produkt: cena těsně nad košíkem (u deo „vydrží zhruba 2 měsíce“ z FAQ), rámeček Doprava a dárek zdarma nad 600 Kč s ikonou truck-electric, pod ním dostupnost a tři pilíře z úvodní stránky.
 - Nový token `--eli-gold` (#A87C2A) jen pro hvězdičky hodnocení.
