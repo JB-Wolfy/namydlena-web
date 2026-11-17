@@ -17,7 +17,7 @@
     igTitle: 'Namydlená Eli na Instagramu',
     igFollow: 'Sledovat @namydlenaeli',
     account: 'Můj účet',
-    buyNote: 'Doprava a dárek zdarma při nákupu nad 600 Kč',
+    buyNote: 'Doprava zdarma při nákupu nad 600 Kč',
     deoLasts: 'vydrží zhruba 2 měsíce',
     /* the three homepage pillars, short form for the buy column: [icon, text] */
     usp: [['leaf', 'Vlastní receptury'], ['ridge', 'Ručně v Beskydech'], ['hands', 'Nejsem firma, jsem Eli']],
@@ -396,7 +396,7 @@
       }
     }
 
-    /* tabs: description always open; similar products become "Doplň si" below; rating tab only with ratings */
+    /* tabs: description always open; similar products become "Doplň si" below; ratings always shown under the description (CSS) */
     var tabs = $('.p-detail-tabs-wrapper');
     if (tabs) {
       tabs.classList.add('eli-tabs-off');

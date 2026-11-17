@@ -658,7 +658,9 @@ html.eli{
 /* 6.3 Tabs off: the description is always open, the rest lives below */
 .eli .p-detail-tabs-wrapper.eli-tabs-off .shp-tabs-row{display:none}
 .eli .p-detail-tabs-wrapper.eli-tabs-off #description{display:block !important;opacity:1}
-.eli .p-detail-tabs-wrapper.eli-tabs-off .tab-pane:not(#description){display:none !important}
+.eli .p-detail-tabs-wrapper.eli-tabs-off .tab-pane:not(#description):not(#ratingTab){display:none !important}
+/* ratings always visible under the description: people read them and can add one (stars link scrolls here) */
+.eli .p-detail-tabs-wrapper.eli-tabs-off #ratingTab{display:block !important;opacity:1;margin-top:48px;padding-top:40px;border-top:1px solid var(--eli-border);scroll-margin-top:90px}
 .eli .description-inner{display:block}  /* Classic makes it flex */
 
 /* 6.4 Description modules */
