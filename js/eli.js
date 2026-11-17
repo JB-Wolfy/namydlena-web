@@ -355,6 +355,20 @@
     if (shortDesc && anchor && anchor.parentNode === infoCol && anchor.nextSibling !== shortDesc) {
       infoCol.insertBefore(shortDesc, anchor.nextSibling);
     }
+    /* "Detailní informace" link right under the short description */
+    var more = infoCol && $$('.p-info-wrapper > p', document).filter(function (p) { return p.querySelector('a.chevron-after'); })[0];
+    if (more && shortDesc && shortDesc.nextSibling !== more) infoCol.insertBefore(more, shortDesc.nextSibling);
+
+    /* thumbnails: Shoptet pads portrait photos into 100x100 squares with white bars;
+       use the full photo (link target) and crop it to 3:4 in CSS instead */
+    $$('.p-thumbnails a.p-thumbnail').forEach(function (a) {
+      var img = a.querySelector('img'), big = a.getAttribute('href');
+      if (!img || !big || img.dataset.eliBig) return;
+      img.dataset.eliBig = '1';
+      img.removeAttribute('srcset');
+      img.setAttribute('data-src', big);
+      img.src = big;
+    });
     if (deo) {
       var info = $('.p-info-wrapper');
       var cart = info && info.querySelector('.add-to-cart');
