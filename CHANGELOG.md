@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 10 - 17. 11. 2026 - RELEASE `a0dc9bc1fc6804518629896b605a834e3083f0af`
+- Produkt: pořadí nákupního sloupce podle e-commerce praxe (název, hvězdy, cena, krátký popis, Detailní informace, další vůně, dostupnost, košík) + pod tlačítkem „Doprava a dárek zdarma nad 600 Kč“ (ikona Lucide gift).
+
 ## Vydání 9 - 17. 11. 2026 - RELEASE `4bb285c5a73b1a606a2c82275106ac911ac2a1d6`
 - Produkt: Detailní informace pod krátkým popisem; náhledy fotek 3:4 z plné fotky (bez bílých pruhů ze čtvercového náhledu Shoptetu).
 
