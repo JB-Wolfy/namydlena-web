@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 16 - 17. 11. 2026 - RELEASE `eed4e8b562a226ae2ac123a9fbd9a4873d2d4b97`
+- Vlastní liniové ikony typů produktů (`img/icons/products/`: deodorant, peeling, šampuk, mýdlo, balzám, sůl, bomba, maska) místo fotek v pilulkách podkategorií i v rozbalovacím menu (podle URL; fotky v adminu zůstávají jako záloha). Pilulky už neořezávají text.
+
 ## Vydání 15 - 17. 11. 2026 - RELEASE `03fbe9ddb96ec2f834971d0f98c99d082781b039`
 - Peeling: „vydrží 2-3 měsíce“ (stejný styl jako ostatní). HANDOFF a CLAUDE aktualizované.
 
