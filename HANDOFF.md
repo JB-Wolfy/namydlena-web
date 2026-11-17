@@ -51,6 +51,9 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 
 ## Další na řadě
 
+0a. **Rychlost** (změřeno 17. 11.): naše fotky jsou JPG ~1 MB (hero 302 kB, dlaždice Dárky 255 / Denní péče 129 / Rituály 167, eli-trh 139) -> WebP ve skutečné velikosti
+   (nové soubory, push, přepsat sha v URL v bloku úvodní stránky), čekáme ~400-500 kB. Náhledy fotek na produktu (`productFrame`) berou plnou fotku 1024 px
+   hned při načtení (+200-400 kB) -> načítat líně / až po interakci. Pak PageSpeed mobil. Fotky produktů jdou ze Shoptetu (neovlivníme). Kód 15 + 9 kB, fonty 149 kB OK.
 0. **Mobilní menu** inspirované flow-nutrition.cz (Kuba přinese screenshoty, nový chat). Benefit banner v kategoriích Kuba vypnul (pilíře jsou na úvodní a u košíku).
 1. Ostatní produkty: přepsat popisy do kostry s H2 (vzor deodoranty) - pak dostanou rejstřík. Navrženo začít šampukem citron.
 2. Košík: odpočet do dopravy zdarma (600 Kč), upsell, hláška k dárku.
