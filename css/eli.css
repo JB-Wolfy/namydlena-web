@@ -615,8 +615,8 @@ html.eli{
 .eli .eli-buy-note .eli-ico{width:20px;height:20px}
 .eli .eli-ico--truck{--eli-ico:url(../img/icons/lucide/truck-electric.svg)}
 .eli .p-info-wrapper .availability-value{margin:14px 0 0}
-.eli .eli-usp{display:flex;flex-wrap:wrap;gap:12px 24px;margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--eli-border);list-style:none}
-.eli .eli-usp__item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--eli-ink)}
+.eli .eli-usp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--eli-border);list-style:none}
+.eli .eli-usp__item{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;line-height:1.35;text-align:center;color:var(--eli-ink)}
 .eli .eli-usp .eli-ico{width:26px;height:26px}
 /* price, stock, cart */
 .eli .p-final-price-wrapper{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:6px 0 10px}
