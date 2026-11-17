@@ -23,7 +23,10 @@
     /* short index labels for the fixed H2 skeleton of product descriptions (start of the H2 text, lowercase) */
     indexShort: [['dva tahy', 'Použití'], ['jak voní', 'Vůně'], ['co je uvnitř', 'Složení'], ['časté otázky', 'FAQ']],
     buyNote: 'Doprava zdarma při nákupu nad 600 Kč',
-    deoLasts: 'vydrží zhruba 2 měsíce',
+    /* how long a product lasts, next to the unit price; matched on the product name (from Kuba, 17. 11. 2026) */
+    lasts: [['deodorant', 'vydrží zhruba 2 měsíce'], ['peeling', '10 použití na celé tělo, zhruba 2-3 měsíce'],
+      ['balzám', 'vydrží až rok'], ['šampuk', 'vydrží 2-3 měsíce podle délky vlasů'], ['maska', 'vydrží 2-3 měsíce']],
+    lastsSkip: /balíček|sada|dárk|set/i,
     /* the three homepage pillars, short form for the buy column: [icon, text] */
     usp: [['leaf', 'Vlastní receptury'], ['ridge', 'Ručně v Beskydech'], ['hands', 'Nejsem firma, jsem Eli']],
     brandName: 'NAMYDLENÁ ELI',
@@ -456,14 +459,17 @@
     var more = $$('.p-info-wrapper > p').filter(function (p) { return p.querySelector('a.chevron-after'); })[0];
     var stock = $('.availability-value', col);
     var cart = $('.add-to-cart', col);
-    var isDeo = DEO.some(function (d) { return d.href === location.pathname; });
+    var h1 = $('.p-detail-inner-header h1');
+    var pname = h1 ? h1.textContent.toLowerCase() : '';
+    var lastsTxt = '';
+    if (!T.lastsSkip.test(pname)) T.lasts.forEach(function (m) { if (!lastsTxt && pname.indexOf(m[0]) > -1) lastsTxt = m[1]; });
     /* why buy first, then the choice, then price right at the button */
     after(desc, head);
     after(more, desc);
     before(price, cart);
-    if (price && isDeo && !$('.eli-lasts', price)) {
+    if (price && lastsTxt && !$('.eli-lasts', price)) {
       var measure = $('.price-measure', price);
-      var lasts = el('span', 'eli-lasts', T.deoLasts);
+      var lasts = el('span', 'eli-lasts', lastsTxt);
       if (measure) measure.parentNode.insertBefore(lasts, measure.nextSibling); else price.appendChild(lasts);
     }
     if (!cart) return;
@@ -499,6 +505,7 @@
       if (!h.id) h.id = 'eli-k' + (i + 1);
       items.push([h, label]);
     });
+    if (items.length < 2) return; /* old-style descriptions without H2 chapters: no index */
     var rating = $('#ratingTab'), disc = $('#productDiscussion');
     if (rating) items.push([rating, T.indexRating]);
     if (disc) items.push([disc, T.indexDiscussion]);
