@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 6 - 17. 11. 2026 - RELEASE `8eb0036a9ef1a4d9d2097c2a22fe91dfe6a79ee9`
+- Produkt: název se zarovnává s horní hranou fotky měřením (Safari měl pravý sloupec o ~30 px výš než Chrome).
+
 ## Vydání 5 - 17. 11. 2026 - RELEASE `ee8d0a98d0e8fd9137820874c8f69db9b5d5afce`
 - Deodoranty: pryč štítky Bez sody / Papírová tuba / Ručně v malých várkách, jsou jako odrážky v krátkém popisu (Shoptet, 4 produkty).
 - Produkt: nadpis opticky zarovnaný s horní hranou fotky na desktopu.
