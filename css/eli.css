@@ -630,7 +630,10 @@ html.eli{
 /* Skladové hospodářství: amount "(>5 ks)" quieter than the state (checked on product detail, Classic, 17. 11. 2026) */
 .eli .availability-value{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px}
 .eli .availability-value .availability-label{font-size:16px}
-.eli .availability-amount{font-size:14px;font-weight:400;color:var(--eli-muted)}
+.eli .availability-amount{font-size:13px;font-weight:400;color:var(--eli-muted)}
+.eli .availability-value .availability-amount{font-size:14px}
+/* product cards: state 14 px / 500, amount 13 px / 400 muted (amount ~ 0.9 of the state, lighter weight) */
+.eli .product .availability > span:not(.availability-amount){font-size:14px}
 .eli .detail-parameters:not(:has(tr)){display:none}
 .eli .p-detail .add-to-cart{display:flex;align-items:stretch;gap:12px;margin-bottom:22px}
 .eli .p-detail .add-to-cart .quantity{display:flex;align-items:center;border:1px solid var(--eli-border);border-radius:999px;overflow:hidden;background:transparent}
