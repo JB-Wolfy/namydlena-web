@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 19 - 17. 11. 2026 - RELEASE `6f0c24423ceadfd633c91213831f05d2125cd49a`
+- Karty produktů: stav skladu 14 px / 500, počet kusů 13 px / 400 tlumeně (detail zůstává 16 / 14).
+
 ## Vydání 18 - 17. 11. 2026 - RELEASE `7191c866b3900dc72ddc62be18e0ac8cf3e9afe2`
 - Dostupnost: stav 16 px, počet kusů ze Skladového hospodářství 14 px tlumeně vedle. Backlog: mobilní menu podle flow-nutrition.cz (Kuba má screenshoty).
 
