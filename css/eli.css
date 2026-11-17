@@ -760,10 +760,10 @@ html.eli{
 /* product-type icons instead of photos (Lucide style, img/icons/products), matched on the subcategory URL */
 .eli .subcategories a[href*="deodorant"] .image,.eli .subcategories a[href*="peeling"] .image,.eli .subcategories a[href*="sampuk"] .image,
 .eli .subcategories a[href*="balzam"] .image,.eli .subcategories a[href*="sul-do-koupele"] .image,.eli .subcategories a[href*="sumive-bomby"] .image,
-.eli .subcategories a[href*="masky"] .image{border-radius:0;background-color:var(--eli-forest);-webkit-mask:var(--eli-ico) center/28px 28px no-repeat;mask:var(--eli-ico) center/28px 28px no-repeat}
+.eli .subcategories a[href*="masky"] .image,.eli .subcategories a[href*="mydl"] .image{border-radius:0;background-color:var(--eli-forest);-webkit-mask:var(--eli-ico) center/28px 28px no-repeat;mask:var(--eli-ico) center/28px 28px no-repeat}
 .eli .subcategories a[href*="deodorant"] .image img,.eli .subcategories a[href*="peeling"] .image img,.eli .subcategories a[href*="sampuk"] .image img,
 .eli .subcategories a[href*="balzam"] .image img,.eli .subcategories a[href*="sul-do-koupele"] .image img,.eli .subcategories a[href*="sumive-bomby"] .image img,
-.eli .subcategories a[href*="masky"] .image img{display:none}
+.eli .subcategories a[href*="masky"] .image img,.eli .subcategories a[href*="mydl"] .image img{display:none}
 .eli .subcategories a[href*="deodorant"]{--eli-ico:url(../img/icons/products/deodorant.svg)}
 .eli .subcategories a[href*="peeling"]{--eli-ico:url(../img/icons/products/peeling.svg)}
 .eli .subcategories a[href*="sampuk"]{--eli-ico:url(../img/icons/products/sampuk.svg)}
@@ -771,9 +771,11 @@ html.eli{
 .eli .subcategories a[href*="sul-do-koupele"]{--eli-ico:url(../img/icons/products/sul.svg)}
 .eli .subcategories a[href*="sumive-bomby"]{--eli-ico:url(../img/icons/products/bomba.svg)}
 .eli .subcategories a[href*="masky"]{--eli-ico:url(../img/icons/products/maska.svg)}
+.eli .subcategories a[href*="mydl"]{--eli-ico:url(../img/icons/products/mydlo.svg)}
 .eli .subcategories li a:hover .image{background-color:var(--eli-forest)}
 .eli .subcategories.with-image li a .text,.eli .subcategories li a .text{flex:0 0 auto;width:auto;height:auto;max-height:none;padding:0;overflow:visible;text-overflow:clip;white-space:nowrap;font-size:15px;line-height:1.3;color:inherit}
-.eli .subcategories li a{width:auto !important}
+.eli .subcategories li a{width:max-content !important;max-width:none !important;box-sizing:border-box}
+.eli .subcategories li{width:max-content !important}
 
 /* ---------- 8. Cart and checkout (Classic, checked on /kosik/ at 390 px 16. 11. 2026) ---------- */
 /* mobile: Shoptet puts the step name ("Nákupní košík") into the top bar; the logo steps aside there */
