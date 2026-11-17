@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 15 - 17. 11. 2026 - RELEASE `03fbe9ddb96ec2f834971d0f98c99d082781b039`
+- Peeling: „vydrží 2-3 měsíce“ (stejný styl jako ostatní). HANDOFF a CLAUDE aktualizované.
+
 ## Vydání 14 - 17. 11. 2026 - RELEASE `36b52f73c4dabc499538559a0e29344ca58aa3fa`
 - Produkt: výdrž u ceny i pro peeling, balzám, šampuk a masku (podle názvu, ne u dárkových sad). Rejstřík jen u popisů s kapitolami H2.
 
