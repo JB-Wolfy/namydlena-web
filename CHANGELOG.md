@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 17 - 17. 11. 2026 - RELEASE `aa14a3e9233eaf340e0e7c14c1af629aa81a1920`
+- Mobilní menu bez obrázků/ikon kategorií (kompaktní); desktop a pilulky podkategorií beze změny.
+
 ## Vydání 16 - 17. 11. 2026 - RELEASE `eed4e8b562a226ae2ac123a9fbd9a4873d2d4b97`
 - Vlastní liniové ikony typů produktů (`img/icons/products/`: deodorant, peeling, šampuk, mýdlo, balzám, sůl, bomba, maska) místo fotek v pilulkách podkategorií i v rozbalovacím menu (podle URL; fotky v adminu zůstávají jako záloha). Pilulky už neořezávají text.
 
