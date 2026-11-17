@@ -658,7 +658,16 @@ html.eli{
 /* 6.3 Tabs off: the description is always open, the rest lives below */
 .eli .p-detail-tabs-wrapper.eli-tabs-off .shp-tabs-row{display:none}
 .eli .p-detail-tabs-wrapper.eli-tabs-off #description{display:block !important;opacity:1}
-.eli .p-detail-tabs-wrapper.eli-tabs-off .tab-pane:not(#description):not(#ratingTab){display:none !important}
+.eli .p-detail-tabs-wrapper.eli-tabs-off .tab-pane:not(#description):not(#ratingTab):not(#productDiscussion){display:none !important}
+.eli .p-detail-tabs-wrapper.eli-tabs-off #productDiscussion{display:block !important;opacity:1;margin-top:48px;padding-top:40px;border-top:1px solid var(--eli-border);scroll-margin-top:90px}
+.eli #description h2{scroll-margin-top:90px}
+/* index ("rejstřík") above the description: one quiet row, scrolls sideways on mobile */
+.eli .eli-index{margin:0 0 36px;border-bottom:1px solid var(--eli-border);overflow-x:auto;scrollbar-width:none}
+.eli .eli-index::-webkit-scrollbar{display:none}
+.eli .eli-index__list{display:flex;gap:28px;margin:0;padding:0;list-style:none;white-space:nowrap}
+.eli .eli-index__link{display:block;padding:14px 0 12px;border-bottom:2px solid transparent;font-size:15px;font-weight:500;color:var(--eli-muted);text-decoration:none}
+.eli .eli-index__link:hover,.eli .eli-index__link.is-active{color:var(--eli-forest);border-bottom-color:var(--eli-forest)}
+@media (min-width:768px){.eli .eli-index__list{gap:36px}}
 /* ratings always visible under the description: people read them and can add one (stars link scrolls here) */
 .eli .p-detail-tabs-wrapper.eli-tabs-off #ratingTab{display:block !important;opacity:1;margin-top:48px;padding-top:40px;border-top:1px solid var(--eli-border);scroll-margin-top:90px}
 .eli .description-inner{display:block}  /* Classic makes it flex */

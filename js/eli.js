@@ -17,6 +17,11 @@
     igTitle: 'Namydlená Eli na Instagramu',
     igFollow: 'Sledovat @namydlenaeli',
     account: 'Můj účet',
+    indexLabel: 'Obsah stránky',
+    indexRating: 'Hodnocení',
+    indexDiscussion: 'Diskuze',
+    /* short index labels for the fixed H2 skeleton of product descriptions (start of the H2 text, lowercase) */
+    indexShort: [['dva tahy', 'Použití'], ['jak voní', 'Vůně'], ['co je uvnitř', 'Složení'], ['časté otázky', 'FAQ']],
     buyNote: 'Doprava zdarma při nákupu nad 600 Kč',
     deoLasts: 'vydrží zhruba 2 měsíce',
     /* the three homepage pillars, short form for the buy column: [icon, text] */
@@ -483,7 +488,50 @@
     after(usp, stock || note);
   }
 
-  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, stickyCart];
+  /* Product page index ("rejstřík"): links to the description chapters, ratings and discussion */
+  function sectionIndex() {
+    var wrap = $('.p-detail-tabs-wrapper.eli-tabs-off');
+    if (!wrap || $('.eli-index')) return;
+    var items = [];
+    $$('#description h2').forEach(function (h, i) {
+      var txt = h.textContent.trim(), low = txt.toLowerCase(), label = txt;
+      T.indexShort.forEach(function (m) { if (low.indexOf(m[0]) === 0) label = m[1]; });
+      if (!h.id) h.id = 'eli-k' + (i + 1);
+      items.push([h, label]);
+    });
+    var rating = $('#ratingTab'), disc = $('#productDiscussion');
+    if (rating) items.push([rating, T.indexRating]);
+    if (disc) items.push([disc, T.indexDiscussion]);
+    if (items.length < 2) return;
+    var nav = el('nav', 'eli-index');
+    nav.setAttribute('aria-label', T.indexLabel);
+    var ul = el('ul', 'eli-index__list');
+    var links = items.map(function (it) {
+      var li = el('li'), a = el('a', 'eli-index__link', it[1]);
+      a.href = '#' + it[0].id;
+      a.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        it[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (history.replaceState) history.replaceState(null, '', '#' + it[0].id);
+      });
+      li.appendChild(a); ul.appendChild(li);
+      return a;
+    });
+    nav.appendChild(ul);
+    wrap.insertBefore(nav, wrap.firstChild);
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var i = items.map(function (it) { return it[0]; }).indexOf(e.target);
+          links.forEach(function (a, j) { a.classList.toggle('is-active', j === i); });
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      items.forEach(function (it) { io.observe(it[0]); });
+    }
+  }
+
+  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, sectionIndex, stickyCart];
 
   function run() {
     FEATURES.forEach(function (f) {
