@@ -627,6 +627,10 @@ html.eli{
 .eli .availability-value .availability-label::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--eli-stock-order)}
 .eli .availability-value .availability-label[data-eli-stock="in"]::before{background:var(--eli-stock-in)}
 .eli .availability-value .availability-label[data-eli-stock="out"]::before{background:var(--eli-stock-out)}
+/* Skladové hospodářství: amount "(>5 ks)" quieter than the state (checked on product detail, Classic, 17. 11. 2026) */
+.eli .availability-value{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px}
+.eli .availability-value .availability-label{font-size:16px}
+.eli .availability-amount{font-size:14px;font-weight:400;color:var(--eli-muted)}
 .eli .detail-parameters:not(:has(tr)){display:none}
 .eli .p-detail .add-to-cart{display:flex;align-items:stretch;gap:12px;margin-bottom:22px}
 .eli .p-detail .add-to-cart .quantity{display:flex;align-items:center;border:1px solid var(--eli-border);border-radius:999px;overflow:hidden;background:transparent}
