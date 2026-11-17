@@ -1,5 +1,8 @@
 # Changelog
 
+## Vydání 9 - 17. 11. 2026 - RELEASE `4bb285c5a73b1a606a2c82275106ac911ac2a1d6`
+- Produkt: Detailní informace pod krátkým popisem; náhledy fotek 3:4 z plné fotky (bez bílých pruhů ze čtvercového náhledu Shoptetu).
+
 ## Vydání 8 - 17. 11. 2026 - RELEASE `53adf3cef3a6494aa836b998224f66fbf5df019b`
 - Produkt: krátký popis hned pod názvem (všechny produkty), přepínač vůní deodorantů těsně nad Přidat do košíku.
 
