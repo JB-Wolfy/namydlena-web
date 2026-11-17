@@ -88,10 +88,12 @@ verzují se samy s vydáním.
 Live od 16. 11. 2026 (Classic + vrstva, aktuální RELEASE viz `CHANGELOG.md`). Vydává se v admin > Vzhled a obsah >
 Editor > HTML kód > Záhlaví (ne v Návrháři, ten po zveřejnění vytváří nový koncept).
 
-Hotovo: úvodní stránka, globální vrstva (hlavička, jedno menu, ikony Lucide, karty, patička, mobil), „Kde začít“ jako čtvercové dlaždice, produktová
-stránka deodorantů (moduly popisu, přepínač atmosfér, Doplň si, lepicí lišta), výpis kategorie, košík na mobilu.
+Hotovo: úvodní stránka, globální vrstva (hlavička, jedno menu, ikony Lucide, karty, patička, mobil), „Kde začít“ jako čtvercové dlaždice,
+produktová stránka (krátký popis nahoře, cena u košíku + výdrž, rámeček dopravy, pilíře, rejstřík kapitol, hodnocení a diskuze vždy
+viditelné, přepínač vůní deo), výpis kategorie, košík na mobilu. Rozhodnutí a poučení k produktové stránce: `HANDOFF.md`.
 
 Další na řadě:
+0. Popisy ostatních produktů do kostry s H2 (pak mají rejstřík).
 1. Košík: odpočet do dopravy zdarma (600 Kč) ve stylu webu, upsell, hláška k dárku.
 2. `/uvnitr` (rozcestník + kapitoly), kvíz B.U.B.L.I.N.A., Worker.
 

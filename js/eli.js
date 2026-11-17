@@ -24,7 +24,7 @@
     indexShort: [['dva tahy', 'Použití'], ['jak voní', 'Vůně'], ['co je uvnitř', 'Složení'], ['časté otázky', 'FAQ']],
     buyNote: 'Doprava zdarma při nákupu nad 600 Kč',
     /* how long a product lasts, next to the unit price; matched on the product name (from Kuba, 17. 11. 2026) */
-    lasts: [['deodorant', 'vydrží zhruba 2 měsíce'], ['peeling', '10 použití na celé tělo, zhruba 2-3 měsíce'],
+    lasts: [['deodorant', 'vydrží zhruba 2 měsíce'], ['peeling', 'vydrží 2-3 měsíce'],
       ['balzám', 'vydrží až rok'], ['šampuk', 'vydrží 2-3 měsíce podle délky vlasů'], ['maska', 'vydrží 2-3 měsíce']],
     lastsSkip: /balíček|sada|dárk|set/i,
     /* the three homepage pillars, short form for the buy column: [icon, text] */

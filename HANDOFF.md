@@ -1,96 +1,66 @@
-# Handoff - redesign e-shopu Namydlená Eli (16. 11. 2026)
+# Handoff - redesign e-shopu Namydlená Eli (17. 11. 2026 večer)
 
-## Stav 16. 11. odpoledne
-- Classic je v Návrháři jako **koncept** (zákazníci vidí Step). Loader je v HTML kódu záhlaví konceptu, `RELEASE = ''`.
-  Vydání = nastavit `RELEASE` na sha a pak Kuba klikne **Zveřejnit** v Návrháři (přepne šablonu i kód naráz).
-- Náhled: `/?editorPreview=&eli=<sha>` v prohlížeči přihlášeném do adminu.
-- Blok úvodní stránky je v Titulní strana > Popis za starým uvítacím textem (starý text CSS schovává).
-- Blog: rubrika „Zápisník“ na `/blog/` (zatím jen Testovací článek). Před vydáním testovací článek skrýt nebo nahradit.
-- Úvodní stránka: pilíře hned pod hero. Fotky produktů i kategorií v rámečku 3:4 (Kuba nahrává fotky 3:4). Média = logotypy v `img/media/`, odkazy doplní Kuba (atribut href).
-- Hotovo: úvodní stránka, globální vrstva, produktová stránka deodorantů (js productFrame/productModules/stickyCart). Košík, /uvnitr, kvíz, B.U.B.L.I.N.A. = nezačato.
+Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` (zadání, tokeny). Historie vydání: `CHANGELOG.md`.
 
+## Stav
 
-Přečti nejdřív tohle, pak `CLAUDE.md` (pravidla kódu) a `docs/WEB_PLAN.md` (zadání, tokeny, rozhodnutí).
+- **Live od 16. 11.** na šabloně Classic + vrstva `eli` (CSS/JS z jsDelivr podle `RELEASE` v loaderu). Aktuální sha = první záznam v `CHANGELOG.md`.
+- Hotovo: úvodní stránka, globální vrstva (hlavička, jedno menu, Lucide ikony, karty 3:4, patička, mobil), „Kde začít“ (čtvercové dlaždice),
+  výpis kategorie, košík na mobilu, **produktová stránka** (viz níže).
+- Repo je public (jsDelivr). Vydává se přes sha commitu, ne tagy.
 
-## Kde to je
+## Jak vydávat (ověřený postup)
 
-- **Repo:** https://github.com/JB-Wolfy/namydlena-web, větev `main`.
-  Zatím **soukromé** - před nasazením přepnout na Public (jsDelivr soukromé repo neservíruje).
-- **Lokální podklady:** iCloud `01 Projects/NAMYDLENÁ-V5` (hero fotky, fotka Eli z trhu, portrét, SVG z Recraftu).
-- **Mockup (už se nepoužívá, jen pro kontext):** https://claude.ai/artifact/EG92MGZqdmr97KP2h5P5S2
-- **Web Plan v2:** hlavní kopie v repu `docs/WEB_PLAN.md` (v2.5), zrcadlo v Claude Projectu. Projekty se při migraci
-  na Team přenášejí, repo je pojistka.
+1. Push do `main`, náhled `https://www.namydlenaeli.cz/<stránka>/?eli=<sha>` (1440 px + mobil), `?eli=off` vypne.
+2. Zahřát sha: `cdn.jsdelivr.net/gh/JB-Wolfy/namydlena-web@<sha>/css/eli.css` a `js/eli.js` musí vrátit 200.
+3. Admin > `/admin/html-kody/` (HTML kódy, Záhlaví = CodeMirror): přepsat `RELEASE='<sha>'`, **Uložit**.
+   V prohlížeči šlo přes JS: `CodeMirror.setValue(...)` + klik na Uložit. Ověřit fetchem `/` že HTML má nové sha.
+4. Zápis do `CHANGELOG.md` (číslo vydání, datum, sha). Návrat = předchozí sha.
+Návrhář se nepoužívá (po zveřejnění vytváří nový koncept).
 
-## Rozhodnuto dnes
+## Produktová stránka - jak je poskládaná (rozhodnuto s Kubou 17. 11.)
 
-- **Konec mockupu.** Designuje se rovnou na živém e-shopu přes náhled `?eli=<sha>`, zákazníci nic nevidí.
-- **Hero (finální, 15. 11. večer):** originální fotka z X1D II, stěna srovnaná do krémové, víc kontrastu,
-  těsnější ořez (Eli větší). Desktop podle reference Lumière: text vlevo (kicker s linkou, nadpis 64 px, věta,
-  podpis, tlačítka „Vybrat si péči“ + „Můj příběh“), Eli vpravo, fotka se prolne do stránky. Mobil: fotka 1:1
-  (lokty celé), text pod ní. Kulatý odznak „S láskou z Beskyd i do Beskyd“ (badge-new + text po obvodu) -
-  desktop ano; mobil Kuba rozhodne živě na iPhonu přes `?eli-badge=bez` / `?eli-badge=s`, pak natrvalo
-  třídou `eli-badge--desktop-only`. Fotku si Kuba možná později vyladí v Phocusu - pak jen nové ořezy.
-- **Úvodní stránka, pořadí:** hero → kategorie (Dárky / Denní péče / Rituály) → „Bez čeho se neobejdu“
-  (Eliin výběr = nativní blok produktů Shoptetu, produkty se vybírají v adminu) → pilíře (ikony z Recraftu)
-  → Jsem Eli (fotka z trhu) → hodnocení obchodu (5 skutečných Shoptet hodnocení, 5,0/5) → Znáte nás z médií
-  → Instagram pruh nad patičkou (podle Papelote, z nativního widgetu Shoptetu) → patička.
-- **Zápisník:** řeší šablona Classic, doladí se na dummy článku po přepnutí šablony.
-- **Fotky produktů:** jen ze Shoptetu, v 4:5 tam; kód je jen styluje, nikdy se kvůli fotce nemění.
-- **Recenze na produktu:** blok hodnocení se zobrazí až s prvním hodnocením.
-- **Klub:** na webu se zatím nepropaguje.
-- **Vydávání přes sha commitu** (cloudová session nesmí pushnout git tagy).
-- **Admin:** model smí kód záhlaví/zápatí, texty a bloky úvodní stránky, stránky, popisy produktů.
-  Ceny, doprava, platby, doplňky, tarify, objednávky, fotky produktů = vždy Kuba.
+Pravý sloupec (`productFrame` + `buyOrder` v `eli.js`), pořadí podle e-commerce praxe a Kubovy reference:
+1. Název (velké, PT Serif) + typ, Novinka, hvězdičky (zlaté `--eli-gold`) + „Podrobnosti hodnocení“
+2. **Krátký popis** (Shoptet „Krátký popis“: 1-2 věty + odrážky) + odkaz „Detailní informace“
+3. Deodoranty: přepínač „Vyber si atmosféru“ = 4 odkazy na sesterské produkty (deo jsou samostatné produkty, ne varianty)
+4. **Cena těsně nad košíkem**, za cenou za jednotku „· vydrží …“ (`T.lasts`, podle názvu produktu, ne u sad)
+5. Množství + Přidat do košíku
+6. Rámeček s ikonou truck-electric „Doprava zdarma při nákupu nad 600 Kč“ (`T.buyNote` - změní-li se limit v Shoptetu, přepsat i tady)
+7. Skladem
+8. Tři pilíře z úvodní stránky (Vlastní receptury / Ručně v Beskydech / Nejsem firma, jsem Eli)
 
-## Co je hotové v repu
+Pod fotkami: **rejstřík** (`sectionIndex`) = kapitoly z H2 v popisu + Hodnocení + Diskuze, jen když popis má ≥ 2 H2.
+Popis je vždy otevřený, Hodnocení a Diskuze vždy viditelné pod ním (lidé čtou starší hodnocení v diskuzi), „Podobné“ = sekce „Doplň si“.
+Krátké názvy v rejstříku: `T.indexShort`.
 
-- `snippets/shoptet-head.html` - loader (jediný kód v Shoptetu), `RELEASE = ''` = vypnuto pro zákazníky.
-- `css/eli.css` - fonty (self-hosted), tokeny, komponenty úvodní stránky, Instagram pruh, skrytí starých bannerů.
-- `js/eli.js` - Instagram pruh, přesun nativního bloku produktů do „Eliin výběr“, dělení názvů „Jméno - typ“.
-- `modules/home/home.html` - celý blok úvodní stránky (vkládá se jako zdrojový HTML, je schovaný do vydání).
-- `img/` (hero desktop/mobil, Eli z trhu, ikony), `fonts/`.
-- Ověřeno jen lokálně na 390 / 1024 / 1440 / 1920 px, **na živém Classicu ne**.
+Zrušeno: štítky „Bez sody / Papírová tuba / Ručně v malých várkách“ (jsou jako odrážky v krátkém popisu 4 deo),
+text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 
-## Další kroky (v tomto pořadí)
+## Poučení (ať se neopakuje)
 
-**Kuba (jednorázově):**
-1. GitHub: repo → Settings → General → Change visibility → Public.
-2. Shoptet: screenshoty menu, bannerů a textů úvodní stránky (záloha), pak přepnout šablonu na **Classic**.
-3. Přihlásit se do adminu v prohlížeči, kde bude pracovat Claude (desktop app: panel prohlížeče Cmd+Shift+B).
-4. Vypnout slevy a slevové bannery, „-14 %“ (Web Plan §4).
+- **Fotky produktů nahrávat 3:4.** Fotka 4:5 se v Shoptetu doplní na 3:4 bílými pruhy uvnitř souboru (kód je neořízne) a název
+  pak nesedí s horní hranou fotky. Bezvětří už je 3:4, ostatní deo zatím 4:5 (Kuba je vymění).
+  Náhledy pod fotkou bere JS z plné fotky (Shoptetí 100×100 čtverce mají bílé pruhy).
+- Výpočty pozic měř na **viditelné fotce**, ne na boxu. Kuba má Safari i Chrome na širokém monitoru (~2050 px).
+- Produktové texty se nevymýšlí: výdrž je od Kuby (deo zhruba 2 měsíce z FAQ, peeling 2-3 m., balzám až rok, šampuk 2-3 m. podle délky vlasů, maska 2-3 m.).
+- Krátký popis produktu jde upravit v `/admin/produkty-detail/?id=<id>` přes skrytý textarea `shortDescription` + Uložit
+  (deo id: Červnová louka 241, Letní podvečer 244, Před bouřkou 238, Bezvětří 235).
+- „Bez čeho se neobejdu“ na úvodní stránce = nativní skupina **Produkty > Titulní strana**, web ukáže první 4 v pořadí z adminu
+  (teď DEO-PB, TP-01, B-02, TS-02). Přidat produkt do skupiny musí Kuba (modal v adminu z prohlížeče nešel).
 
-**Claude (kód):**
-0. Poměr obrázků produktů: Nastavení → Produkty → Zobrazení → Poměr obrázků. Nabídka: výchozí šablony,
-   4:3, 1:1 (teď), 3:4, 2:3 - **4:5 tam není**. Návrh (Kuba potvrdí): **3:4** a nové fotky produktů fotit
-   rovnou 3:4 (nativní portrét X1D II, bez ořezu). Deo fotky 4:5 a staré 1:1 se do 3:4 doplní pruhy -
-   ověřit na první zmenšenině, jestli Shoptet doplňuje (bílou?) nebo ořezává, a podle toho karty v CSS:
-   rámeček 3:4, `object-fit: cover` (ořízne tenké pruhy u 4:5), u 1:1 krémové pozadí za fotkou.
-   Karty: rámeček 4:5, `object-fit: contain` na krémové, aby šly 1:1 i 4:5 vedle sebe bez ořezu.
-1. Vložit loader do Admin → Vzhled a obsah → Editor → HTML kód → Záhlaví (RELEASE prázdné).
-2. Globální vrstva na živém Classicu (`eli.css` část 5): hlavička, menu, tlačítka, typografie,
-   karty produktů (4:5 přes `aspect-ratio` + `object-fit`), patička, mobil, informační lišta.
-3. Vložit `modules/home/home.html` do úvodní stránky; ověřit selektor nativního bloku produktů (`homepagePicks`
-   v `eli.js`), že existuje H1, a že funguje Instagram pruh.
-4. Review 390 + 1440 px s Kubou → vydat (`RELEASE = '<sha>'`).
-5. Deo stránka (Letní podvečer pilot): moduly popisu podle Web Plan §6, přepínač 4 atmosfér
-   (barvy proužků: Červnová louka #CD7A7C, Letní podvečer #DDB7B0, Před bouřkou #A8BB9F, Bezvětří #CBD18F),
-   textové odznaky, lepicí lišta „Do košíku“, kotva `#co-je-uvnitr`. Pak zbylá 3 dea.
-6. Košík: odpočet do dopravy zdarma (600 Kč), upsell, hláška k dárku. Otestovat celou pokladnu.
-7. `/uvnitr` (rozcestník + kapitoly), kvíz B.U.B.L.I.N.A., Cloudflare Worker (Haiku).
+## Další na řadě
 
-## Otevřené / chybí od Kuby
+1. Ostatní produkty: přepsat popisy do kostry s H2 (vzor deodoranty) - pak dostanou rejstřík. Navrženo začít šampukem citron.
+2. Košík: odpočet do dopravy zdarma (600 Kč), upsell, hláška k dárku.
+3. `/uvnitr` (Atlas), kvíz B.U.B.L.I.N.A., Worker.
 
-- Datum poslední objednávky do Vánoc (informační lišta).
-- Odkazy na články Patriot, Marianne, Deník; rok vysílání ČT; jednobarevná loga médií.
-- Ověřit URL `/poukazy/` a `/zapisnik/dobre-rano/`.
-- Fotky kategorií (3×, 4:5) - zatím blok kategorií bez fotek.
-- Balzám na fotce Eli z trhu má starou etiketu (vyměnit, až bude nová fotka).
-- Compliance: balzám měsíček má rizikové claimy (Web Plan §10) - přepsat přes Shoptet MCP.
-- Shoptet MCP konektor potřebuje znovu přihlásit.
+## Otevřené od Kuby
+
+- Fotky Červnová louka, Letní podvečer, Před bouřkou ve 3:4.
+- Testovací článek v Zápisníku skrýt; datum poslední objednávky do Vánoc (lišta).
 
 ## Jak navázat v novém chatu
 
-Vlož tohle:
-
-> Pokračujeme v redesignu e-shopu Namydlená Eli. Připoj repo JB-Wolfy/namydlena-web, přečti `HANDOFF.md`
-> a `CLAUDE.md`, pak `docs/WEB_PLAN.md`. Začni krokem „Claude (kód) 1“.
+> Pokračujeme v redesignu e-shopu Namydlená Eli. Připoj repo JB-Wolfy/namydlena-web, přečti `HANDOFF.md`, `CLAUDE.md`
+> a `docs/WEB_PLAN.md`. Pak <úkol>.
