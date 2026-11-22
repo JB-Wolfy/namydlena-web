@@ -23,6 +23,8 @@ const T = {
   pickSoon: 'Připravuji',
   productsTitle: 'Výrobky',
   productsNote: 'Zatím tu jsou suroviny z deodorantů. Další výrobky přidávám postupně.',
+  more: 'Rozbalit více info',
+  less: 'Sbalit',
   made: 'Z čeho',
   scents: 'Vůně',
   shop: 'V e-shopu:',
@@ -77,8 +79,14 @@ const chapterHtml = chapters.map((c) => {
       </dl>
 ${c.scents.notes.map((n) => `      <p class="eli-atlas__text">${esc(n)}</p>`).join('\n')}` : '';
   return `
-    <details class="eli-atlas__chapter" id="${t.id}">
-      <summary class="eli-atlas__chapter-head"><span class="eli-ico eli-ico--p-${t.icon}" aria-hidden="true"></span><h3 class="eli-h3">${esc(c.title)}</h3></summary>
+    <article class="eli-atlas__chapter" id="${t.id}">
+      <div class="eli-atlas__chapter-head"><span class="eli-ico eli-ico--p-${t.icon}" aria-hidden="true"></span><h3 class="eli-h3">${esc(t.plural || t.name)}</h3></div>
+      <p class="eli-atlas__short">${esc(c.short)}</p>
+      <ul class="eli-atlas__benefits">
+${c.benefits.map((b) => `        <li><strong>${esc(b.title)}</strong> ${esc(b.text)}</li>`).join('\n')}
+      </ul>
+      <details class="eli-atlas__more">
+      <summary><span class="eli-atlas__more-open">${T.more}</span><span class="eli-atlas__more-close">${T.less}</span></summary>
       <div class="eli-atlas__chapter-body">
       <h4 class="eli-atlas__h4">${esc(c.intro.title)}</h4>
       <p class="eli-atlas__text">${esc(c.intro.text)}</p>
@@ -90,7 +98,8 @@ ${c.scents.notes.map((n) => `      <p class="eli-atlas__text">${esc(n)}</p>`).jo
 ${t.variants.map((v) => `        <li><a href="${esc(v.url)}">${esc(v.name)}</a></li>`).join('\n')}
       </ul>
       </div>
-    </details>`;
+      </details>
+    </article>`;
 }).join('');
 
 // ---- 3. Suroviny: index A-Z of the ingredients used in ready chapters

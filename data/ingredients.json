@@ -27,8 +27,14 @@
   ],
   "chapters": [
     {
-      "type": "deodorant", "status": "ok", "source": "deo popisy v Shoptetu (Proč bez sody, Co je uvnitř a proč), stav 22. 11. 2026",
+      "type": "deodorant", "status": "ok", "source": "deo popisy v Shoptetu (krátký popis, Co umí, Proč bez sody, Co je uvnitř a proč), stav 22. 11. 2026",
       "title": "Z čeho dělám deodoranty a proč",
+      "short": "Celý den svěží, bez sody a bez pálení v podpaží.",
+      "benefits": [
+        { "title": "Drží svěžest", "text": "Zinek zachytí zápach dřív, než ho ucítíš. Vydrží s tebou celý den." },
+        { "title": "Nepálí", "text": "Bez jedlé sody, na kterou citlivé podpaží často reaguje." },
+        { "title": "Pečuje", "text": "Jojoba, mangové máslo a olivový skvalan. Tyčinka klouže a kůže nezůstane suchá." }
+      ],
       "intro": { "title": "Proč bez sody", "text": "Spousta přírodních deodorantů stojí na jedlé sodě. Funguje, ale v potu se rozpouští a pro část lidí je v podpaží moc ostrá: pálí, svědí, červená. Proto ji tady nenajdeš. Místo ní používám hydroxid hořečnatý, minerál hořčíku, ze kterého se dělá i magnéziové mléko. Skoro se nerozpouští, působí pozvolna a k pokožce je šetrnější. Zbytek práce odvede zinek a triethyl citrát." },
       "ingredients": [
         { "id": "jojobovy-olej", "why": "Díky němu tyčinka klouže." },
