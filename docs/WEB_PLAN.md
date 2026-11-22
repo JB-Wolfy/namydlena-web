@@ -211,6 +211,7 @@ Menu: Denní péče · Rituály · Dárky · O Eli · Zápisník (Zápisník až
    - **Dole kapitoly surovin:** souhrn všech surovin z INCI našich produktů (nic nevymýšlet). Kapitola: český název + INCI, tenkolinková SVG ilustrace v `--eli-forest`, co dělá (bez léčebných tvrzení), ve kterých produktech je. Zdroj = existující „Co je uvnitř a proč“, sjednotit do `data/ingredients.json`.
    - **Spuštění ve dvou krocích:** rozcestník live co nejdřív; kapitoly až po claims-checku každé z nich.
    - **QR na etiketách řeší Kuba:** nové etikety odkaz na Atlas, stávající QR Kuba přesměruje.
+   - **Stav 22. 11. 2026:** live na `/atlas-surovin/`, 301 z `/uvnitr/` (rozhodnutí Kuby). Rozcestník = typ výrobku -> varianty. Kapitoly: suroviny deodorantů + Vůně (jen rozpis vůní, bez benefitů). Ikony surovin podle skupin (Lucide), ilustrace později. Postup úprav v `HANDOFF.md`.
 10. **YouTube sekce** - zatím jen instrukce. Implementace až s prvním videem.
 
 Reference: Herbavis/Perfino = komponenty popisu · Papelote = košík + Instagram · Apple = sticky lišta + porovnání · belenka.cz = média · Kvitok = příběh. Inspirace 15. 11. (GERA, Lumière, NueSkin): fotka přes šířku s textem, stavba produktové stránky. Nebrat: trhané okraje, vymyšlená čísla („10K+ zákazníků“), modelky.
@@ -260,6 +261,7 @@ Definition of Done každé části: review 390 + 1440 px + Kuba odklepne + zápi
 - 9. 11. 2026: Přidán §14 (Eli jako hlas webu) + otázky na rozhovor.
 - 15. 11. 2026 (v2.1-2.4): Hero fotka hotová. GPT prototyp se nepoužije. Slevy pryč, tykání potvrzeno. Skladové hospodářství se kupuje. B.U.B.L.I.N.A. = kvíz + AI (Haiku přes Worker). Atlas = /uvnitr.
 - 15. 11. 2026 (v2.5): Mockup prošel 3 verzemi a byl zrušen - stavíme rovnou na e-shopu. Oblouky pryč, hero s textem vedle Eli. Homepage doplněna o Eliin výběr, hodnocení obchodu a Instagram. Repo založeno, základ vrstvy pushnutý, vydávání přes sha commitu. Plán přesunut do repa.
+- 22. 11. 2026: Atlas surovin live (`/atlas-surovin/`, 301 z `/uvnitr/`), rozcestník všech typů + kapitoly deo surovin. Čeká na INCI ostatních produktů.
 - Další na řadě: migrace na Claude Team → Kubův setup (Public, Classic) → loader + globální vrstva na živém webu → homepage live → deo stránky.
 
 ## 14. Backlog k review: Eli jako hlas webu (9. 11. 2026)

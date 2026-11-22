@@ -42,7 +42,7 @@ verzují se samy s vydáním.
     js/eli.js              jedna IIFE, funkce v poli FEATURES, každá ve vlastním try/catch
     modules/home/          HTML bloky úvodní stránky (vkládají se jako zdrojový kód)
     modules/product/       šablony popisů produktů (deo, ...)
-    modules/atlas/         stránka /uvnitr
+    modules/atlas/         stránka /atlas-surovin/ (generuje build.mjs z data/*.json; /uvnitr přesměrováno)
     snippets/              kód, který se vkládá do adminu Shoptetu
     data/                  products.json, ingredients.json (kvíz, poradce, Atlas)
     worker/                Cloudflare Worker pro B.U.B.L.I.N.A. (klíče NIKDY do gitu, jen Cloudflare secrets)
@@ -95,7 +95,7 @@ viditelné, přepínač vůní deo), výpis kategorie, košík na mobilu. Rozhod
 Další na řadě:
 0. Popisy ostatních produktů do kostry s H2 (pak mají rejstřík).
 1. Košík: odpočet do dopravy zdarma (600 Kč) ve stylu webu, upsell, hláška k dárku.
-2. `/uvnitr` (rozcestník + kapitoly), kvíz B.U.B.L.I.N.A., Worker.
+2. Atlas `/atlas-surovin/` je live (rozcestník + deo kapitoly); další kapitoly s INCI. Kvíz B.U.B.L.I.N.A., Worker.
 
 Otevřené od Kuby: testovací článek v Zápisníku skrýt; deodoranty „Skladem“ vs. text o předobjednávce;
 datum poslední objednávky do Vánoc (informační lišta).

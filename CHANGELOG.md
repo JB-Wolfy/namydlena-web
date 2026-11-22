@@ -1,5 +1,11 @@
 # Changelog
 
+## Vydání 20 - 22. 11. 2026 - RELEASE `175742dd8b8c5d34049ca2fcee0ce029618e357b`
+- Atlas surovin: nová stránka `/atlas-surovin/` (Shoptet stránka id 793), přesměrování 301 `/uvnitr/` a `/UVNITR/` -> `/atlas-surovin/` (QR z etiket).
+  Rozcestník „Co držíš v ruce?“ = 8 typů výrobků (`<details>`), uvnitř varianty jako pilulky (deo na `#co-je-uvnitr`); `/atlas-surovin/#balzam` otevře typ (JS `atlasHash`).
+  Kapitoly: 10 surovin z deodorantů + kapitola Vůně (texty doslova z deo popisů). Data `data/products.json` + `data/ingredients.json`, HTML generuje `node modules/atlas/build.mjs`.
+- Nové ikony Lucide: hexagon, wheat, gem, citrus, chevron-down (tah 1,6 jako ostatní).
+
 ## Vydání 19 - 17. 11. 2026 - RELEASE `6f0c24423ceadfd633c91213831f05d2125cd49a`
 - Karty produktů: stav skladu 14 px / 500, počet kusů 13 px / 400 tlumeně (detail zůstává 16 / 14).
 

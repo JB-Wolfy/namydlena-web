@@ -49,6 +49,16 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 - „Bez čeho se neobejdu“ na úvodní stránce = nativní skupina **Produkty > Titulní strana**, web ukáže první 4 v pořadí z adminu
   (teď DEO-PB, TP-01, B-02, TS-02). Přidat produkt do skupiny musí Kuba (modal v adminu z prohlížeče nešel).
 
+## Atlas surovin (22. 11.)
+
+- Stránka `/atlas-surovin/` (admin Stránky, id 793), obsah = `modules/atlas/atlas.html` vložený přes `tinymce.get('description').setContent()` + Uložit.
+  Přesměrování 301 v Marketing > Základní SEO > Přesměrování URL: `/uvnitr/` a `/UVNITR/` -> `/atlas-surovin/`.
+- **Úprava obsahu:** jen `data/*.json` -> `node modules/atlas/build.mjs` -> push -> vložit nové `atlas.html` do stránky. Na web jde jen surovina se `status: "ok"`.
+- Texty surovin jen doslova z ověřeného zdroje (zatím deo „Co je uvnitř a proč“). Kapitola Vůně = jen rozpis, žádné benefity (Kuba).
+- Další kapitoly čekají na INCI: na e-shopu ho mají jen 4 dea a 2 masky (hydratační, čisticí). Sekce „Složení“ u ostatních
+  produktů má riziková tvrzení - nepřebírat (viz otázky v sekci Otevřené).
+- Hotovo jen to, co jde přes `#hash`: nové etikety můžou mít QR rovnou na typ, např. `/atlas-surovin/#sampuk`.
+
 ## Další na řadě
 
 0a. **Rychlost** (změřeno 17. 11.): naše fotky jsou JPG ~1 MB (hero 302 kB, dlaždice Dárky 255 / Denní péče 129 / Rituály 167, eli-trh 139) -> WebP ve skutečné velikosti
@@ -57,9 +67,14 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 0. **Mobilní menu** inspirované flow-nutrition.cz (Kuba přinese screenshoty, nový chat). Benefit banner v kategoriích Kuba vypnul (pilíře jsou na úvodní a u košíku).
 1. Ostatní produkty: přepsat popisy do kostry s H2 (vzor deodoranty) - pak dostanou rejstřík. Navrženo začít šampukem citron.
 2. Košík: odpočet do dopravy zdarma (600 Kč), upsell, hláška k dárku.
-3. `/uvnitr` (Atlas), kvíz B.U.B.L.I.N.A., Worker.
+3. Atlas: kapitoly dalších produktů (až s INCI a claims-checkem), odkaz „Co je uvnitř“ do patičky. Kvíz B.U.B.L.I.N.A., Worker.
 
 ## Otevřené od Kuby
+
+- Atlas: INCI pro balzámy, peelingy, šampuky, soli, bomby, donuty a masku pro pleť se sklonem k pupínkům (na webu není).
+- Atlas: schválit úvodní větu a „Zatím tu jsou suroviny z deodorantů…“ (napsal Claude, ne Eli).
+- Compliance v popisech produktů (mimo deo): „antibakteriální“, „bez alergických reakcí“, „bez alergenů“, „reguluje tvorbu mazu, podporuje růst“,
+  „pomáhá s pocitem volnějšího dýchání“, „Testováno dle EU směrnic“, název masky „pro aknózní pleť“.
 
 - Fotky Červnová louka, Letní podvečer, Před bouřkou ve 3:4.
 - Testovací článek v Zápisníku skrýt; datum poslední objednávky do Vánoc (lišta).
