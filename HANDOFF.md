@@ -57,7 +57,7 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 - Texty surovin jen doslova z ověřeného zdroje (zatím deo „Co je uvnitř a proč“). Kapitola Vůně = jen rozpis, žádné benefity (Kuba).
 - Další kapitoly čekají na INCI: na e-shopu ho mají jen 4 dea a 2 masky (hydratační, čisticí). Sekce „Složení“ u ostatních
   produktů má riziková tvrzení - nepřebírat (viz otázky v sekci Otevřené).
-- Hotovo jen to, co jde přes `#hash`: nové etikety můžou mít QR rovnou na typ, např. `/atlas-surovin/#sampuk`.
+- Deep link: nové etikety můžou mít QR rovnou na typ, např. `/atlas-surovin/#sampuk`.
 
 ## Další na řadě
 
