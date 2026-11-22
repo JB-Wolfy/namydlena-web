@@ -42,7 +42,7 @@ const link = (id) => {
 
 const foundIn = (ids) => {
   if (ids.length === deoIds.length && deoIds.every((d) => ids.includes(d))) {
-    return `<p class="eli-atlas__found"><span>${T.foundIn}</span> ${T.allDeo} - ${ids.map(link).join(', ')}</p>`;
+    return `<p class="eli-atlas__found"><span>${T.foundIn}</span> <a href="#deodorant">${T.allDeo}</a></p>`;
   }
   return `<p class="eli-atlas__found"><span>${T.foundIn}</span> ${ids.map(link).join(', ')}</p>`;
 };
