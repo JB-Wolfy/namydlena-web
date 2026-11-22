@@ -31,6 +31,7 @@ const T = {
   inciTitle: 'Jak číst INCI'
 };
 
+const lc = (s) => s.charAt(0).toLocaleLowerCase('cs') + s.slice(1);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const ok = (x) => !!x && x.status === 'ok';
 const types = new Map(P.types.map((t) => [t.id, t]));
@@ -63,7 +64,7 @@ const chapterHtml = chapters.map((c) => {
     const x = ingr.get(r.id);
     if (!x) throw new Error('Unknown ingredient in chapter ' + c.type + ': ' + r.id);
     let text = [x.about, r.why].filter(Boolean).join(' ');
-    text = text.charAt(0).toLocaleLowerCase('cs') + text.slice(1); // reads like the product copy: "Jojobový olej - chemicky to není..."
+    text = lc(text); // reads like the product copy: "Jojobový olej - chemicky to není..."
     return `\n        <li><a href="#${x.id}">${esc(x.name)}</a> - ${esc(text)}</li>`;
   }).join('');
   const sc = c.scents ? `
@@ -108,7 +109,7 @@ const indexHtml = indexed.map((x) => {
   const head = L !== letter ? `\n      <h3 class="eli-atlas__letter">${(letter = L)}</h3>` : '';
   const uses = x.see
     ? [`<li><a href="#${x.see}">${esc(typeLabel(seeType(x)))}</a></li>`]
-    : usage.get(x.id).map((u) => `<li><a href="#${u.type.id}">${esc(typeLabel(u.type))}</a>${u.why ? ' - ' + esc(u.why) : ''}</li>`);
+    : usage.get(x.id).map((u) => `<li><a href="#${u.type.id}">${esc(typeLabel(u.type))}</a>${u.why ? ' - ' + esc(lc(u.why)) : ''}</li>`);
   return `${head}
       <article class="eli-atlas__item" id="${x.id}">
         <span class="eli-ico eli-ico--${x.icon}" aria-hidden="true"></span>
