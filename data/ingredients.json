@@ -57,8 +57,8 @@
     }
   ],
   "inciGuide": {
-    "status": "draft",
-    "_info": "Návrh Clauda ke schválení (Kuba/Eli). Fakta: nařízení (ES) 1223/2009 čl. 19 odst. 1 písm. g) a nařízení (EU) 2023/1545. Na web až se status 'ok'.",
+    "status": "ok",
+    "_info": "Napsal Claude, schválil Kuba 22. 11. 2026. Fakta: nařízení (ES) 1223/2009 čl. 19 odst. 1 písm. g) a nařízení (EU) 2023/1545. Na web až se status 'ok'.",
     "sections": [
       { "title": "Vždycky začíná slovem Ingredients", "text": "Složení najdeš na každé kosmetice pod slovem Ingredients. Tak to určuje evropské nařízení o kosmetice a platí to stejně pro velké značky jako pro moji dílnu." },
       { "title": "Názvy jsou stejné v celé Evropě", "text": "Suroviny se píšou mezinárodními názvy INCI. Rostliny latinsky, ostatní většinou anglicky. Simmondsia Chinensis Seed Oil je tak jojobový olej, ať koupíš kosmetiku kdekoli v Evropě." },

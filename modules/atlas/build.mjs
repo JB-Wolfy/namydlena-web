@@ -77,8 +77,9 @@ const chapterHtml = chapters.map((c) => {
       </dl>
 ${c.scents.notes.map((n) => `      <p class="eli-atlas__text">${esc(n)}</p>`).join('\n')}` : '';
   return `
-    <article class="eli-atlas__chapter" id="${t.id}">
-      <div class="eli-atlas__chapter-head"><span class="eli-ico eli-ico--p-${t.icon}" aria-hidden="true"></span><h3 class="eli-h3">${esc(c.title)}</h3></div>
+    <details class="eli-atlas__chapter" id="${t.id}">
+      <summary class="eli-atlas__chapter-head"><span class="eli-ico eli-ico--p-${t.icon}" aria-hidden="true"></span><h3 class="eli-h3">${esc(c.title)}</h3></summary>
+      <div class="eli-atlas__chapter-body">
       <h4 class="eli-atlas__h4">${esc(c.intro.title)}</h4>
       <p class="eli-atlas__text">${esc(c.intro.text)}</p>
       <h4 class="eli-atlas__h4">${T.made}</h4>
@@ -88,7 +89,8 @@ ${c.scents.notes.map((n) => `      <p class="eli-atlas__text">${esc(n)}</p>`).jo
       <ul class="eli-atlas__variants">
 ${t.variants.map((v) => `        <li><a href="${esc(v.url)}">${esc(v.name)}</a></li>`).join('\n')}
       </ul>
-    </article>`;
+      </div>
+    </details>`;
 }).join('');
 
 // ---- 3. Suroviny: index A-Z of the ingredients used in ready chapters
@@ -102,11 +104,21 @@ const groupName = new Map(I.groups.map((g) => [g.id, g.name]));
 const indexed = I.ingredients
   .filter((x) => usage.has(x.id) || (seeType(x) && ready.has(seeType(x).id)))
   .sort((a, b) => a.name.localeCompare(b.name, 'cs'));
+// Czech alphabet for the A-Z bar; letters with entries link to their heading below
+const ALPHABET = ['A', 'B', 'C', 'Č', 'D', 'E', 'F', 'G', 'H', 'Ch', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'Ř', 'S', 'Š', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ž'];
+const letterId = (L) => 'pismeno-' + ({ 'Č': 'c-hacek', 'Ř': 'r-hacek', 'Š': 's-hacek', 'Ž': 'z-hacek' }[L] || L.toLowerCase());
+const letterOf = (name) => /^ch/i.test(name) ? 'Ch'
+  // Č, Ř, Š, Ž are letters of their own, accents like É or Ú are not
+  : name.charAt(0).toLocaleUpperCase('cs').replace(/[ÁÉĚÍÓÚŮÝĎŤŇ]/, (c) => c.normalize('NFD').charAt(0));
+const used = new Set(indexed.map((x) => letterOf(x.name)));
+const alphabet = `
+    <nav class="eli-atlas__abc" aria-label="Abeceda">${ALPHABET.map((L) => used.has(L)
+  ? `<a href="#${letterId(L)}">${L}</a>`
+  : `<span aria-hidden="true">${L}</span>`).join('')}</nav>`;
 let letter = '';
 const indexHtml = indexed.map((x) => {
-  // Czech alphabet: Č, Ř, Š, Ž are letters of their own, accents like É or Ú are not
-  const L = x.name.charAt(0).toLocaleUpperCase('cs').replace(/[ÁÉĚÍÓÚŮÝĎŤŇ]/, (c) => c.normalize('NFD').charAt(0));
-  const head = L !== letter ? `\n      <h3 class="eli-atlas__letter">${(letter = L)}</h3>` : '';
+  const L = letterOf(x.name);
+  const head = L !== letter ? `\n      <h3 class="eli-atlas__letter" id="${letterId(L)}">${(letter = L)}</h3>` : '';
   const uses = x.see
     ? [`<li><a href="#${x.see}">${esc(typeLabel(seeType(x)))}</a></li>`]
     : usage.get(x.id).map((u) => `<li><a href="#${u.type.id}">${esc(typeLabel(u.type))}</a>${u.why ? ' - ' + esc(lc(u.why)) : ''}</li>`);
@@ -163,7 +175,7 @@ ${tabs.map(([id, label]) => `    <a class="eli-atlas__tab" href="#${id}">${label
   </section>
 
   <section class="eli-atlas__panel" id="suroviny" aria-labelledby="eli-atlas-index">
-    <h2 class="eli-h2" id="eli-atlas-index">${T.indexTitle}</h2>
+    <h2 class="eli-h2" id="eli-atlas-index">${T.indexTitle}</h2>${alphabet}
     <div class="eli-atlas__index">${indexHtml}
     </div>
   </section>${inciHtml}

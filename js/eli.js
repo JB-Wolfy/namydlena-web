@@ -564,6 +564,8 @@
       if (!panel) panel = panels[0];
       panels.forEach(function (p) { p.classList.toggle('is-active', p === panel); });
       tabs.forEach(function (a) { a.setAttribute('aria-selected', a.getAttribute('href') === '#' + panel.id ? 'true' : 'false'); });
+      /* chapters fold: open every <details> around the target (and the target itself) */
+      for (var d = t; d && d !== atlas; d = d.parentElement) if (d.tagName === 'DETAILS') d.open = true;
       if (scroll) ((t && t !== panel) ? t : nav).scrollIntoView({ block: 'start' });
     };
     window.addEventListener('hashchange', function () { show(true); });
