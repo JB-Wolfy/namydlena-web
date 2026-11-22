@@ -667,6 +667,11 @@ html.eli{
 /* 5.6 Footer: the one forest surface every page has.
    No logo image (the wordmark sits under the search, js/eli.js); columns get the room. */
 .eli #footer .footer-rows > .site-name{display:none}
+/* Classic keeps 275 px on the left of the columns for the logo on desktop; the logo is gone, so the columns
+   start at the container edge like the header (checked on / and /atlas-surovin/ at 1440 px, 22. 11. 2026) */
+.eli #footer .custom-footer{padding-left:0}
+/* the Instagram widget cell is empty here (the strip above the footer replaced it) - only its heading was left */
+.eli #footer .custom-footer__instagram{display:none}
 @media (min-width:768px){
   .eli #footer .custom-footer{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);column-gap:48px}
   .eli #footer .custom-footer > div{width:auto;max-width:none;padding-left:0;padding-right:0}
