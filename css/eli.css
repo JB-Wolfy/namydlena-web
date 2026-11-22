@@ -668,8 +668,8 @@ html.eli{
    No logo image (the wordmark sits under the search, js/eli.js); columns get the room. */
 .eli #footer .footer-rows > .site-name{display:none}
 /* Classic keeps 275 px on the left of the columns for the logo on desktop; the logo is gone, so the columns
-   start at the container edge like the header (checked on / and /atlas-surovin/ at 1440 px, 22. 11. 2026) */
-.eli #footer .custom-footer{padding-left:0}
+   line up with the header logo and the copyright row below (both 20 px in; checked on / and /atlas-surovin/ at 1440 px, 22. 11. 2026) */
+@media (min-width:768px){.eli #footer .custom-footer{padding-left:20px;padding-right:20px}}
 /* the Instagram widget cell is empty here (the strip above the footer replaced it) - only its heading was left */
 .eli #footer .custom-footer__instagram{display:none}
 @media (min-width:768px){
