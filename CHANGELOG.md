@@ -1,5 +1,9 @@
 # Changelog
 
+## Vydání 22 - 22. 11. 2026 - RELEASE `b1086bab582f8e3332489061c8553e16755c4bab`
+- Atlas: kapitoly ve Výrobcích se rozbalují (`<details>`, otevře je i odkaz/QR na kapitolu nebo místo v ní), v Surovinách abeceda nahoře
+  (česká, písmena s hesly odkazují na `#pismeno-…`), tab Jak číst INCI zapnutý (text schválil Kuba). Taby se na mobilu zalomí do dvou řádků.
+
 ## Vydání 21 - 22. 11. 2026 - RELEASE `ad80e934d23f12c11c2b6ea1e5b3afa305d4126a`
 - Atlas surovin jako kniha ve 4 tabech (JS `atlasTabs`, řízené `#hash`): Co je uvnitř (dlaždice typů, hotové vedou na kapitolu, ostatní „Připravuji“),
   Výrobky (kapitola na typ: Proč bez sody, Z čeho, Vůně, odkazy do e-shopu), Suroviny (rejstřík A-Z s „Kde ji používám“), Jak číst INCI (připraveno, čeká na schválení textu).
