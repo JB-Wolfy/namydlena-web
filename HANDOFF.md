@@ -53,7 +53,8 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 
 - **Kniha ve 4 tabech** (vydání 21): Co je uvnitř (rozcestník) / Výrobky (kapitola na typ) / Suroviny (rejstřík A-Z) / Jak číst INCI.
   Data: `data/ingredients.json` (`ingredients`, `chapters`, `inciGuide`), typy v `data/products.json`. Kapitola nebo INCI průvodce jde na web až se `status: "ok"`.
-  Kapitoly ve Výrobcích jsou rozbalovací, Suroviny mají nahoře abecedu (`#pismeno-e`, `#pismeno-c-hacek`). Jak číst INCI je schválené (22. 11.).
+  Výrobky: viditelný název + krátký popis + Co umí, detail pod „Rozbalit více info“. **Pozor: editor Shoptetu maže nadpisy uvnitř `<summary>`** -
+  před uložením ověřit přes tinymce setContent() + getContent(). Dřív: kapitoly rozbalovací, Suroviny mají nahoře abecedu (`#pismeno-e`, `#pismeno-c-hacek`). Jak číst INCI je schválené (22. 11.).
   Kotvy: `#deodorant` = kapitola, `#deodorant-vune`, `#jojobovy-olej` = heslo rejstříku. Atlas je i v patičce (Informace pro vás).
 - Stránka `/atlas-surovin/` (admin Stránky, id 793), obsah = `modules/atlas/atlas.html` vložený přes `tinymce.get('description').setContent()` + Uložit.
   Přesměrování 301 v Marketing > Základní SEO > Přesměrování URL: `/uvnitr/` a `/UVNITR/` -> `/atlas-surovin/`.

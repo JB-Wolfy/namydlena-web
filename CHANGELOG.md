@@ -1,5 +1,9 @@
 # Changelog
 
+## Vydání 23 - 22. 11. 2026 - RELEASE `b06f2e57bb8ea4118d5b438511dede705de71e1a`
+- Atlas, Výrobky: výrobek je vidět (ikona, název, krátký popis, Co umí), zbytek pod tlačítkem „Rozbalit více info“ / „Sbalit“.
+  Oprava vydání 22: editor Shoptetu z `<summary>` vyhodil nadpis a na webu zbylo jen „Details“. V `<summary>` jsou teď jen textové `<span>`.
+
 ## Vydání 22 - 22. 11. 2026 - RELEASE `b1086bab582f8e3332489061c8553e16755c4bab`
 - Atlas: kapitoly ve Výrobcích se rozbalují (`<details>`, otevře je i odkaz/QR na kapitolu nebo místo v ní), v Surovinách abeceda nahoře
   (česká, písmena s hesly odkazují na `#pismeno-…`), tab Jak číst INCI zapnutý (text schválil Kuba). Taby se na mobilu zalomí do dvou řádků.
