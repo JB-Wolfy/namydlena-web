@@ -1,0 +1,127 @@
+// Atlas surovin: builds modules/atlas/atlas.html from data/products.json + data/ingredients.json.
+// Run: node modules/atlas/build.mjs   (Node 18+, no dependencies)
+// The output is pasted into Shoptet as the source HTML of the page /atlas-surovin/.
+// Static HTML on purpose: readable without JS and for search engines; css/eli.css styles it.
+// Only ingredients with status "ok" (claims-checked) are rendered.
+import { readFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const P = JSON.parse(readFileSync(join(root, 'data/products.json'), 'utf8'));
+const I = JSON.parse(readFileSync(join(root, 'data/ingredients.json'), 'utf8'));
+
+// customer-facing copy of the page (Czech, tykání)
+const T = {
+  kicker: 'Co je uvnitř',
+  lead: 'Vyber, co držíš v ruce, a podívej se dovnitř. Pod tím najdeš suroviny, které používám, a proč tam jsou.',
+  pickTitle: 'Co držíš v ruce?',
+  pickHint: 'Klikni na typ výrobku a vyber svou variantu.',
+  listTitle: 'Suroviny',
+  listNote: 'Zatím tu jsou suroviny z deodorantů. Další výrobky přidávám postupně.',
+  foundIn: 'Najdeš v:',
+  allDeo: 'všech čtyřech deodorantech',
+  scentTitle: 'Vůně',
+  scentLead: 'Co voní ve kterém deodorantu:',
+  ingredients: 'Ingredients:'
+};
+
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const variants = new Map();
+for (const t of P.types) for (const v of t.variants) variants.set(v.id, { ...v, type: t });
+const href = (v) => v.url + (v.anchor ? '#' + v.anchor : '');
+const count = (n) => n + ' ' + (n === 1 ? 'varianta' : n < 5 ? 'varianty' : 'variant');
+const deoIds = P.types.find((t) => t.id === 'deodorant').variants.map((v) => v.id);
+
+const link = (id) => {
+  const v = variants.get(id);
+  if (!v) throw new Error('Unknown product id in ingredients.json: ' + id);
+  const label = v.type.id === 'deodorant' ? v.name : v.type.name + ' ' + v.name;
+  return `<a href="${esc(href(v))}">${esc(label)}</a>`;
+};
+
+const foundIn = (ids) => {
+  if (ids.length === deoIds.length && deoIds.every((d) => ids.includes(d))) {
+    return `<p class="eli-atlas__found"><span>${T.foundIn}</span> ${T.allDeo} - ${ids.map(link).join(', ')}</p>`;
+  }
+  return `<p class="eli-atlas__found"><span>${T.foundIn}</span> ${ids.map(link).join(', ')}</p>`;
+};
+
+// 1. signpost: category > type (details) > variants
+const pick = P.categories.map((c) => {
+  const types = P.types.filter((t) => t.category === c.id).map((t) => `
+        <details class="eli-atlas__type" id="${t.id}">
+          <summary><span class="eli-ico eli-ico--p-${t.icon}" aria-hidden="true"></span><span class="eli-atlas__type-name">${esc(t.name)}</span><span class="eli-atlas__type-count">${count(t.variants.length)}</span></summary>
+          <ul class="eli-atlas__variants">
+${t.variants.map((v) => `            <li><a href="${esc(href(v))}">${esc(v.name)}</a></li>`).join('\n')}
+          </ul>
+        </details>`).join('');
+  return `
+      <h3 class="eli-kicker eli-kicker--muted eli-atlas__cat">${esc(c.name)}</h3>
+      <div class="eli-atlas__types">${types}
+      </div>`;
+}).join('');
+
+// 2. ingredient chapters grouped
+const ok = I.ingredients.filter((x) => x.status === 'ok');
+const chapters = I.groups.filter((g) => g.id !== 'vune').map((g) => {
+  const items = ok.filter((x) => x.group === g.id);
+  if (!items.length) return '';
+  return `
+      <h3 class="eli-h3 eli-atlas__group">${esc(g.name)}</h3>
+      <div class="eli-atlas__items">${items.map((x) => `
+        <article class="eli-atlas__item" id="${x.id}">
+          <span class="eli-ico eli-ico--${x.icon}" aria-hidden="true"></span>
+          <div>
+            <h4 class="eli-atlas__name">${esc(x.name)}</h4>
+            <p class="eli-atlas__inci">${x.inci.map(esc).join(', ')}</p>
+            <p class="eli-atlas__text">${esc(x.text)}</p>
+            ${foundIn(x.products)}
+          </div>
+        </article>`).join('')}
+      </div>`;
+}).join('');
+
+// 3. scents
+const S = I.scents;
+const scents = S && S.status === 'ok' ? `
+      <h3 class="eli-h3 eli-atlas__group" id="vune">${T.scentTitle}</h3>
+      <article class="eli-atlas__item eli-atlas__item--wide">
+        <span class="eli-ico eli-ico--flower-2" aria-hidden="true"></span>
+        <div>
+          <p class="eli-atlas__text">${T.scentLead}</p>
+          <dl class="eli-atlas__scents">${S.items.map((s) => `
+            <dt>${link(s.product)}</dt>
+            <dd>${esc(s.text)}${s.inci.length ? `<span class="eli-atlas__inci">${s.inci.map(esc).join(', ')}</span>` : ''}</dd>`).join('')}
+          </dl>
+${S.notes.map((n) => `          <p class="eli-atlas__text">${esc(n)}</p>`).join('\n')}
+        </div>
+      </article>` : '';
+
+const html = `<!--
+  Namydlená Eli - Atlas surovin (stránka /atlas-surovin/, /uvnitr přesměrováno sem = QR z etiket)
+  GENERATED by modules/atlas/build.mjs from data/*.json - edit the data, not this file.
+  Shoptet admin > Vzhled a obsah > Stránky > Atlas surovin > obsah (zdrojový kód).
+  Hidden inline; css/eli.css turns it on (.eli .eli-block). Type tiles open from the URL hash
+  (e.g. /atlas-surovin/#balzam) via js/eli.js (atlasHash).
+-->
+<div class="eli-block eli-atlas" style="display:none">
+  <section class="eli-atlas__intro">
+    <p class="eli-kicker">${T.kicker}</p>
+    <p class="eli-atlas__lead">${T.lead}</p>
+  </section>
+
+  <section class="eli-atlas__pick" id="co-drzis" aria-labelledby="eli-atlas-pick">
+    <h2 class="eli-h2" id="eli-atlas-pick">${T.pickTitle}</h2>
+    <p class="eli-small">${T.pickHint}</p>${pick}
+  </section>
+
+  <section class="eli-atlas__list" id="suroviny" aria-labelledby="eli-atlas-list">
+    <h2 class="eli-h2" id="eli-atlas-list">${T.listTitle}</h2>
+    <p class="eli-small">${T.listNote}</p>${chapters}${scents}
+  </section>
+</div>
+`;
+
+writeFileSync(join(root, 'modules/atlas/atlas.html'), html);
+console.log('modules/atlas/atlas.html: ' + html.length + ' B, ' + ok.length + ' ingredients, ' + P.types.length + ' types');

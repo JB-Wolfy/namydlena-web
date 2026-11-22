@@ -538,7 +538,25 @@
     }
   }
 
-  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, sectionIndex, stickyCart];
+  /* Atlas surovin: /atlas-surovin/#balzam opens that product type (QR on new labels can point straight at it) */
+  function atlasHash() {
+    var atlas = $('.eli-atlas');
+    if (!atlas) return;
+    var open = function () {
+      var id = decodeURIComponent((location.hash || '').slice(1));
+      var d = id && document.getElementById(id);
+      if (!d || d.tagName !== 'DETAILS' || !atlas.contains(d)) return;
+      d.open = true;
+      d.scrollIntoView({ block: 'start' });
+    };
+    if (!atlas.dataset.eliHash) {
+      atlas.dataset.eliHash = '1';
+      window.addEventListener('hashchange', open);
+      open();
+    }
+  }
+
+  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, sectionIndex, stickyCart, atlasHash];
 
   function run() {
     FEATURES.forEach(function (f) {

@@ -1,0 +1,75 @@
+{
+  "_info": "Produkty pro Atlas surovin (rozcestník) a později kvíz. Typ = jedna dlaždice, varianty = odkazy na produkty. Názvy variant podle e-shopu, kromě zakázaného 'aknózní' (nahrazeno podle pravidel značky). anchor = kotva na produktové stránce (deo: sekce Co je uvnitř a proč). Zdroj: e-shop 22. 11. 2026.",
+  "categories": [
+    { "id": "denni-pece", "name": "Denní péče" },
+    { "id": "ritualy", "name": "Rituály" }
+  ],
+  "types": [
+    {
+      "id": "deodorant", "name": "Přírodní deodorant", "category": "denni-pece", "icon": "deodorant",
+      "variants": [
+        { "id": "cervnova-louka", "name": "Červnová louka", "url": "/cervnova-louka-prirodni-deodorant/", "anchor": "co-je-uvnitr" },
+        { "id": "letni-podvecer", "name": "Letní podvečer", "url": "/letni-podvecer-prirodni-deodorant/", "anchor": "co-je-uvnitr" },
+        { "id": "pred-bourkou", "name": "Před bouřkou", "url": "/pred-bourkou-prirodni-deodorant/", "anchor": "co-je-uvnitr" },
+        { "id": "bezvetri", "name": "Bezvětří", "url": "/bezvetri-prirodni-deodorant/", "anchor": "co-je-uvnitr" }
+      ]
+    },
+    {
+      "id": "balzam", "name": "Balzám na rty", "category": "denni-pece", "icon": "balzam",
+      "variants": [
+        { "id": "balzam-mesicek", "name": "měsíček", "url": "/balzam-na-rty-mesicek/" },
+        { "id": "balzam-tresen", "name": "třešeň", "url": "/balzam-na-rty-tresen/" },
+        { "id": "balzam-mandle", "name": "mandle", "url": "/balzam-na-rty-mandle/" }
+      ]
+    },
+    {
+      "id": "sampuk", "name": "Šampuk", "category": "denni-pece", "icon": "sampuk",
+      "variants": [
+        { "id": "sampuk-caj-citron", "name": "zelený čaj & citrón", "url": "/sampuk-zeleny-caj-citron/" },
+        { "id": "sampuk-levandule-jahoda", "name": "levandule & jahoda", "url": "/sampuk-levandule-jahoda/" }
+      ]
+    },
+    {
+      "id": "peeling", "name": "Tělový peeling", "category": "ritualy", "icon": "peeling",
+      "variants": [
+        { "id": "peeling-mandle-tresen", "name": "mandle & třešeň", "url": "/telovy-peeling-mandle-tresen/" },
+        { "id": "peeling-kava", "name": "káva", "url": "/kavovy-telovy-peeling/" }
+      ]
+    },
+    {
+      "id": "maska", "name": "Pleťová maska", "category": "ritualy", "icon": "maska",
+      "variants": [
+        { "id": "maska-hydratacni", "name": "hydratační & vyživující", "url": "/pletova-maska-hydratacni-vyzivujici/" },
+        { "id": "maska-cistici", "name": "čisticí & vyživující", "url": "/pletova-maska-cistici-vyzivujici/" },
+        { "id": "maska-pupinky", "name": "pro pleť se sklonem k pupínkům", "url": "/pletova-maska-pro-aknozni-plet/" }
+      ]
+    },
+    {
+      "id": "sul", "name": "Sůl do koupele", "category": "ritualy", "icon": "sul",
+      "variants": [
+        { "id": "sul-mesicek", "name": "měsíček", "url": "/sul-do-koupele-mesicek/" },
+        { "id": "sul-sweet-escape", "name": "Sweet Escape", "url": "/sul-do-koupele-sweet-escape/" }
+      ]
+    },
+    {
+      "id": "bomba", "name": "Šumivá bomba", "category": "ritualy", "icon": "bomba",
+      "variants": [
+        { "id": "bomba-mesicek", "name": "měsíček", "url": "/sumiva-bomba-mesicek/" },
+        { "id": "bomba-tresen", "name": "třešeň", "url": "/sumiva-bomba-tresen/" },
+        { "id": "bomba-eukalyptus", "name": "eukalyptus", "url": "/sumiva-bomba-eukalyptus/" },
+        { "id": "bomba-citron", "name": "citrón", "url": "/sumiva-bomba-citron/" },
+        { "id": "bomba-kokos", "name": "kokos", "url": "/sumiva-bomba-kokos/" }
+      ]
+    },
+    {
+      "id": "donut", "name": "Šumivý donut", "category": "ritualy", "icon": "bomba",
+      "variants": [
+        { "id": "donut-mesicek", "name": "měsíček", "url": "/sumivy-donut-mesicek/" },
+        { "id": "donut-tresen", "name": "třešeň", "url": "/sumivy-donut-tresen/" },
+        { "id": "donut-eukalyptus", "name": "eukalyptus", "url": "/sumivy-donut-eukalyptus/" },
+        { "id": "donut-citron", "name": "citrón", "url": "/sumivy-donut-citron/" },
+        { "id": "donut-kokos", "name": "kokos", "url": "/sumivy-donut-kokos/" }
+      ]
+    }
+  ]
+}
