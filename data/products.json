@@ -6,7 +6,7 @@
   ],
   "types": [
     {
-      "id": "deodorant", "name": "Přírodní deodorant", "category": "denni-pece", "icon": "deodorant",
+      "id": "deodorant", "name": "Přírodní deodorant", "plural": "Deodoranty", "category": "denni-pece", "icon": "deodorant",
       "variants": [
         { "id": "cervnova-louka", "name": "Červnová louka", "url": "/cervnova-louka-prirodni-deodorant/", "anchor": "co-je-uvnitr" },
         { "id": "letni-podvecer", "name": "Letní podvečer", "url": "/letni-podvecer-prirodni-deodorant/", "anchor": "co-je-uvnitr" },

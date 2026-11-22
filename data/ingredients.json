@@ -1,101 +1,69 @@
 {
-  "_info": "Atlas surovin. Texty se nevymýšlí: 'text' je doslova z ověřeného zdroje (source). Na web jde jen status 'ok' (prošlo claims-checkem). Nová surovina = nový záznam + products (id variant z products.json), pak node modules/atlas/build.mjs.",
+  "_info": "Atlas surovin = kniha o dvou částech: Výrobky (kapitola na typ výrobku: z čeho a proč) a Rejstřík surovin. Texty se nevymýšlí: about/why/intro jsou doslova z ověřeného zdroje (source), jen rozdělené na 'co to je' (about) a 'proč tady' (why). Na web jde jen status 'ok'. Po úpravě: node modules/atlas/build.mjs.",
   "groups": [
-    { "id": "baze", "name": "Oleje, vosky a másla", "icon": "droplet" },
-    { "id": "pudr", "name": "Škrob a minerály", "icon": "gem" },
-    { "id": "pomocnici", "name": "Pomocníci", "icon": "citrus" },
-    { "id": "vune", "name": "Vůně", "icon": "flower-2" }
+    { "id": "baze", "name": "olej, vosk, máslo" },
+    { "id": "pudr", "name": "škrob, minerál" },
+    { "id": "pomocnici", "name": "pomocník" },
+    { "id": "vune", "name": "vůně" }
   ],
   "ingredients": [
+    { "id": "jojobovy-olej", "name": "Jojobový olej", "inci": ["Simmondsia Chinensis Seed Oil"], "group": "baze", "icon": "droplet",
+      "about": "Chemicky to není olej, ale tekutý vosk, který se podobá části kožního mazu." },
+    { "id": "vosky", "name": "Včelí a kandelilový vosk", "inci": ["Cera Alba", "Euphorbia Cerifera Cera"], "group": "baze", "icon": "hexagon" },
+    { "id": "mangove-maslo", "name": "Mangové máslo", "inci": ["Mangifera Indica Seed Butter"], "group": "baze", "icon": "leaf" },
+    { "id": "slunecnicovy-olej", "name": "Slunečnicový olej", "inci": ["Helianthus Annuus Seed Oil"], "group": "baze", "icon": "sun" },
+    { "id": "olivovy-skvalan", "name": "Olivový skvalan", "inci": ["Squalane"], "group": "baze", "icon": "droplet",
+      "about": "Získává se z oliv, je lehký a nemastný." },
+    { "id": "tapiokovy-skrob", "name": "Tapiokový škrob", "inci": ["Tapioca Starch"], "group": "pudr", "icon": "wheat" },
+    { "id": "hydroxid-horecnaty", "name": "Hydroxid hořečnatý", "inci": ["Magnesium Hydroxide"], "group": "pudr", "icon": "gem",
+      "about": "Minerál hořčíku, v přírodě se vyskytuje jako brucit." },
+    { "id": "zinek", "name": "Oxid zinečnatý a ricinoleát zinečnatý", "inci": ["Zinc Oxide", "Zinc Ricinoleate"], "group": "pudr", "icon": "gem" },
+    { "id": "triethyl-citrat", "name": "Triethyl citrát", "inci": ["Triethyl Citrate"], "group": "pomocnici", "icon": "citrus" },
+    { "id": "tokoferol", "name": "Tokoferol (vitamín E)", "inci": ["Tocopherol"], "group": "pomocnici", "icon": "leaf",
+      "about": "Vitamín E." },
+    { "id": "etericke-oleje", "name": "Éterické oleje", "group": "vune", "icon": "flower-2",
+      "inci": ["Amyris Balsamifera Bark Oil", "Citrus Aurantium Amara Leaf/Twig Oil", "Citrus Aurantium Bergamia Peel Oil", "Citrus Reticulata Peel Oil", "Lavandula Angustifolia Oil", "Pelargonium Graveolens Flower Oil", "Pogostemon Cablin Oil", "Rosmarinus Officinalis Leaf Oil", "Styrax Benzoin Resin Extract"],
+      "see": "deodorant-vune" }
+  ],
+  "chapters": [
     {
-      "id": "jojobovy-olej", "name": "Jojobový olej", "inci": ["Simmondsia Chinensis Seed Oil"], "group": "baze", "icon": "droplet",
-      "text": "Chemicky to není olej, ale tekutý vosk, který se podobá části kožního mazu. Díky němu tyčinka klouže.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "vosky", "name": "Včelí a kandelilový vosk", "inci": ["Cera Alba", "Euphorbia Cerifera Cera"], "group": "baze", "icon": "hexagon",
-      "text": "Drží tyčinku pevnou.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "mangove-maslo", "name": "Mangové máslo", "inci": ["Mangifera Indica Seed Butter"], "group": "baze", "icon": "leaf",
-      "text": "Je lehčí než bambucké nebo kakaové, takže se nanáší jemně.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "slunecnicovy-olej", "name": "Slunečnicový olej", "inci": ["Helianthus Annuus Seed Oil"], "group": "baze", "icon": "sun",
-      "text": "Aby kůže nezůstala suchá.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "olivovy-skvalan", "name": "Olivový skvalan", "inci": ["Squalane"], "group": "baze", "icon": "droplet",
-      "text": "Získává se z oliv, je lehký a nemastný.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "tapiokovy-skrob", "name": "Tapiokový škrob", "inci": ["Tapioca Starch"], "group": "pudr", "icon": "wheat",
-      "text": "Příjemný pocit sucha.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "hydroxid-horecnaty", "name": "Hydroxid hořečnatý", "inci": ["Magnesium Hydroxide"], "group": "pudr", "icon": "gem",
-      "text": "Minerál hořčíku, v přírodě se vyskytuje jako brucit. Tady nahrazuje sodu.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "zinek", "name": "Oxid zinečnatý a ricinoleát zinečnatý", "inci": ["Zinc Oxide", "Zinc Ricinoleate"], "group": "pudr", "icon": "gem",
-      "text": "Zinek, který zachytává pachové molekuly.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "triethyl-citrat", "name": "Triethyl citrát", "inci": ["Triethyl Citrate"], "group": "pomocnici", "icon": "citrus",
-      "text": "Brzdí rozklad potu, ze kterého vzniká zápach.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
-    },
-    {
-      "id": "tokoferol", "name": "Tokoferol (vitamín E)", "inci": ["Tocopherol"], "group": "pomocnici", "icon": "leaf",
-      "text": "Vitamín E, chrání oleje před žluknutím.",
-      "products": ["cervnova-louka", "letni-podvecer", "pred-bourkou", "bezvetri"],
-      "status": "ok", "source": "deo popis Co je uvnitř a proč (e-shop)"
+      "type": "deodorant", "status": "ok", "source": "deo popisy v Shoptetu (Proč bez sody, Co je uvnitř a proč), stav 22. 11. 2026",
+      "title": "Z čeho dělám deodoranty a proč",
+      "intro": { "title": "Proč bez sody", "text": "Spousta přírodních deodorantů stojí na jedlé sodě. Funguje, ale v potu se rozpouští a pro část lidí je v podpaží moc ostrá: pálí, svědí, červená. Proto ji tady nenajdeš. Místo ní používám hydroxid hořečnatý, minerál hořčíku, ze kterého se dělá i magnéziové mléko. Skoro se nerozpouští, působí pozvolna a k pokožce je šetrnější. Zbytek práce odvede zinek a triethyl citrát." },
+      "ingredients": [
+        { "id": "jojobovy-olej", "why": "Díky němu tyčinka klouže." },
+        { "id": "vosky", "why": "Drží tyčinku pevnou." },
+        { "id": "mangove-maslo", "why": "Je lehčí než bambucké nebo kakaové, takže se nanáší jemně." },
+        { "id": "tapiokovy-skrob", "why": "Příjemný pocit sucha." },
+        { "id": "hydroxid-horecnaty", "why": "Tady nahrazuje sodu." },
+        { "id": "slunecnicovy-olej", "why": "Aby kůže nezůstala suchá." },
+        { "id": "olivovy-skvalan" },
+        { "id": "zinek", "why": "Zinek, který zachytává pachové molekuly." },
+        { "id": "triethyl-citrat", "why": "Brzdí rozklad potu, ze kterého vzniká zápach." },
+        { "id": "tokoferol", "why": "Chrání oleje před žluknutím." }
+      ],
+      "scents": {
+        "items": [
+          { "product": "cervnova-louka", "text": "Éterické oleje z geránia, pomerančovníku (petitgrain), levandule a santalového dřeva." },
+          { "product": "letni-podvecer", "text": "Éterické oleje z mandarinky, levandule a santalového dřeva a pryskyřice benzoin. Benzoin se rozpouští v trošce lihu, proto je ve složení Alcohol Denat." },
+          { "product": "pred-bourkou", "text": "Éterické oleje z bergamotu, rozmarýnu, pačuli a santalového dřeva. Bergamot používám bez furokumarinů, tedy bez látek, které mohou na slunci reagovat s kůží." },
+          { "product": "bezvetri", "text": "Bez éterických olejů a bez parfemace. Složení končí vitamínem E." }
+        ],
+        "notes": [
+          "Santalové dřevo? Ve složení ho najdeš jako Amyris Balsamifera, říká se mu západoindický santal. Voní podobně teple a dřevitě jako indický santal, který je dnes vzácný.",
+          "Limonene, linalool a další položky na konci složení jsou přirozené součásti těchto olejů. Ze zákona je musím uvést zvlášť."
+        ]
+      }
     }
   ],
-  "scents": {
-    "_info": "Kapitola Vůně: jen rozpis, žádné benefity (rozhodnutí Kuby 22. 11. 2026). Texty doslova z deo popisů.",
-    "status": "ok",
-    "notes": [
-      "Santalové dřevo? Ve složení ho najdeš jako Amyris Balsamifera, říká se mu západoindický santal. Voní podobně teple a dřevitě jako indický santal, který je dnes vzácný.",
-      "Limonene, linalool a další položky na konci složení jsou přirozené součásti těchto olejů. Ze zákona je musím uvést zvlášť."
-    ],
-    "items": [
-      {
-        "product": "cervnova-louka",
-        "text": "Éterické oleje z geránia, pomerančovníku (petitgrain), levandule a santalového dřeva.",
-        "inci": ["Pelargonium Graveolens Flower Oil", "Citrus Aurantium Amara Leaf/Twig Oil", "Lavandula Angustifolia Oil", "Amyris Balsamifera Bark Oil"]
-      },
-      {
-        "product": "letni-podvecer",
-        "text": "Éterické oleje z mandarinky, levandule a santalového dřeva a pryskyřice benzoin. Benzoin se rozpouští v trošce lihu, proto je ve složení Alcohol Denat.",
-        "inci": ["Citrus Reticulata Peel Oil", "Lavandula Angustifolia Oil", "Amyris Balsamifera Bark Oil", "Styrax Benzoin Resin Extract", "Alcohol Denat."]
-      },
-      {
-        "product": "pred-bourkou",
-        "text": "Éterické oleje z bergamotu, rozmarýnu, pačuli a santalového dřeva. Bergamot používám bez furokumarinů, tedy bez látek, které mohou na slunci reagovat s kůží.",
-        "inci": ["Citrus Aurantium Bergamia Peel Oil", "Rosmarinus Officinalis Leaf Oil", "Pogostemon Cablin Oil", "Amyris Balsamifera Bark Oil"]
-      },
-      {
-        "product": "bezvetri",
-        "text": "Bez éterických olejů a bez parfemace. Složení končí vitamínem E.",
-        "inci": []
-      }
+  "inciGuide": {
+    "status": "draft",
+    "_info": "Návrh Clauda ke schválení (Kuba/Eli). Fakta: nařízení (ES) 1223/2009 čl. 19 odst. 1 písm. g) a nařízení (EU) 2023/1545. Na web až se status 'ok'.",
+    "sections": [
+      { "title": "Vždycky začíná slovem Ingredients", "text": "Složení najdeš na každé kosmetice pod slovem Ingredients. Tak to určuje evropské nařízení o kosmetice a platí to stejně pro velké značky jako pro moji dílnu." },
+      { "title": "Názvy jsou stejné v celé Evropě", "text": "Suroviny se píšou mezinárodními názvy INCI. Rostliny latinsky, ostatní většinou anglicky. Simmondsia Chinensis Seed Oil je tak jojobový olej, ať koupíš kosmetiku kdekoli v Evropě." },
+      { "title": "Pořadí prozradí, čeho je nejvíc", "text": "Suroviny jsou seřazené podle hmotnosti, od té, které je ve výrobku nejvíc. Co je pod 1 %, smí stát v libovolném pořadí až za nimi. Proto je u deodorantů na prvním místě jojobový olej a vitamín E až skoro na konci." },
+      { "title": "Parfum a alergeny", "text": "Vůni může výrobce schovat pod jedno slovo Parfum. V deodorantech ho nepoužívám, každý éterický olej uvidíš jménem. Na konci složení pak najdeš slova jako limonene nebo linalool. Jsou to přirozené součásti éterických olejů a zákon chce, aby byly uvedené zvlášť, když jich je ve výrobku, který zůstává na kůži, víc než 0,001 %. U výrobků, které se oplachují, je hranice 0,01 %." }
     ]
   }
 }

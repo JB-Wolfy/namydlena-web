@@ -538,25 +538,39 @@
     }
   }
 
-  /* Atlas surovin: /atlas-surovin/#balzam opens that product type (QR on new labels can point straight at it) */
-  function atlasHash() {
+  /* Atlas surovin: the four panels become tabs. The URL hash picks the panel and the place in it:
+     #vyrobky = tab, #deodorant = chapter (Výrobky), #jojobovy-olej = index entry (Suroviny).
+     Links on the page and QR codes on labels use the same hashes, so back/forward works too. */
+  function atlasTabs() {
     var atlas = $('.eli-atlas');
-    if (!atlas) return;
-    var open = function () {
+    if (!atlas || atlas.dataset.eliTabs) return;
+    var nav = $('.eli-atlas__tabs', atlas);
+    var panels = $$('.eli-atlas__panel', atlas);
+    var tabs = $$('.eli-atlas__tab', atlas);
+    if (!nav || !panels.length) return;
+    atlas.dataset.eliTabs = '1';
+    atlas.classList.add('eli-atlas--tabs');
+    nav.setAttribute('role', 'tablist');
+    tabs.forEach(function (a) {
+      a.setAttribute('role', 'tab');
+      a.setAttribute('aria-controls', a.getAttribute('href').slice(1));
+    });
+    panels.forEach(function (p) { p.setAttribute('role', 'tabpanel'); });
+    var show = function (scroll) {
       var id = decodeURIComponent((location.hash || '').slice(1));
-      var d = id && document.getElementById(id);
-      if (!d || d.tagName !== 'DETAILS' || !atlas.contains(d)) return;
-      d.open = true;
-      d.scrollIntoView({ block: 'start' });
+      var t = id ? document.getElementById(id) : null;
+      if (t && !atlas.contains(t)) t = null;
+      var panel = t ? (t.classList.contains('eli-atlas__panel') ? t : t.closest('.eli-atlas__panel')) : null;
+      if (!panel) panel = panels[0];
+      panels.forEach(function (p) { p.classList.toggle('is-active', p === panel); });
+      tabs.forEach(function (a) { a.setAttribute('aria-selected', a.getAttribute('href') === '#' + panel.id ? 'true' : 'false'); });
+      if (scroll) ((t && t !== panel) ? t : nav).scrollIntoView({ block: 'start' });
     };
-    if (!atlas.dataset.eliHash) {
-      atlas.dataset.eliHash = '1';
-      window.addEventListener('hashchange', open);
-      open();
-    }
+    window.addEventListener('hashchange', function () { show(true); });
+    show(!!location.hash);
   }
 
-  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, sectionIndex, stickyCart, atlasHash];
+  var FEATURES = [badgePreview, footerBrand, oneMenu, accountIcon, instagramStrip, homepagePicks, homepageBlog, splitNames, stockState, productFrame, buyOrder, productModules, sectionIndex, stickyCart, atlasTabs];
 
   function run() {
     FEATURES.forEach(function (f) {
