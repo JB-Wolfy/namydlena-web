@@ -81,15 +81,14 @@ ${c.scents.notes.map((n) => `      <p class="eli-atlas__text">${esc(n)}</p>`).jo
   return `
     <article class="eli-atlas__chapter" id="${t.id}">
       <div class="eli-atlas__chapter-head"><span class="eli-ico eli-ico--p-${t.icon}" aria-hidden="true"></span><h3 class="eli-h3">${esc(t.plural || t.name)}</h3></div>
-      <p class="eli-atlas__short">${esc(c.short)}</p>
-      <ul class="eli-atlas__benefits">
+${c.short ? `      <p class="eli-atlas__short">${esc(c.short)}</p>\n` : ''}${c.benefits && c.benefits.length ? `      <ul class="eli-atlas__benefits">
 ${c.benefits.map((b) => `        <li><strong>${esc(b.title)}</strong> ${esc(b.text)}</li>`).join('\n')}
-      </ul>
+      </ul>\n` : ''}
       <details class="eli-atlas__more">
       <summary><span class="eli-atlas__more-open">${T.more}</span><span class="eli-atlas__more-close">${T.less}</span></summary>
-      <div class="eli-atlas__chapter-body">
+      <div class="eli-atlas__chapter-body">${c.intro ? `
       <h4 class="eli-atlas__h4">${esc(c.intro.title)}</h4>
-      <p class="eli-atlas__text">${esc(c.intro.text)}</p>
+      <p class="eli-atlas__text">${esc(c.intro.text)}</p>` : ''}
       <h4 class="eli-atlas__h4">${T.made}</h4>
       <ul class="eli-atlas__made">${items}
       </ul>${sc}

@@ -51,6 +51,8 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 
 ## Atlas surovin (22. 11.)
 
+**Přidávání výrobků, surovin a úpravy „Co je uvnitř“: návod `docs/ATLAS.md`.**
+
 - **Kniha ve 4 tabech** (vydání 21): Co je uvnitř (rozcestník) / Výrobky (kapitola na typ) / Suroviny (rejstřík A-Z) / Jak číst INCI.
   Data: `data/ingredients.json` (`ingredients`, `chapters`, `inciGuide`), typy v `data/products.json`. Kapitola nebo INCI průvodce jde na web až se `status: "ok"`.
   Výrobky: viditelný název + krátký popis + Co umí, detail pod „Rozbalit více info“. **Pozor: editor Shoptetu maže nadpisy uvnitř `<summary>`** -
