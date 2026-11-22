@@ -373,9 +373,8 @@ html.eli{
 .eli .eli-atlas__intro{max-width:720px;margin:0 0 32px}
 .eli .eli-atlas__lead{margin-top:12px;font-family:var(--eli-serif);font-size:21px;line-height:1.5;color:var(--eli-ink)}
 .eli .eli-atlas .eli-h2 + .eli-small{margin-top:8px}
-/* tabs: one row, scrolls sideways on a phone; active = forest underline */
-.eli .eli-atlas__tabs{display:flex;gap:28px;margin:0 0 36px;border-bottom:1px solid var(--eli-border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.eli .eli-atlas__tabs::-webkit-scrollbar{display:none}
+/* tabs: wrap to two rows on a phone (all four always visible); active = forest underline */
+.eli .eli-atlas__tabs{display:flex;flex-wrap:wrap;column-gap:24px;margin:0 0 36px;border-bottom:1px solid var(--eli-border)}
 .eli .eli-atlas a.eli-atlas__tab{flex:0 0 auto;padding:14px 0 12px;border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;text-decoration:none;color:var(--eli-muted)}
 .eli .eli-atlas a.eli-atlas__tab:hover{color:var(--eli-forest)}
 .eli .eli-atlas a.eli-atlas__tab[aria-selected="true"]{color:var(--eli-forest);border-bottom-color:var(--eli-forest)}
@@ -442,7 +441,7 @@ html.eli .eli-atlas h4.eli-atlas__name{margin:0;font-family:var(--eli-serif);fon
 @media (min-width:768px){
   .eli .eli-atlas__lead{font-size:24px}
   .eli .eli-atlas__tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-  .eli .eli-atlas__tabs{gap:40px}
+  .eli .eli-atlas__tabs{column-gap:40px}
 }
 
 /* ---------- 4. Shoptet overrides: homepage (Classic, checked on the live shop 16. 11. 2026) ---------- */
