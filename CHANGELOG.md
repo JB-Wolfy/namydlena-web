@@ -1,5 +1,10 @@
 # Changelog
 
+## Vydání 24 - 22. 11. 2026 - RELEASE `90fc114dc07980c3e2f0b1759a05cb90968285c4`
+- Patička: sloupce začínají na stejné hraně jako logo v hlavičce a copyright (Classic nechával vlevo 275 px pro logo, které je skryté).
+  Prázdná buňka „Instagram“ v patičce schovaná (fotky jsou v pruhu nad patičkou).
+- Atlas: generátor snese kapitolu bez krátkého popisu / Co umí / úvodu; návod `docs/ATLAS.md`.
+
 ## Vydání 23 - 22. 11. 2026 - RELEASE `b06f2e57bb8ea4118d5b438511dede705de71e1a`
 - Atlas, Výrobky: výrobek je vidět (ikona, název, krátký popis, Co umí), zbytek pod tlačítkem „Rozbalit více info“ / „Sbalit“.
   Oprava vydání 22: editor Shoptetu z `<summary>` vyhodil nadpis a na webu zbylo jen „Details“. V `<summary>` jsou teď jen textové `<span>`.
