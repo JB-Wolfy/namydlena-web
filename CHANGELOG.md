@@ -1,5 +1,11 @@
 # Changelog
 
+## Vydání 21 - 22. 11. 2026 - RELEASE `ad80e934d23f12c11c2b6ea1e5b3afa305d4126a`
+- Atlas surovin jako kniha ve 4 tabech (JS `atlasTabs`, řízené `#hash`): Co je uvnitř (dlaždice typů, hotové vedou na kapitolu, ostatní „Připravuji“),
+  Výrobky (kapitola na typ: Proč bez sody, Z čeho, Vůně, odkazy do e-shopu), Suroviny (rejstřík A-Z s „Kde ji používám“), Jak číst INCI (připraveno, čeká na schválení textu).
+- Texty doslova z deo popisů, rozdělené na „co to je“ (about) a „proč tady“ (why). `#deodorant`, `#zinek`, `#vyrobky` vedou přímo na místo.
+- Patička: „Atlas surovin“ v menu Informace pro vás.
+
 ## Vydání 20 - 22. 11. 2026 - RELEASE `175742dd8b8c5d34049ca2fcee0ce029618e357b`
 - Atlas surovin: nová stránka `/atlas-surovin/` (Shoptet stránka id 793), přesměrování 301 `/uvnitr/` a `/UVNITR/` -> `/atlas-surovin/` (QR z etiket).
   Rozcestník „Co držíš v ruce?“ = 8 typů výrobků (`<details>`), uvnitř varianty jako pilulky (deo na `#co-je-uvnitr`); `/atlas-surovin/#balzam` otevře typ (JS `atlasHash`).

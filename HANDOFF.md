@@ -51,6 +51,9 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 
 ## Atlas surovin (22. 11.)
 
+- **Kniha ve 4 tabech** (vydání 21): Co je uvnitř (rozcestník) / Výrobky (kapitola na typ) / Suroviny (rejstřík A-Z) / Jak číst INCI.
+  Data: `data/ingredients.json` (`ingredients`, `chapters`, `inciGuide`), typy v `data/products.json`. Kapitola nebo INCI průvodce jde na web až se `status: "ok"`.
+  Kotvy: `#deodorant` = kapitola, `#deodorant-vune`, `#jojobovy-olej` = heslo rejstříku. Atlas je i v patičce (Informace pro vás).
 - Stránka `/atlas-surovin/` (admin Stránky, id 793), obsah = `modules/atlas/atlas.html` vložený přes `tinymce.get('description').setContent()` + Uložit.
   Přesměrování 301 v Marketing > Základní SEO > Přesměrování URL: `/uvnitr/` a `/UVNITR/` -> `/atlas-surovin/`.
 - **Úprava obsahu:** jen `data/*.json` -> `node modules/atlas/build.mjs` -> push -> vložit nové `atlas.html` do stránky. Na web jde jen surovina se `status: "ok"`.
@@ -71,8 +74,8 @@ text o předobjednávce (Kuba smazal, neplatí), řádek o dárku.
 
 ## Otevřené od Kuby
 
-- Atlas: INCI pro balzámy, peelingy, šampuky, soli, bomby, donuty a masku pro pleť se sklonem k pupínkům (na webu není).
-- Atlas: schválit úvodní větu a „Zatím tu jsou suroviny z deodorantů…“ (napsal Claude, ne Eli).
+- Atlas: INCI ostatních výrobků Kuba dohledá v záloze (bylo v parametrech produktů, z adminu zmizelo); výrobky se stejně budou předělávat.
+- Atlas: schválit text tabu „Jak číst INCI“ (návrh v `data/ingredients.json` > `inciGuide`, status draft).
 - Compliance v popisech produktů (mimo deo): „antibakteriální“, „bez alergických reakcí“, „bez alergenů“, „reguluje tvorbu mazu, podporuje růst“,
   „pomáhá s pocitem volnějšího dýchání“, „Testováno dle EU směrnic“, název masky „pro aknózní pleť“.
 
